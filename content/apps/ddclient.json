@@ -32,9 +32,8 @@
                 },
                 {
                     "id": "TZ",
-                    "key": "TZ",
-                    "description": "Timezone",
-                    "default": "America/New_York"
+                    "default": "Europe/London",
+                    "description": "Specify a timezone to use EG Europe/London."
                 }
             ],
             "volumes": [
@@ -45,5 +44,143 @@
                 }
             ]
         }
-    ]
+    ],
+    "meta": {
+        "readme-vars": {
+            "project_name": "ddclient",
+            "project_url": "https://github.com/ddclient/ddclient",
+            "project_logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ddclient-logo.png",
+            "project_lsio_github_repo_url": "https://github.com/linuxserver/docker-{{ project_name }}",
+            "project_blurb": "[{{ project_name|capitalize }}]({{ project_url }}) is a Perl client used to update dynamic DNS entries for accounts on Dynamic DNS Network Service Provider. It was originally written by Paul Burry and is now mostly by wimpunk. It has the capability to update more than just dyndns and it can fetch your WAN-ipaddress in a few different ways.",
+            "project_blurb_optional_extras_enabled": false,
+            "available_architectures": [
+                {
+                    "arch": "{{ arch_x86_64 }}",
+                    "tag": "amd64-latest"
+                },
+                {
+                    "arch": "{{ arch_arm64 }}",
+                    "tag": "arm64v8-latest"
+                },
+                {
+                    "arch": "{{ arch_armhf }}",
+                    "tag": "arm32v7-latest"
+                }
+            ],
+            "development_versions": false,
+            "common_param_env_vars_enabled": true,
+            "param_container_name": "{{ project_name }}",
+            "param_usage_include_net": false,
+            "param_usage_include_env": true,
+            "param_env_vars": [
+                {
+                    "env_var": "TZ",
+                    "env_value": "Europe/London",
+                    "desc": "Specify a timezone to use EG Europe/London."
+                }
+            ],
+            "param_usage_include_vols": true,
+            "param_volumes": [
+                {
+                    "vol_path": "/config",
+                    "vol_host_path": "<path to data>",
+                    "desc": "Where ddclient should store its config files."
+                }
+            ],
+            "param_usage_include_ports": false,
+            "param_device_map": false,
+            "cap_add_param": false,
+            "opt_param_usage_include_env": false,
+            "opt_param_usage_include_vols": false,
+            "opt_param_usage_include_ports": false,
+            "opt_param_device_map": false,
+            "opt_cap_add_param": false,
+            "optional_block_1": false,
+            "app_setup_block_enabled": true,
+            "app_setup_block": "Edit the `ddclient.conf` file found in your `/config` volume (also see official [ddclient documentation](https://ddclient.net)). This config file has many providers to choose from and you basically just have to uncomment your provider and add username/password where requested. If you modify ddclient.conf, ddclient will automaticcaly restart and read the config.\n\n### Get dynamic IP from Fritz.Box\nIf ddclient shall fetch the dynamic (public) IP-address from a fritz.box (AVM) add the following line to `/config/ddclient.conf`:\n````\nuse=cmd, cmd=/etc/ddclient/get-ip-from-fritzbox\n````\n",
+            "changelogs": [
+                {
+                    "date": "20.10.22:",
+                    "desc": "Update build instructions for 3.10.0. Update default `ddclient.conf`."
+                },
+                {
+                    "date": "15.01.22:",
+                    "desc": "Rebase to Alpine 3.15"
+                },
+                {
+                    "date": "15.05.21:",
+                    "desc": "Distribute script 'sample-get-ip-from-fritzbox' from ddclient repo"
+                },
+                {
+                    "date": "08.03.21:",
+                    "desc": "Added bind-tools to provide nsupdate"
+                },
+                {
+                    "date": "01.06.20:",
+                    "desc": "Rebasing to alpine 3.12."
+                },
+                {
+                    "date": "08.02.20:",
+                    "desc": "Ingest from Github."
+                },
+                {
+                    "date": "06.02.19:",
+                    "desc": "Fix permissions."
+                },
+                {
+                    "date": "19.12.19:",
+                    "desc": "Rebasing to alpine 3.11."
+                },
+                {
+                    "date": "28.06.19:",
+                    "desc": "Rebasing to alpine 3.10."
+                },
+                {
+                    "date": "23.03.19:",
+                    "desc": "Switching to new Base images, shift to arm32v7 tag."
+                },
+                {
+                    "date": "10.03.19:",
+                    "desc": "Add perl-io-socket-inet6 for ipv6 support."
+                },
+                {
+                    "date": "22.02.19:",
+                    "desc": "Rebasing to alpine 3.9."
+                },
+                {
+                    "date": "11.02.19:",
+                    "desc": "Add pipeline logic and multi arch."
+                },
+                {
+                    "date": "22.08.18:",
+                    "desc": "Rebase to alpine 3.8."
+                },
+                {
+                    "date": "10.08.18:",
+                    "desc": "Update to ddclient v3.9.0. For Cloudflare users, please ensure you remove the line `server=www.cloudflare.com` from your `ddclient.conf`."
+                },
+                {
+                    "date": "07.12.17:",
+                    "desc": "Rebase to alpine 3.7."
+                },
+                {
+                    "date": "28.05.17:",
+                    "desc": "Rebase to alpine 3.6."
+                },
+                {
+                    "date": "10.02.17:",
+                    "desc": "Rebase to alpine 3.5."
+                },
+                {
+                    "date": "26.11.16:",
+                    "desc": "Update README to new standard and add icon and other small details."
+                },
+                {
+                    "date": "29.08.16:",
+                    "desc": "Initial release."
+                }
+            ]
+        }
+    },
+    "setup": "Edit the `ddclient.conf` file found in your `/config` volume (also see official [ddclient documentation](https://ddclient.net)). This config file has many providers to choose from and you basically just have to uncomment your provider and add username/password where requested. If you modify ddclient.conf, ddclient will automaticcaly restart and read the config.\n\n### Get dynamic IP from Fritz.Box\nIf ddclient shall fetch the dynamic (public) IP-address from a fritz.box (AVM) add the following line to `/config/ddclient.conf`:\n````\nuse=cmd, cmd=/etc/ddclient/get-ip-from-fritzbox\n````\n"
 }

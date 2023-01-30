@@ -1,5 +1,5 @@
 import FleetClient from "./fleet.mjs";
-import {App, AppPort, AppVolume} from "~/meta/interfaces/interfaces";
+import {App, AppEnv, AppPort, AppVolume} from "~/meta/interfaces/interfaces";
 import enhanceAppWithInspection from "../docker/inspect.mjs";
 import fs from "fs";
 import findIconForName from "../icon/finder.mjs";
@@ -44,12 +44,6 @@ import YAML from "yaml";
                             key: 'PGID',
                             description: 'Group ID',
                             default: '100'
-                        },
-                        {
-                            id: 'TZ',
-                            key: 'TZ',
-                            description: 'Timezone',
-                            default: "America/New_York"
                         }
                     ]
                 }
@@ -65,13 +59,24 @@ import YAML from "yaml";
             return {
                 param_usage_include_ports: false,
                 param_usage_include_vols: false,
+                param_usage_include_env: false,
                 param_volumes: [],
                 param_ports: [],
+                param_env_vars: [],
             };
         });
 
+        if (!app.meta) {
+            app.meta = {};
+        }
+        app.meta['readme-vars'] = readmeVars;
+
         if (readmeVars.project_logo && readmeVars.project_logo.startsWith('https://')) {
             app.icon = readmeVars.project_logo;
+        }
+
+        if (readmeVars.app_setup_block_enabled ?? false) {
+            app.setup = readmeVars.app_setup_block;
         }
 
         app.description = readmeVars.project_blurb;
@@ -81,7 +86,11 @@ import YAML from "yaml";
         }
 
         if(readmeVars.param_usage_include_vols) {
-            const readmeVolumes: AppVolume[] = readmeVars.param_volumes?.map((volume: any) => {
+            const allVolumes = [
+                ...readmeVars.opt_param_volumes ?? [],
+                ...readmeVars.param_volumes ?? []
+            ];
+            const readmeVolumes: AppVolume[] = allVolumes.map((volume: any) => {
                 return {
                     container: volume.vol_path,
                     description: volume.desc,
@@ -95,13 +104,35 @@ import YAML from "yaml";
             }
         }
 
+        if(readmeVars.param_usage_include_env) {
+            const allEnvVars = [
+                ...readmeVars.param_env_vars ?? [],
+                ...readmeVars.opt_param_env_vars ?? [],
+            ];
+
+            const env: AppEnv[] = allEnvVars?.map((e: any) => {
+                return {
+                    id: e.env_var,
+                    default: e.env_value,
+                    description: e.desc,
+                } as AppEnv;
+            });
+            for(const container of app.containers) {
+                container.env = [
+                    ...container.env ?? [],
+                    ...env ?? [],
+                ];
+            }
+        }
+
         if(readmeVars.param_usage_include_ports) {
             for(const container of app.containers) {
-
                 const readmePorts: AppPort[] = readmeVars.param_ports?.map((port: any) => {
                     return {
                         container: port.internal_port,
                         description: port.port_desc,
+                        protocol: 'tcp',
+                        web: false,
                     };
                 });
 

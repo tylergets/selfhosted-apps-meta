@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "@nuxt/content": "^2.4.2",
+    "@tailwindcss/typography": "^0.5.9",
     "@types/dockerode": "^3.3.14",
     "autoprefixer": "^10.4.13",
     "nuxt": "^3.1.0",
@@ -21,8 +22,10 @@
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.6",
+    "@types/markdown-it": "^12.2.3",
     "dockerode": "^3.3.4",
     "highlight.js": "^11.7.0",
+    "markdown-it": "^13.0.1",
     "node-fetch": "^3.3.0",
     "pinia": "^2.0.29",
     "yaml": "^2.2.1"

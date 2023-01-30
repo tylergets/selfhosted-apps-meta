@@ -26,6 +26,7 @@ export interface AppEnv {
     label?: string;
     description?: string;
     default?: string;
+    required?: boolean;
 }
 
 export interface AppContainer {
@@ -40,8 +41,10 @@ export interface App {
     id: string;
     name: string;
     description?: string;
+    setup?: string;
     categories?: string[];
     icon?: string;
     containers: AppContainer[];
     links?: AppLink[];
+    meta?: Record<string, any>;
 }

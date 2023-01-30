@@ -31,10 +31,59 @@
                     "default": "100"
                 },
                 {
+                    "id": "DB_HOST",
+                    "default": "<hostname or ip>",
+                    "description": "Host address of mysql database"
+                },
+                {
+                    "id": "DB_PORT",
+                    "default": "3306",
+                    "description": "Port to access mysql database default is 3306"
+                },
+                {
+                    "id": "DB_USER",
+                    "default": "hedgedoc",
+                    "description": "Database user"
+                },
+                {
+                    "id": "DB_PASS",
+                    "default": "<secret password>",
+                    "description": "Database password"
+                },
+                {
+                    "id": "DB_NAME",
+                    "default": "hedgedoc",
+                    "description": "Database name"
+                },
+                {
                     "id": "TZ",
-                    "key": "TZ",
-                    "description": "Timezone",
-                    "default": "America/New_York"
+                    "default": "Europe/London",
+                    "description": "Specify a timezone to use EG Europe/London."
+                },
+                {
+                    "id": "CMD_DOMAIN",
+                    "default": "localhost",
+                    "description": "The address the gui will be accessed at (ie. `192.168.1.1` or `hedgedoc.domain.com`)."
+                },
+                {
+                    "id": "CMD_URL_ADDPORT",
+                    "default": "false",
+                    "description": "Set to `true` if using a port other than `80` or `443`."
+                },
+                {
+                    "id": "CMD_PROTOCOL_USESSL",
+                    "default": "false",
+                    "description": "Set to `true` if accessing over https via reverse proxy."
+                },
+                {
+                    "id": "CMD_PORT",
+                    "default": "3000",
+                    "description": "If you wish to access hedgedoc at a port different than 80, 443 or 3000, you need to set this to that port (ie. `CMD_PORT=5000`) and change the port mapping accordingly (5000:5000)."
+                },
+                {
+                    "id": "CMD_ALLOW_ORIGIN",
+                    "default": "['localhost']",
+                    "description": "Comma-separated list of allowed hostnames"
                 }
             ],
             "volumes": [
@@ -47,9 +96,158 @@
             "ports": [
                 {
                     "container": "3000",
-                    "description": "Web gui port (internal port also needs to be changed if accessing at port other than 80, 443 and 3000)."
+                    "description": "Web gui port (internal port also needs to be changed if accessing at port other than 80, 443 and 3000).",
+                    "protocol": "tcp",
+                    "web": false
                 }
             ]
         }
-    ]
+    ],
+    "meta": {
+        "readme-vars": {
+            "project_name": "hedgedoc",
+            "project_url": "https://hedgedoc.org/",
+            "project_logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hedgedoc-banner.png",
+            "project_blurb": "[HedgeDoc]({{ project_url }}) gives you access to all your files wherever you are.\n\nHedgeDoc is a real-time, multi-platform collaborative markdown note editor.  This means that you can write notes with other people on your desktop, tablet or even on the phone.  You can sign-in via multiple auth providers like Facebook, Twitter, GitHub and many more on the homepage.\n",
+            "project_lsio_github_repo_url": "https://github.com/linuxserver/docker-{{ project_name }}",
+            "available_architectures": [
+                {
+                    "arch": "{{ arch_x86_64 }}",
+                    "tag": "amd64-latest"
+                },
+                {
+                    "arch": "{{ arch_arm64 }}",
+                    "tag": "arm64v8-latest"
+                },
+                {
+                    "arch": "{{ arch_armhf }}",
+                    "tag": "arm32v7-latest"
+                }
+            ],
+            "common_param_env_vars_enabled": true,
+            "param_container_name": "{{ project_name }}",
+            "param_usage_include_env": true,
+            "param_env_vars": [
+                {
+                    "env_var": "DB_HOST",
+                    "env_value": "<hostname or ip>",
+                    "desc": "Host address of mysql database"
+                },
+                {
+                    "env_var": "DB_PORT",
+                    "env_value": "3306",
+                    "desc": "Port to access mysql database default is 3306"
+                },
+                {
+                    "env_var": "DB_USER",
+                    "env_value": "hedgedoc",
+                    "desc": "Database user"
+                },
+                {
+                    "env_var": "DB_PASS",
+                    "env_value": "<secret password>",
+                    "desc": "Database password"
+                },
+                {
+                    "env_var": "DB_NAME",
+                    "env_value": "hedgedoc",
+                    "desc": "Database name"
+                },
+                {
+                    "env_var": "TZ",
+                    "env_value": "Europe/London",
+                    "desc": "Specify a timezone to use EG Europe/London."
+                },
+                {
+                    "env_var": "CMD_DOMAIN",
+                    "env_value": "localhost",
+                    "desc": "The address the gui will be accessed at (ie. `192.168.1.1` or `hedgedoc.domain.com`)."
+                }
+            ],
+            "opt_param_usage_include_env": true,
+            "opt_param_env_vars": [
+                {
+                    "env_var": "CMD_URL_ADDPORT",
+                    "env_value": "false",
+                    "desc": "Set to `true` if using a port other than `80` or `443`."
+                },
+                {
+                    "env_var": "CMD_PROTOCOL_USESSL",
+                    "env_value": "false",
+                    "desc": "Set to `true` if accessing over https via reverse proxy."
+                },
+                {
+                    "env_var": "CMD_PORT",
+                    "env_value": "3000",
+                    "desc": "If you wish to access hedgedoc at a port different than 80, 443 or 3000, you need to set this to that port (ie. `CMD_PORT=5000`) and change the port mapping accordingly (5000:5000)."
+                },
+                {
+                    "env_var": "CMD_ALLOW_ORIGIN",
+                    "env_value": "['localhost']",
+                    "desc": "Comma-separated list of allowed hostnames"
+                }
+            ],
+            "param_usage_include_vols": true,
+            "param_volumes": [
+                {
+                    "vol_path": "/config",
+                    "vol_host_path": "/path/to/appdata",
+                    "desc": "HedgeDoc config and configurable files"
+                }
+            ],
+            "param_usage_include_ports": true,
+            "param_ports": [
+                {
+                    "external_port": "3000",
+                    "internal_port": "3000",
+                    "port_desc": "Web gui port (internal port also needs to be changed if accessing at port other than 80, 443 and 3000)."
+                }
+            ],
+            "app_setup_block_enabled": true,
+            "app_setup_block": "HedgeDoc web interface can be accessed `http://${IP}:3000/`, if you want to use a custom domain or anything besides port 3000 you will need to leverage their env settings for callbacks: (specifically for CMD_DOMAIN, CMD_PORT and CMD_URL_ADDPORT)\n\n[Full list of HedgeDoc options](https://docs.hedgedoc.org/configuration/)\n\nFor convience we provide a working example using Mysql as a backend in this document, if you do not wish to use our custom environment values or a Mysql database backend feel free to leverage any of the settings laid out in the link above.\n\nTo run behind a reverse proxy we have a [preconfigured config](https://github.com/linuxserver/reverse-proxy-confs/blob/master/hedgedoc.subdomain.conf.sample) using docker networking included in our [SWAG](https://github.com/linuxserver/docker-swag) image and you can read how to use this in the [Reverse Proxy Confs repository](https://github.com/linuxserver/reverse-proxy-confs/#how-to-use-these-reverse-proxy-configs)\n",
+            "changelogs": [
+                {
+                    "date": "02.11.22:",
+                    "desc": "Rebase to Alpine 3.16, migrate to s6v3."
+                },
+                {
+                    "date": "10.04.22:",
+                    "desc": "Use python3 to build node sqlite3."
+                },
+                {
+                    "date": "10.02.22:",
+                    "desc": "Rebase to Alpine 3.15."
+                },
+                {
+                    "date": "09.02.22:",
+                    "desc": "Add optional var `CMD_PORT` that is needed for accessing at port other than 80, 443 and 3000."
+                },
+                {
+                    "date": "09.12.21:",
+                    "desc": "Add optional var `CMD_PROTOCOL_USESSL` that is needed for reverse proxy."
+                },
+                {
+                    "date": "07.12.21:",
+                    "desc": "Rebase to ubuntu focal. Update to node 16. Make sure uploads are persistent."
+                },
+                {
+                    "date": "15.10.21:",
+                    "desc": "Add required env var `CMD_DOMAIN`."
+                },
+                {
+                    "date": "05.05.21:",
+                    "desc": "Remove symlinking some folders from config to /opt/hedgedoc/public."
+                },
+                {
+                    "date": "03.05.21:",
+                    "desc": "Remove deprecated sequalizerc step."
+                },
+                {
+                    "date": "22.12.20:",
+                    "desc": "Initial release"
+                }
+            ]
+        }
+    },
+    "setup": "HedgeDoc web interface can be accessed `http://${IP}:3000/`, if you want to use a custom domain or anything besides port 3000 you will need to leverage their env settings for callbacks: (specifically for CMD_DOMAIN, CMD_PORT and CMD_URL_ADDPORT)\n\n[Full list of HedgeDoc options](https://docs.hedgedoc.org/configuration/)\n\nFor convience we provide a working example using Mysql as a backend in this document, if you do not wish to use our custom environment values or a Mysql database backend feel free to leverage any of the settings laid out in the link above.\n\nTo run behind a reverse proxy we have a [preconfigured config](https://github.com/linuxserver/reverse-proxy-confs/blob/master/hedgedoc.subdomain.conf.sample) using docker networking included in our [SWAG](https://github.com/linuxserver/docker-swag) image and you can read how to use this in the [Reverse Proxy Confs repository](https://github.com/linuxserver/reverse-proxy-confs/#how-to-use-these-reverse-proxy-configs)\n"
 }

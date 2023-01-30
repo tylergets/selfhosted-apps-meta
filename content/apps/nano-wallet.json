@@ -29,20 +29,64 @@
                     "key": "PGID",
                     "description": "Group ID",
                     "default": "100"
-                },
-                {
-                    "id": "TZ",
-                    "key": "TZ",
-                    "description": "Timezone",
-                    "default": "America/New_York"
                 }
             ],
             "ports": [
                 {
                     "container": "80",
-                    "description": "Webserver port"
+                    "description": "Webserver port",
+                    "protocol": "tcp",
+                    "web": false
                 }
             ]
         }
-    ]
+    ],
+    "meta": {
+        "readme-vars": {
+            "project_name": "nano-wallet",
+            "project_url": "https://nano.org/",
+            "project_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Nano_logo.png/640px-Nano_logo.png",
+            "project_blurb": "[{{ project_name|capitalize }}]({{ project_url }}) is a digital payment protocol designed to be accessible and lightweight, with a focus on removing inefficiencies present in other cryptocurrencies. With ultrafast transactions and zero fees on a secure, green and decentralized network, this makes Nano ideal for everyday transactions.\n\nThis container is a simple nginx wrapper for the light wallet located [here](https://github.com/linuxserver/nano-wallet). You will need to pass a valid RPC host when accessing this container.\n",
+            "project_lsio_github_repo_url": "https://github.com/linuxserver/docker-{{ project_name }}",
+            "available_architectures": [
+                {
+                    "arch": "{{ arch_x86_64 }}",
+                    "tag": "amd64-latest"
+                },
+                {
+                    "arch": "{{ arch_arm64 }}",
+                    "tag": "arm64v8-latest"
+                },
+                {
+                    "arch": "{{ arch_armhf }}",
+                    "tag": "arm32v7-latest"
+                }
+            ],
+            "common_param_env_vars_enabled": false,
+            "param_container_name": "{{ project_name }}",
+            "param_usage_include_vols": false,
+            "param_usage_include_ports": true,
+            "param_ports": [
+                {
+                    "external_port": "80",
+                    "internal_port": "80",
+                    "port_desc": "Webserver port"
+                }
+            ],
+            "param_usage_include_env": false,
+            "app_setup_block_enabled": true,
+            "app_setup_block": "\nThis container requires a Nano RPC endpoint to communicate with whether a public network or your own, see [here](https://hub.docker.com/r/linuxserver/nano) for more information.\n\nSimply access the container at the URL:\n\nhttp://localhost/#/THE_IP_OR_HOSTNAME_OF_RPC_ENDPOINT\n",
+            "changelogs": [
+                {
+                    "date": "01.06.20:",
+                    "desc": "Rebasing to alpine 3.12."
+                },
+                {
+                    "date": "23.05.20:",
+                    "desc": "Initial Release."
+                }
+            ]
+        }
+    },
+    "setup": "\nThis container requires a Nano RPC endpoint to communicate with whether a public network or your own, see [here](https://hub.docker.com/r/linuxserver/nano) for more information.\n\nSimply access the container at the URL:\n\nhttp://localhost/#/THE_IP_OR_HOSTNAME_OF_RPC_ENDPOINT\n"
 }

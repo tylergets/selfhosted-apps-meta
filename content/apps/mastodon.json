@@ -32,9 +32,173 @@
                 },
                 {
                     "id": "TZ",
-                    "key": "TZ",
-                    "description": "Timezone",
-                    "default": "America/New_York"
+                    "default": "America/New_York",
+                    "description": "Specify a timezone to use EG America/New_York"
+                },
+                {
+                    "id": "LOCAL_DOMAIN",
+                    "default": "example.com",
+                    "description": "This is the unique identifier of your server in the network. It cannot be safely changed later."
+                },
+                {
+                    "id": "REDIS_HOST",
+                    "default": "redis",
+                    "description": "Redis server hostname"
+                },
+                {
+                    "id": "REDIS_PORT",
+                    "default": "6379",
+                    "description": "Redis port"
+                },
+                {
+                    "id": "DB_HOST",
+                    "default": "db",
+                    "description": "Postgres database hostname"
+                },
+                {
+                    "id": "DB_USER",
+                    "default": "mastodon",
+                    "description": "Postgres username"
+                },
+                {
+                    "id": "DB_NAME",
+                    "default": "mastodon",
+                    "description": "Postgres db name"
+                },
+                {
+                    "id": "DB_PASS",
+                    "default": "mastodon",
+                    "description": "Postgres password"
+                },
+                {
+                    "id": "DB_PORT",
+                    "default": "5432",
+                    "description": "Portgres port"
+                },
+                {
+                    "id": "ES_ENABLED",
+                    "default": "false",
+                    "description": "Enable or disable Elasticsearch (requires a separate ES instance)"
+                },
+                {
+                    "id": "SECRET_KEY_BASE",
+                    "default": "",
+                    "description": "Browser session secret. Changing it will break all active browser sessions."
+                },
+                {
+                    "id": "OTP_SECRET",
+                    "default": "",
+                    "description": "MFA secret. Changing it will break two-factor authentication."
+                },
+                {
+                    "id": "VAPID_PRIVATE_KEY",
+                    "default": "",
+                    "description": "Push notification private key. Changing it will break push notifications."
+                },
+                {
+                    "id": "VAPID_PUBLIC_KEY",
+                    "default": "",
+                    "description": "Push notification public key. Changing it will break push notifications."
+                },
+                {
+                    "id": "SMTP_SERVER",
+                    "default": "mail.example.com",
+                    "description": "SMTP server for email notifications"
+                },
+                {
+                    "id": "SMTP_PORT",
+                    "default": "25",
+                    "description": "SMTP server port"
+                },
+                {
+                    "id": "SMTP_LOGIN",
+                    "default": "",
+                    "description": "SMTP username"
+                },
+                {
+                    "id": "SMTP_PASSWORD",
+                    "default": "",
+                    "description": "SMTP password"
+                },
+                {
+                    "id": "SMTP_FROM_ADDRESS",
+                    "default": "notifications@example.com",
+                    "description": "From address for emails send from Mastodon"
+                },
+                {
+                    "id": "S3_ENABLED",
+                    "default": "false",
+                    "description": "Enable or disable S3 storage of uploaded files"
+                },
+                {
+                    "id": "WEB_DOMAIN",
+                    "default": "mastodon.example.com",
+                    "description": "This can be set if you want your server identifier to be different to the subdomain hosting Mastodon. See [https://docs.joinmastodon.org/admin/config/#basic](https://docs.joinmastodon.org/admin/config/#basic)"
+                },
+                {
+                    "id": "ES_HOST",
+                    "default": "es",
+                    "description": "Elasticsearch server hostname"
+                },
+                {
+                    "id": "ES_PORT",
+                    "default": "9200",
+                    "description": "Elasticsearch port"
+                },
+                {
+                    "id": "ES_USER",
+                    "default": "elastic",
+                    "description": "Elasticsearch username"
+                },
+                {
+                    "id": "ES_PASS",
+                    "default": "elastic",
+                    "description": "Elasticsearch password"
+                },
+                {
+                    "id": "S3_BUCKET",
+                    "default": "",
+                    "description": "S3 bucket hostname"
+                },
+                {
+                    "id": "AWS_ACCESS_KEY_ID",
+                    "default": "",
+                    "description": "S3 bucket access key ID"
+                },
+                {
+                    "id": "AWS_SECRET_ACCESS_KEY",
+                    "default": "",
+                    "description": "S3 bucket secret access key"
+                },
+                {
+                    "id": "S3_ALIAS_HOST",
+                    "default": "",
+                    "description": "Alternate hostname for object fetching if you are front the S3 connections."
+                },
+                {
+                    "id": "SIDEKIQ_ONLY",
+                    "default": "false",
+                    "description": "Only run the sidekiq service in this container instance. For large scale instances that need better queue handling."
+                },
+                {
+                    "id": "SIDEKIQ_QUEUE",
+                    "default": "",
+                    "description": "The name of the sidekiq queue to run in this container. See [notes](https://docs.joinmastodon.org/admin/scaling/#sidekiq-queues)."
+                },
+                {
+                    "id": "SIDEKIQ_DEFAULT",
+                    "default": "false",
+                    "description": "Set to `true` on the main container if you're running additional sidekiq instances. It will run the `default` queue."
+                },
+                {
+                    "id": "SIDEKIQ_THREADS",
+                    "default": "5",
+                    "description": "The number of threads for sidekiq to use. See [notes](https://docs.joinmastodon.org/admin/scaling/#sidekiq-threads)."
+                },
+                {
+                    "id": "DB_POOL",
+                    "default": "5",
+                    "description": "The size of the DB connection pool, must be *at least* the same as `SIDEKIQ_THREADS`. See [notes](https://docs.joinmastodon.org/admin/scaling/#sidekiq-threads)."
                 }
             ],
             "volumes": [
@@ -47,13 +211,263 @@
             "ports": [
                 {
                     "container": "80",
-                    "description": "Port for web frontend"
+                    "description": "Port for web frontend",
+                    "protocol": "tcp",
+                    "web": false
                 },
                 {
                     "container": "443",
-                    "description": "Port for web frontend"
+                    "description": "Port for web frontend",
+                    "protocol": "tcp",
+                    "web": false
                 }
             ]
         }
-    ]
+    ],
+    "meta": {
+        "readme-vars": {
+            "project_name": "mastodon",
+            "project_url": "https://github.com/mastodon/mastodon/",
+            "project_logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mastodon-banner.png",
+            "project_blurb": "[{{ project_name|capitalize }}]({{ project_url }}) is a free, open-source social network server based on ActivityPub where users can follow friends and discover new ones..\n",
+            "project_lsio_github_repo_url": "https://github.com/linuxserver/docker-{{ project_name }}",
+            "available_architectures": [
+                {
+                    "arch": "{{ arch_x86_64 }}",
+                    "tag": "amd64-latest"
+                },
+                {
+                    "arch": "{{ arch_arm64 }}",
+                    "tag": "arm64v8-latest"
+                }
+            ],
+            "development_versions": true,
+            "development_versions_items": [
+                {
+                    "tag": "latest",
+                    "desc": "Stable releases."
+                },
+                {
+                    "tag": "develop",
+                    "desc": "Pre-releases *only*."
+                }
+            ],
+            "common_param_env_vars_enabled": true,
+            "param_container_name": "{{ project_name }}",
+            "param_usage_include_env": true,
+            "param_env_vars": [
+                {
+                    "env_var": "TZ",
+                    "env_value": "America/New_York",
+                    "desc": "Specify a timezone to use EG America/New_York"
+                },
+                {
+                    "env_var": "LOCAL_DOMAIN",
+                    "env_value": "example.com",
+                    "desc": "This is the unique identifier of your server in the network. It cannot be safely changed later."
+                },
+                {
+                    "env_var": "REDIS_HOST",
+                    "env_value": "redis",
+                    "desc": "Redis server hostname"
+                },
+                {
+                    "env_var": "REDIS_PORT",
+                    "env_value": "6379",
+                    "desc": "Redis port"
+                },
+                {
+                    "env_var": "DB_HOST",
+                    "env_value": "db",
+                    "desc": "Postgres database hostname"
+                },
+                {
+                    "env_var": "DB_USER",
+                    "env_value": "mastodon",
+                    "desc": "Postgres username"
+                },
+                {
+                    "env_var": "DB_NAME",
+                    "env_value": "mastodon",
+                    "desc": "Postgres db name"
+                },
+                {
+                    "env_var": "DB_PASS",
+                    "env_value": "mastodon",
+                    "desc": "Postgres password"
+                },
+                {
+                    "env_var": "DB_PORT",
+                    "env_value": "5432",
+                    "desc": "Portgres port"
+                },
+                {
+                    "env_var": "ES_ENABLED",
+                    "env_value": "false",
+                    "desc": "Enable or disable Elasticsearch (requires a separate ES instance)"
+                },
+                {
+                    "env_var": "SECRET_KEY_BASE",
+                    "env_value": "",
+                    "desc": "Browser session secret. Changing it will break all active browser sessions."
+                },
+                {
+                    "env_var": "OTP_SECRET",
+                    "env_value": "",
+                    "desc": "MFA secret. Changing it will break two-factor authentication."
+                },
+                {
+                    "env_var": "VAPID_PRIVATE_KEY",
+                    "env_value": "",
+                    "desc": "Push notification private key. Changing it will break push notifications."
+                },
+                {
+                    "env_var": "VAPID_PUBLIC_KEY",
+                    "env_value": "",
+                    "desc": "Push notification public key. Changing it will break push notifications."
+                },
+                {
+                    "env_var": "SMTP_SERVER",
+                    "env_value": "mail.example.com",
+                    "desc": "SMTP server for email notifications"
+                },
+                {
+                    "env_var": "SMTP_PORT",
+                    "env_value": "25",
+                    "desc": "SMTP server port"
+                },
+                {
+                    "env_var": "SMTP_LOGIN",
+                    "env_value": "",
+                    "desc": "SMTP username"
+                },
+                {
+                    "env_var": "SMTP_PASSWORD",
+                    "env_value": "",
+                    "desc": "SMTP password"
+                },
+                {
+                    "env_var": "SMTP_FROM_ADDRESS",
+                    "env_value": "notifications@example.com",
+                    "desc": "From address for emails send from Mastodon"
+                },
+                {
+                    "env_var": "S3_ENABLED",
+                    "env_value": "false",
+                    "desc": "Enable or disable S3 storage of uploaded files"
+                }
+            ],
+            "opt_param_usage_include_env": true,
+            "opt_param_env_vars": [
+                {
+                    "env_var": "WEB_DOMAIN",
+                    "env_value": "mastodon.example.com",
+                    "desc": "This can be set if you want your server identifier to be different to the subdomain hosting Mastodon. See [https://docs.joinmastodon.org/admin/config/#basic](https://docs.joinmastodon.org/admin/config/#basic)"
+                },
+                {
+                    "env_var": "ES_HOST",
+                    "env_value": "es",
+                    "desc": "Elasticsearch server hostname"
+                },
+                {
+                    "env_var": "ES_PORT",
+                    "env_value": "9200",
+                    "desc": "Elasticsearch port"
+                },
+                {
+                    "env_var": "ES_USER",
+                    "env_value": "elastic",
+                    "desc": "Elasticsearch username"
+                },
+                {
+                    "env_var": "ES_PASS",
+                    "env_value": "elastic",
+                    "desc": "Elasticsearch password"
+                },
+                {
+                    "env_var": "S3_BUCKET",
+                    "env_value": "",
+                    "desc": "S3 bucket hostname"
+                },
+                {
+                    "env_var": "AWS_ACCESS_KEY_ID",
+                    "env_value": "",
+                    "desc": "S3 bucket access key ID"
+                },
+                {
+                    "env_var": "AWS_SECRET_ACCESS_KEY",
+                    "env_value": "",
+                    "desc": "S3 bucket secret access key"
+                },
+                {
+                    "env_var": "S3_ALIAS_HOST",
+                    "env_value": "",
+                    "desc": "Alternate hostname for object fetching if you are front the S3 connections."
+                },
+                {
+                    "env_var": "SIDEKIQ_ONLY",
+                    "env_value": "false",
+                    "desc": "Only run the sidekiq service in this container instance. For large scale instances that need better queue handling."
+                },
+                {
+                    "env_var": "SIDEKIQ_QUEUE",
+                    "env_value": "",
+                    "desc": "The name of the sidekiq queue to run in this container. See [notes](https://docs.joinmastodon.org/admin/scaling/#sidekiq-queues)."
+                },
+                {
+                    "env_var": "SIDEKIQ_DEFAULT",
+                    "env_value": "false",
+                    "desc": "Set to `true` on the main container if you're running additional sidekiq instances. It will run the `default` queue."
+                },
+                {
+                    "env_var": "SIDEKIQ_THREADS",
+                    "env_value": "5",
+                    "desc": "The number of threads for sidekiq to use. See [notes](https://docs.joinmastodon.org/admin/scaling/#sidekiq-threads)."
+                },
+                {
+                    "env_var": "DB_POOL",
+                    "env_value": "5",
+                    "desc": "The size of the DB connection pool, must be *at least* the same as `SIDEKIQ_THREADS`. See [notes](https://docs.joinmastodon.org/admin/scaling/#sidekiq-threads)."
+                }
+            ],
+            "param_usage_include_ports": true,
+            "param_ports": [
+                {
+                    "external_port": "80",
+                    "internal_port": "80",
+                    "port_desc": "Port for web frontend"
+                },
+                {
+                    "external_port": "443",
+                    "internal_port": "443",
+                    "port_desc": "Port for web frontend"
+                }
+            ],
+            "param_usage_include_vols": true,
+            "param_volumes": [
+                {
+                    "vol_path": "/config",
+                    "vol_host_path": "/path/to/appdata/config",
+                    "desc": "Contains all relevant configuration files."
+                }
+            ],
+            "app_setup_block_enabled": true,
+            "app_setup_block": "We provide aliases for the common commands that execute in the correct context so that environment variables from secrets are available to them:\n\n* To generate keys for `SECRET_KEY_BASE` & `OTP_SECRET` run `docker run --rm -it --entrypoint /bin/bash lscr.io/linuxserver/mastodon generate-secret` once for each.\n\n* To generate keys for `VAPID_PRIVATE_KEY` & `VAPID_PUBLIC_KEY` run `docker run --rm -it --entrypoint /bin/bash lscr.io/linuxserver/mastodon generate-vapid`\n\nBoth of the secret generation aliases above can be run without any other setup having been carried out.\n\n* To use `tootctl` you can run something like `docker exec -it lscr.io/linuxserver/mastodon /tootctl <command>`\n\nUsing `tootctl` requires you to complete the initial Mastodon configuration first.\n\nThis container *requires* separate postgres and redis instances to run.\n\nWe support all of the official [environment variables](https://docs.joinmastodon.org/admin/config) for configuration. In place of adding them all to your run/compose you can use an env file such as [this example](https://github.com/mastodon/mastodon/blob/main/.env.production.sample) from the upstream project.\n\nFor more information check out the [mastodon documentation](https://docs.joinmastodon.org/).\n\n### Running separate sidekiq instances\n\nIt is currently only supported to run a single queue per container instance *or* all queues in a single container instance.\n\nAll containers must share the same `/config`` mount and be on a common docker network.\n\n### Strict reverse proxies\n\nThis image automatically redirects to https with a self-signed certificate. If you are using a reverse proxy which validates certificates, you need to [disable this check for the container](https://docs.linuxserver.io/faq#strict-proxy).\n",
+            "changelogs": [
+                {
+                    "date": "09.01.23:",
+                    "desc": "Updated nginx conf to fix bring inline with Mastodon configuration (fixes Elk integration)."
+                },
+                {
+                    "date": "19.12.22:",
+                    "desc": "Support separate sidekiq queue instances."
+                },
+                {
+                    "date": "05.11.22:",
+                    "desc": "Initial Release."
+                }
+            ]
+        }
+    },
+    "setup": "We provide aliases for the common commands that execute in the correct context so that environment variables from secrets are available to them:\n\n* To generate keys for `SECRET_KEY_BASE` & `OTP_SECRET` run `docker run --rm -it --entrypoint /bin/bash lscr.io/linuxserver/mastodon generate-secret` once for each.\n\n* To generate keys for `VAPID_PRIVATE_KEY` & `VAPID_PUBLIC_KEY` run `docker run --rm -it --entrypoint /bin/bash lscr.io/linuxserver/mastodon generate-vapid`\n\nBoth of the secret generation aliases above can be run without any other setup having been carried out.\n\n* To use `tootctl` you can run something like `docker exec -it lscr.io/linuxserver/mastodon /tootctl <command>`\n\nUsing `tootctl` requires you to complete the initial Mastodon configuration first.\n\nThis container *requires* separate postgres and redis instances to run.\n\nWe support all of the official [environment variables](https://docs.joinmastodon.org/admin/config) for configuration. In place of adding them all to your run/compose you can use an env file such as [this example](https://github.com/mastodon/mastodon/blob/main/.env.production.sample) from the upstream project.\n\nFor more information check out the [mastodon documentation](https://docs.joinmastodon.org/).\n\n### Running separate sidekiq instances\n\nIt is currently only supported to run a single queue per container instance *or* all queues in a single container instance.\n\nAll containers must share the same `/config`` mount and be on a common docker network.\n\n### Strict reverse proxies\n\nThis image automatically redirects to https with a self-signed certificate. If you are using a reverse proxy which validates certificates, you need to [disable this check for the container](https://docs.linuxserver.io/faq#strict-proxy).\n"
 }

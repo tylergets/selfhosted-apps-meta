@@ -32,9 +32,98 @@
                 },
                 {
                     "id": "TZ",
-                    "key": "TZ",
-                    "description": "Timezone",
-                    "default": "America/New_York"
+                    "default": "America/New_York",
+                    "description": "Specify a timezone to use EG America/New_York"
+                },
+                {
+                    "id": "DISCORD__TOKEN",
+                    "default": "",
+                    "description": "Specify your discord bot token."
+                },
+                {
+                    "id": "OVERSEERR__API",
+                    "default": "",
+                    "description": "Specify your Overseerr API key. Leave blank if using Radarr/Sonarr."
+                },
+                {
+                    "id": "OVERSEERR__URL",
+                    "default": "http://localhost:5055",
+                    "description": "Specify your Overseerr URL. Leave blank if using Radarr/Sonarr."
+                },
+                {
+                    "id": "RADARR__API",
+                    "default": "",
+                    "description": "Specify your Radarr API key. Leave blank if using Overseerr."
+                },
+                {
+                    "id": "RADARR__URL",
+                    "default": "http://localhost:7878",
+                    "description": "Specify your Radarr URL. Leave blank if using Overseerr."
+                },
+                {
+                    "id": "SONARR__API",
+                    "default": "",
+                    "description": "Specify your Sonarr API key. Leave blank if using Overseerr."
+                },
+                {
+                    "id": "SONARR__URL",
+                    "default": "http://localhost:8989",
+                    "description": "Specify your Sonarr URL. Leave blank if using Overseerr."
+                },
+                {
+                    "id": "DISCORD__MAX_RESULTS",
+                    "default": "25",
+                    "description": "Sets the maximum size of the search results selection"
+                },
+                {
+                    "id": "DISCORD__REQUESTED_MSG_STYLE",
+                    "default": ":plain",
+                    "description": "Sets the style of the request alert message. One of `:plain` `:embed` `:none`"
+                },
+                {
+                    "id": "SONARR__QUALITY_PROFILE",
+                    "default": "",
+                    "description": "The name of the quality profile to use by default for Sonarr"
+                },
+                {
+                    "id": "RADARR__QUALITY_PROFILE",
+                    "default": "",
+                    "description": "The name of the quality profile to use by default for Radarr"
+                },
+                {
+                    "id": "SONARR__ROOTFOLDER",
+                    "default": "",
+                    "description": "The root folder to use by default for Sonarr"
+                },
+                {
+                    "id": "RADARR__ROOTFOLDER",
+                    "default": "",
+                    "description": "The root folder to use by default for Radarr"
+                },
+                {
+                    "id": "SONARR__LANGUAGE_PROFILE",
+                    "default": "",
+                    "description": "The name of the language profile to use by default for Sonarr"
+                },
+                {
+                    "id": "OVERSEERR__DEFAULT_ID",
+                    "default": "",
+                    "description": "The Overseerr user id to use by default if there is no associated discord account for the requester"
+                },
+                {
+                    "id": "PARTIAL_SEASONS",
+                    "default": "true",
+                    "description": "Sets whether users can request partial seasons."
+                },
+                {
+                    "id": "LOG_LEVEL",
+                    "default": ":info",
+                    "description": "The log level for the logging backend. This can be changed for debugging purposes. One of trace `:debug` `:info` `:warn` `:error` `:fatal` `:report`"
+                },
+                {
+                    "id": "JAVA_OPTS",
+                    "default": "",
+                    "description": "For passing additional java options."
                 }
             ],
             "volumes": [
@@ -45,5 +134,172 @@
                 }
             ]
         }
-    ]
+    ],
+    "meta": {
+        "readme-vars": {
+            "project_name": "doplarr",
+            "project_url": "https://github.com/kiranshila/Doplarr",
+            "project_logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/doplarr-logo_title.png",
+            "project_blurb": "[{{ project_name|capitalize }}]({{ project_url }}) is an *arr request bot for Discord.\"\n",
+            "project_lsio_github_repo_url": "https://github.com/linuxserver/docker-{{ project_name }}",
+            "project_blurb_optional_extras_enabled": false,
+            "available_architectures": [
+                {
+                    "arch": "{{ arch_x86_64 }}",
+                    "tag": "amd64-latest"
+                },
+                {
+                    "arch": "{{ arch_arm64 }}",
+                    "tag": "arm64v8-latest"
+                }
+            ],
+            "development_versions": false,
+            "development_versions_items": [
+                {
+                    "tag": "latest",
+                    "desc": "Stable releases"
+                }
+            ],
+            "common_param_env_vars_enabled": true,
+            "param_container_name": "{{ project_name }}",
+            "param_usage_include_env": true,
+            "param_env_vars": [
+                {
+                    "env_var": "TZ",
+                    "env_value": "America/New_York",
+                    "desc": "Specify a timezone to use EG America/New_York"
+                },
+                {
+                    "env_var": "DISCORD__TOKEN",
+                    "env_value": "",
+                    "desc": "Specify your discord bot token."
+                },
+                {
+                    "env_var": "OVERSEERR__API",
+                    "env_value": "",
+                    "desc": "Specify your Overseerr API key. Leave blank if using Radarr/Sonarr."
+                },
+                {
+                    "env_var": "OVERSEERR__URL",
+                    "env_value": "http://localhost:5055",
+                    "desc": "Specify your Overseerr URL. Leave blank if using Radarr/Sonarr."
+                },
+                {
+                    "env_var": "RADARR__API",
+                    "env_value": "",
+                    "desc": "Specify your Radarr API key. Leave blank if using Overseerr."
+                },
+                {
+                    "env_var": "RADARR__URL",
+                    "env_value": "http://localhost:7878",
+                    "desc": "Specify your Radarr URL. Leave blank if using Overseerr."
+                },
+                {
+                    "env_var": "SONARR__API",
+                    "env_value": "",
+                    "desc": "Specify your Sonarr API key. Leave blank if using Overseerr."
+                },
+                {
+                    "env_var": "SONARR__URL",
+                    "env_value": "http://localhost:8989",
+                    "desc": "Specify your Sonarr URL. Leave blank if using Overseerr."
+                }
+            ],
+            "param_usage_include_vols": true,
+            "param_volumes": [
+                {
+                    "vol_path": "/config",
+                    "vol_host_path": "/path/to/appdata/config",
+                    "desc": "Contains all relevant configuration files."
+                }
+            ],
+            "param_usage_include_ports": false,
+            "param_device_map": false,
+            "cap_add_param": false,
+            "opt_param_usage_include_env": true,
+            "opt_param_env_vars": [
+                {
+                    "env_var": "DISCORD__MAX_RESULTS",
+                    "env_value": "25",
+                    "desc": "Sets the maximum size of the search results selection"
+                },
+                {
+                    "env_var": "DISCORD__REQUESTED_MSG_STYLE",
+                    "env_value": ":plain",
+                    "desc": "Sets the style of the request alert message. One of `:plain` `:embed` `:none`"
+                },
+                {
+                    "env_var": "SONARR__QUALITY_PROFILE",
+                    "env_value": "",
+                    "desc": "The name of the quality profile to use by default for Sonarr"
+                },
+                {
+                    "env_var": "RADARR__QUALITY_PROFILE",
+                    "env_value": "",
+                    "desc": "The name of the quality profile to use by default for Radarr"
+                },
+                {
+                    "env_var": "SONARR__ROOTFOLDER",
+                    "env_value": "",
+                    "desc": "The root folder to use by default for Sonarr"
+                },
+                {
+                    "env_var": "RADARR__ROOTFOLDER",
+                    "env_value": "",
+                    "desc": "The root folder to use by default for Radarr"
+                },
+                {
+                    "env_var": "SONARR__LANGUAGE_PROFILE",
+                    "env_value": "",
+                    "desc": "The name of the language profile to use by default for Sonarr"
+                },
+                {
+                    "env_var": "OVERSEERR__DEFAULT_ID",
+                    "env_value": "",
+                    "desc": "The Overseerr user id to use by default if there is no associated discord account for the requester"
+                },
+                {
+                    "env_var": "PARTIAL_SEASONS",
+                    "env_value": "true",
+                    "desc": "Sets whether users can request partial seasons."
+                },
+                {
+                    "env_var": "LOG_LEVEL",
+                    "env_value": ":info",
+                    "desc": "The log level for the logging backend. This can be changed for debugging purposes. One of trace `:debug` `:info` `:warn` `:error` `:fatal` `:report`"
+                },
+                {
+                    "env_var": "JAVA_OPTS",
+                    "env_value": "",
+                    "desc": "For passing additional java options."
+                }
+            ],
+            "opt_param_usage_include_vols": false,
+            "opt_param_usage_include_ports": false,
+            "opt_param_device_map": false,
+            "opt_cap_add_param": false,
+            "optional_block_1": false,
+            "app_setup_block_enabled": true,
+            "app_setup_block": "Start by following the [Discord](https://github.com/kiranshila/Doplarr#discord) setup instructions from Doplarr's readme.\n\nNOTE: The `DISCORD__TOKEN` environment variable is required to run the container!\n\n- If you are using Overseerr, fill in the Overseerr API and URL variables, and leave the Radarr/Sonarr variables blank.\n- If you are using Radarr/Sonarr (and not using Overseerr), fill in the Radarr/Sonarr API and URL variables, and leave the Overseerr variables blank.\n\nExtra java options can be passed with the JAVA_OPTS environment variable, eg `-e JAVA_OPTS=\"-Xmx256m -Xms256m\"`.\n\nReview and adjust any [Optional Settings](https://github.com/kiranshila/Doplarr#optional-settings) from Doplarr's readme.\n",
+            "changelogs": [
+                {
+                    "date": "18.12.22:",
+                    "desc": "Rebase to alpine 3.17, upgrade to openjdk17."
+                },
+                {
+                    "date": "01.05.22:",
+                    "desc": "Remove `DISCORD__ROLE_ID` environment variable, see [Permissions Configuration](https://github.com/kiranshila/Doplarr/blob/main/docs/configuration.md#permissions)."
+                },
+                {
+                    "date": "30.01.22:",
+                    "desc": "Variable adjustments."
+                },
+                {
+                    "date": "30.01.22:",
+                    "desc": "Initial Release."
+                }
+            ]
+        }
+    },
+    "setup": "Start by following the [Discord](https://github.com/kiranshila/Doplarr#discord) setup instructions from Doplarr's readme.\n\nNOTE: The `DISCORD__TOKEN` environment variable is required to run the container!\n\n- If you are using Overseerr, fill in the Overseerr API and URL variables, and leave the Radarr/Sonarr variables blank.\n- If you are using Radarr/Sonarr (and not using Overseerr), fill in the Radarr/Sonarr API and URL variables, and leave the Overseerr variables blank.\n\nExtra java options can be passed with the JAVA_OPTS environment variable, eg `-e JAVA_OPTS=\"-Xmx256m -Xms256m\"`.\n\nReview and adjust any [Optional Settings](https://github.com/kiranshila/Doplarr#optional-settings) from Doplarr's readme.\n"
 }

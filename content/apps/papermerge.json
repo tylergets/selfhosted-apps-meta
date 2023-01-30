@@ -32,9 +32,13 @@
                 },
                 {
                     "id": "TZ",
-                    "key": "TZ",
-                    "description": "Timezone",
-                    "default": "America/New_York"
+                    "default": "America/New_York",
+                    "description": "Specify a timezone to use EG America/New_York"
+                },
+                {
+                    "id": "REDIS_URL",
+                    "default": "",
+                    "description": "Specify an external redis instance to use. Can optionally include a port (`redis:6379`) and/or db (`redis/foo`). If left blank or not included, will use a built-in redis instance. If changed after initial setup will also require manual modification of /config/settings.py"
                 }
             ],
             "volumes": [
@@ -51,9 +55,112 @@
             "ports": [
                 {
                     "container": "8000",
-                    "description": "http gui"
+                    "description": "http gui",
+                    "protocol": "tcp",
+                    "web": false
                 }
             ]
         }
-    ]
+    ],
+    "meta": {
+        "readme-vars": {
+            "project_name": "papermerge",
+            "project_url": "https://www.papermerge.com/",
+            "project_logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/papermerge-icon.png",
+            "project_blurb": "[{{ project_name|capitalize }}]({{ project_url }}) is an open source document management system (DMS) primarily designed for archiving and retrieving your digital documents. Instead of having piles of paper documents all over your desk, office or drawers - you can quickly scan them and configure your scanner to directly upload to Papermerge DMS.\"\n",
+            "project_lsio_github_repo_url": "https://github.com/linuxserver/docker-{{ project_name }}",
+            "available_architectures": [
+                {
+                    "arch": "{{ arch_x86_64 }}",
+                    "tag": "amd64-latest"
+                },
+                {
+                    "arch": "{{ arch_arm64 }}",
+                    "tag": "arm64v8-latest"
+                },
+                {
+                    "arch": "{{ arch_armhf }}",
+                    "tag": "arm32v7-latest"
+                }
+            ],
+            "common_param_env_vars_enabled": true,
+            "param_container_name": "{{ project_name }}",
+            "param_usage_include_vols": true,
+            "param_volumes": [
+                {
+                    "vol_path": "/config",
+                    "vol_host_path": "</path/to/appdata/config>",
+                    "desc": "Contains all relevant configuration files."
+                },
+                {
+                    "vol_path": "/data",
+                    "vol_host_path": "</path/to/appdata/data>",
+                    "desc": "Storage location for all papermerge data files."
+                }
+            ],
+            "param_usage_include_ports": true,
+            "param_ports": [
+                {
+                    "external_port": "8000",
+                    "internal_port": "8000",
+                    "port_desc": "http gui"
+                }
+            ],
+            "param_usage_include_env": true,
+            "param_env_vars": [
+                {
+                    "env_var": "TZ",
+                    "env_value": "America/New_York",
+                    "desc": "Specify a timezone to use EG America/New_York"
+                }
+            ],
+            "opt_param_usage_include_env": true,
+            "opt_param_env_vars": [
+                {
+                    "env_var": "REDIS_URL",
+                    "env_value": "",
+                    "desc": "Specify an external redis instance to use. Can optionally include a port (`redis:6379`) and/or db (`redis/foo`). If left blank or not included, will use a built-in redis instance. If changed after initial setup will also require manual modification of /config/settings.py"
+                }
+            ],
+            "optional_block_1": false,
+            "optional_block_1_items": "",
+            "app_setup_block_enabled": true,
+            "app_setup_block": "Default login is admin:admin via the webui, accessible at http://SERVERIP:PORT\nMore info at [papermerge]({{ project_url }}).\n\nIf you need non-English OCR language support, you can use [this mod](https://github.com/linuxserver/docker-mods/tree/papermerge-multilangocr).\n",
+            "changelogs": [
+                {
+                    "date": "15.07.22:",
+                    "desc": "Don't install development python packages"
+                },
+                {
+                    "date": "13.04.21:",
+                    "desc": "Handle upstream stapler change"
+                },
+                {
+                    "date": "13.03.21:",
+                    "desc": "Fixed mglib dependency per issue 32"
+                },
+                {
+                    "date": "25.02.21:",
+                    "desc": "Updated dependencies for v2"
+                },
+                {
+                    "date": "07.02.21:",
+                    "desc": "Support external MySQL/PSQL DBs."
+                },
+                {
+                    "date": "01.02.21:",
+                    "desc": "Add redis."
+                },
+                {
+                    "date": "09.12.20:",
+                    "desc": "Fix locales."
+                },
+                {
+                    "date": "08.08.20:",
+                    "desc": "Initial Release."
+                }
+            ]
+        }
+    },
+    "setup": "Default login is admin:admin via the webui, accessible at http://SERVERIP:PORT\nMore info at [papermerge]({{ project_url }}).\n\nIf you need non-English OCR language support, you can use [this mod](https://github.com/linuxserver/docker-mods/tree/papermerge-multilangocr).\n"
 }

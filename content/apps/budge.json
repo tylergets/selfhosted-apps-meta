@@ -2,7 +2,7 @@
     "id": "budge",
     "name": "budge",
     "description": "[{{ project_name }}]({{ project_url }}) is an open source 'budgeting with envelopes' personal finance app.",
-    "icon": "",
+    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/budge.png",
     "links": [
         {
             "type": "docker",
@@ -32,9 +32,8 @@
                 },
                 {
                     "id": "TZ",
-                    "key": "TZ",
-                    "description": "Timezone",
-                    "default": "America/New_York"
+                    "default": "America/New_York",
+                    "description": "Specify a timezone to use EG America/New_York"
                 }
             ],
             "volumes": [
@@ -47,13 +46,88 @@
             "ports": [
                 {
                     "container": "80",
-                    "description": "http gui"
+                    "description": "http gui",
+                    "protocol": "tcp",
+                    "web": false
                 },
                 {
                     "container": "443",
-                    "description": "https gui"
+                    "description": "https gui",
+                    "protocol": "tcp",
+                    "web": false
                 }
             ]
         }
-    ]
+    ],
+    "meta": {
+        "readme-vars": {
+            "project_name": "budge",
+            "project_url": "https://github.com/linuxserver/budge",
+            "project_logo": "",
+            "project_blurb": "[{{ project_name }}]({{ project_url }}) is an open source 'budgeting with envelopes' personal finance app.",
+            "project_lsio_github_repo_url": "https://github.com/linuxserver/docker-{{ project_name }}",
+            "available_architectures": [
+                {
+                    "arch": "{{ arch_x86_64 }}",
+                    "tag": "amd64-latest"
+                },
+                {
+                    "arch": "{{ arch_arm64 }}",
+                    "tag": "arm64v8-latest"
+                },
+                {
+                    "arch": "{{ arch_armhf }}",
+                    "tag": "arm32v7-latest"
+                }
+            ],
+            "common_param_env_vars_enabled": true,
+            "param_container_name": "{{ project_name }}",
+            "param_usage_include_vols": true,
+            "param_volumes": [
+                {
+                    "vol_path": "/config",
+                    "vol_host_path": "/path/to/{{ project_name }}/config",
+                    "desc": "Persistent config files"
+                }
+            ],
+            "param_usage_include_ports": true,
+            "param_ports": [
+                {
+                    "external_port": "80",
+                    "internal_port": "80",
+                    "port_desc": "http gui"
+                },
+                {
+                    "external_port": "443",
+                    "internal_port": "443",
+                    "port_desc": "https gui"
+                }
+            ],
+            "param_usage_include_env": true,
+            "param_env_vars": [
+                {
+                    "env_var": "TZ",
+                    "env_value": "America/New_York",
+                    "desc": "Specify a timezone to use EG America/New_York"
+                }
+            ],
+            "app_setup_block_enabled": true,
+            "app_setup_block": "Access the web gui at http://SERVERIP:PORT\n",
+            "changelogs": [
+                {
+                    "date": "29.11.22:",
+                    "desc": "Rebase to Alpine 3.17, migrate to s6v3."
+                },
+                {
+                    "date": "04.15.22:",
+                    "desc": "Added NPM command to run db migrations."
+                },
+                {
+                    "date": "02.05.22:",
+                    "desc": "Initial Release."
+                }
+            ]
+        }
+    },
+    "setup": "Access the web gui at http://SERVERIP:PORT\n"
 }

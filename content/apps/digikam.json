@@ -32,9 +32,18 @@
                 },
                 {
                     "id": "TZ",
-                    "key": "TZ",
-                    "description": "Timezone",
-                    "default": "America/New_York"
+                    "default": "America/New_York",
+                    "description": "Specify a timezone to use EG America/New_York."
+                },
+                {
+                    "id": "SUBFOLDER",
+                    "default": "/",
+                    "description": "Specify a subfolder to use with reverse proxies, IE `/subfolder/`"
+                },
+                {
+                    "id": "KEYBOARD",
+                    "default": "en-us-qwerty",
+                    "description": "See the keyboard layouts section for more information and options."
                 }
             ],
             "volumes": [
@@ -45,5 +54,111 @@
                 }
             ]
         }
-    ]
+    ],
+    "meta": {
+        "readme-vars": {
+            "project_name": "digikam",
+            "project_url": "https://www.digikam.org/",
+            "project_logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/digikam.png",
+            "project_blurb": "[digiKam]({{ project_url }}): Professional Photo Management with the Power of Open Source",
+            "project_lsio_github_repo_url": "https://github.com/linuxserver/docker-{{ project_name }}",
+            "project_blurb_optional_extras_enabled": false,
+            "available_architectures": [
+                {
+                    "arch": "{{ arch_x86_64 }}",
+                    "tag": "latest"
+                },
+                {
+                    "arch": "{{ arch_arm64 }}",
+                    "tag": "arm64v8-latest"
+                },
+                {
+                    "arch": "{{ arch_armhf }}",
+                    "tag": "arm32v7-latest"
+                }
+            ],
+            "development_versions": false,
+            "common_param_env_vars_enabled": true,
+            "param_container_name": "{{ project_name }}",
+            "param_usage_include_env": true,
+            "param_usage_include_ports": false,
+            "param_env_vars": [
+                {
+                    "env_var": "TZ",
+                    "env_value": "America/New_York",
+                    "desc": "Specify a timezone to use EG America/New_York."
+                }
+            ],
+            "opt_param_usage_include_env": true,
+            "opt_param_env_vars": [
+                {
+                    "env_var": "SUBFOLDER",
+                    "env_value": "/",
+                    "desc": "Specify a subfolder to use with reverse proxies, IE `/subfolder/`"
+                },
+                {
+                    "env_var": "KEYBOARD",
+                    "env_value": "en-us-qwerty",
+                    "desc": "See the keyboard layouts section for more information and options."
+                }
+            ],
+            "param_usage_include_vols": true,
+            "param_volumes": [
+                {
+                    "vol_path": "/config",
+                    "vol_host_path": "/path/to/config",
+                    "desc": "Users home directory in the container, stores database."
+                }
+            ],
+            "opt_param_usage_include_ports": true,
+            "opt_param_ports": [
+                {
+                    "external_port": "3000",
+                    "internal_port": "3000",
+                    "port_desc": "digiKam desktop gui"
+                }
+            ],
+            "app_setup_block_enabled": true,
+            "app_setup_block": "The application can be accessed at:\n\n* http://yourhost:3000/\n\nBy default the user/pass is abc/abc, if you change your password or want to login manually to the GUI session for any reason use the following link:\n\n* http://yourhost:3000/?login=true\n\nYou can also force login on the '/' path without this parameter by passing the environment variable `-e AUTO_LOGIN=false`.\n\n#### Mysql Internal\n\nWhen using mysql internal mode for the database you will need to click on \"Find\" Button for all the required binaries (mysql_install_db,mysqladmin,mysqld). Then select the binary file and press Open.\n\n#### Keyboard Layouts\n\nThis should match the layout on the computer you are accessing the container from.\nThe keyboard layouts available for use are:\n* da-dk-qwerty- Danish keyboard\n* de-ch-qwertz- Swiss German keyboard (qwertz)\n* de-de-qwertz- German keyboard (qwertz) - **OSK available**\n* en-gb-qwerty- English (UK) keyboard\n* en-us-qwerty- English (US) keyboard - **OSK available** **DEFAULT**\n* es-es-qwerty- Spanish keyboard - **OSK available**\n* fr-ch-qwertz- Swiss French keyboard (qwertz)\n* fr-fr-azerty- French keyboard (azerty) - **OSK available**\n* it-it-qwerty- Italian keyboard - **OSK available**\n* ja-jp-qwerty- Japanese keyboard\n* pt-br-qwerty- Portuguese Brazilian keyboard\n* sv-se-qwerty- Swedish keyboard\n* tr-tr-qwerty- Turkish-Q keyboard\n",
+            "changelogs": [
+                {
+                    "date": "20.01.23:",
+                    "desc": "Added breeze-icons package for icon support."
+                },
+                {
+                    "date": "21.11.22:",
+                    "desc": "Trigger upon baseimage updates (arch being a rolling distro has too many dependency breaks otherwise). Release version will be the baseimage build date going forward."
+                },
+                {
+                    "date": "20.10.22:",
+                    "desc": "Migrate to s6v3."
+                },
+                {
+                    "date": "07.03.22:",
+                    "desc": "Add Exiftool and firefox for image exports."
+                },
+                {
+                    "date": "20.02.22:",
+                    "desc": "Add MariaDB, expand documentation."
+                },
+                {
+                    "date": "15.02.22:",
+                    "desc": "Rebase to Arch."
+                },
+                {
+                    "date": "27.12.21:",
+                    "desc": "Rebase to focal to resolve dependency issues."
+                },
+                {
+                    "date": "27.03.21:",
+                    "desc": "Download link fixed."
+                },
+                {
+                    "date": "20.05.20:",
+                    "desc": "Initial release."
+                }
+            ]
+        }
+    },
+    "setup": "The application can be accessed at:\n\n* http://yourhost:3000/\n\nBy default the user/pass is abc/abc, if you change your password or want to login manually to the GUI session for any reason use the following link:\n\n* http://yourhost:3000/?login=true\n\nYou can also force login on the '/' path without this parameter by passing the environment variable `-e AUTO_LOGIN=false`.\n\n#### Mysql Internal\n\nWhen using mysql internal mode for the database you will need to click on \"Find\" Button for all the required binaries (mysql_install_db,mysqladmin,mysqld). Then select the binary file and press Open.\n\n#### Keyboard Layouts\n\nThis should match the layout on the computer you are accessing the container from.\nThe keyboard layouts available for use are:\n* da-dk-qwerty- Danish keyboard\n* de-ch-qwertz- Swiss German keyboard (qwertz)\n* de-de-qwertz- German keyboard (qwertz) - **OSK available**\n* en-gb-qwerty- English (UK) keyboard\n* en-us-qwerty- English (US) keyboard - **OSK available** **DEFAULT**\n* es-es-qwerty- Spanish keyboard - **OSK available**\n* fr-ch-qwertz- Swiss French keyboard (qwertz)\n* fr-fr-azerty- French keyboard (azerty) - **OSK available**\n* it-it-qwerty- Italian keyboard - **OSK available**\n* ja-jp-qwerty- Japanese keyboard\n* pt-br-qwerty- Portuguese Brazilian keyboard\n* sv-se-qwerty- Swedish keyboard\n* tr-tr-qwerty- Turkish-Q keyboard\n"
 }

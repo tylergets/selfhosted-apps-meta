@@ -32,9 +32,33 @@
                 },
                 {
                     "id": "TZ",
-                    "key": "TZ",
-                    "description": "Timezone",
-                    "default": "America/New_York"
+                    "default": "Europe/London",
+                    "description": "Specify a timezone to use EG Europe/London."
+                },
+                {
+                    "id": "PMM_CONFIG",
+                    "default": "/config/config.yml",
+                    "description": "Specify a custom config file to use."
+                },
+                {
+                    "id": "PMM_TIME",
+                    "default": "03:00",
+                    "description": "Comma-separated list of times to update each day. Format: `HH:MM`."
+                },
+                {
+                    "id": "PMM_RUN",
+                    "default": "False",
+                    "description": "Set to `True` to run without the scheduler."
+                },
+                {
+                    "id": "PMM_TEST",
+                    "default": "False",
+                    "description": "Set to `True` to run in debug mode with only collections that have `test: true`."
+                },
+                {
+                    "id": "PMM_NO_MISSING",
+                    "default": "False",
+                    "description": "Set to `True` to run without any of the missing movie/show functions."
                 }
             ],
             "volumes": [
@@ -45,5 +69,120 @@
                 }
             ]
         }
-    ]
+    ],
+    "meta": {
+        "readme-vars": {
+            "project_name": "plex-meta-manager",
+            "project_url": "https://github.com/meisnate12/Plex-Meta-Manager",
+            "project_logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/plex-meta-manager-banner.png",
+            "project_blurb": "[{{ project_name|capitalize }}]({{ project_url }}) is a Python 3 script that can be continuously run using YAML configuration files to update on a schedule the metadata of the movies, shows, and collections in your libraries as well as automatically build collections based on various methods all detailed in the wiki.",
+            "project_lsio_github_repo_url": "https://github.com/linuxserver/docker-{{ project_name }}",
+            "project_blurb_optional_extras_enabled": false,
+            "available_architectures": [
+                {
+                    "arch": "{{ arch_x86_64 }}",
+                    "tag": "amd64-latest"
+                },
+                {
+                    "arch": "{{ arch_arm64 }}",
+                    "tag": "arm64v8-latest"
+                },
+                {
+                    "arch": "{{ arch_armhf }}",
+                    "tag": "arm32v7-latest"
+                }
+            ],
+            "development_versions": true,
+            "development_versions_items": [
+                {
+                    "tag": "latest",
+                    "desc": "Stable releases."
+                },
+                {
+                    "tag": "develop",
+                    "desc": "Latest commits from the develop branch"
+                }
+            ],
+            "common_param_env_vars_enabled": true,
+            "param_container_name": "{{ project_name }}",
+            "param_usage_include_net": false,
+            "param_usage_include_env": true,
+            "param_env_vars": [
+                {
+                    "env_var": "TZ",
+                    "env_value": "Europe/London",
+                    "desc": "Specify a timezone to use EG Europe/London."
+                }
+            ],
+            "param_usage_include_vols": true,
+            "param_volumes": [
+                {
+                    "vol_path": "/config",
+                    "vol_host_path": "/path/to/appdata/config",
+                    "desc": "Local path for plex-meta-manager config files."
+                }
+            ],
+            "param_usage_include_ports": false,
+            "param_device_map": false,
+            "cap_add_param": false,
+            "opt_param_usage_include_env": true,
+            "opt_param_env_vars": [
+                {
+                    "env_var": "PMM_CONFIG",
+                    "env_value": "/config/config.yml",
+                    "desc": "Specify a custom config file to use."
+                },
+                {
+                    "env_var": "PMM_TIME",
+                    "env_value": "03:00",
+                    "desc": "Comma-separated list of times to update each day. Format: `HH:MM`."
+                },
+                {
+                    "env_var": "PMM_RUN",
+                    "env_value": "False",
+                    "desc": "Set to `True` to run without the scheduler."
+                },
+                {
+                    "env_var": "PMM_TEST",
+                    "env_value": "False",
+                    "desc": "Set to `True` to run in debug mode with only collections that have `test: true`."
+                },
+                {
+                    "env_var": "PMM_NO_MISSING",
+                    "env_value": "False",
+                    "desc": "Set to `True` to run without any of the missing movie/show functions."
+                }
+            ],
+            "opt_param_usage_include_vols": false,
+            "opt_param_usage_include_ports": false,
+            "opt_param_device_map": false,
+            "opt_cap_add_param": false,
+            "optional_block_1": false,
+            "app_setup_block_enabled": true,
+            "app_setup_block": "There is a [walkthrough](https://metamanager.wiki/en/latest/home/guides/docker.html#setting-up-the-initial-config-file) available to help get you up and running.\n\nThis image supports all of the environment variables listed [here](https://metamanager.wiki/en/latest/home/environmental.html) and all commandline arguments.\n\nTo perform a one-time run use `docker run` (or `docker-compose run`) with the `--rm` and `-e PMM_RUN=True` arguments. This will cause the container to process your config immediately instead of waiting for the scheduled time, and delete the old container after completion.\n\nFor more information see the [official wiki](https://metamanager.wiki).\n",
+            "changelogs": [
+                {
+                    "date": "11.12.22:",
+                    "desc": "Rebase master to Alpine 3.17."
+                },
+                {
+                    "date": "08.11.22:",
+                    "desc": "Add develop branch."
+                },
+                {
+                    "date": "25.10.22:",
+                    "desc": "Support commandline args and relative paths."
+                },
+                {
+                    "date": "03.10.22:",
+                    "desc": "Rebase to Alpine 3.16, migrate to s6v3."
+                },
+                {
+                    "date": "30.01.22:",
+                    "desc": "Initial Release."
+                }
+            ]
+        }
+    },
+    "setup": "There is a [walkthrough](https://metamanager.wiki/en/latest/home/guides/docker.html#setting-up-the-initial-config-file) available to help get you up and running.\n\nThis image supports all of the environment variables listed [here](https://metamanager.wiki/en/latest/home/environmental.html) and all commandline arguments.\n\nTo perform a one-time run use `docker run` (or `docker-compose run`) with the `--rm` and `-e PMM_RUN=True` arguments. This will cause the container to process your config immediately instead of waiting for the scheduled time, and delete the old container after completion.\n\nFor more information see the [official wiki](https://metamanager.wiki).\n"
 }

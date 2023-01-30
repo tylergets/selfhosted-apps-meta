@@ -32,9 +32,13 @@
                 },
                 {
                     "id": "TZ",
-                    "key": "TZ",
-                    "description": "Timezone",
-                    "default": "America/New_York"
+                    "default": "Europe/London",
+                    "description": "Specify a timezone to use EG Europe/London."
+                },
+                {
+                    "id": "CLI_ARGS",
+                    "default": "\"--gameid minetest --port 30000\"",
+                    "description": "Optionally specify any [CLI variables](https://wiki.minetest.net/Command_line) you want to launch the app with"
                 }
             ],
             "volumes": [
@@ -46,9 +50,174 @@
             "ports": [
                 {
                     "container": "30000/udp",
-                    "description": "Port Minetest listens on."
+                    "description": "Port Minetest listens on.",
+                    "protocol": "tcp",
+                    "web": false
                 }
             ]
         }
-    ]
+    ],
+    "meta": {
+        "readme-vars": {
+            "project_name": "minetest",
+            "project_url": "http://www.minetest.net/",
+            "project_logo": "https://raw.githubusercontent.com/linuxserver/beta-templates/master/lsiodev/img/minetest-icon.png",
+            "project_blurb": "[{{ project_name|capitalize }}]({{ project_url }}) (server) is a near-infinite-world block sandbox game and a game engine, inspired by InfiniMiner, Minecraft, and the like.",
+            "project_lsio_github_repo_url": "https://github.com/linuxserver/docker-{{ project_name }}",
+            "project_blurb_optional_extras_enabled": false,
+            "available_architectures": [
+                {
+                    "arch": "{{ arch_x86_64 }}",
+                    "tag": "amd64-latest"
+                },
+                {
+                    "arch": "{{ arch_arm64 }}",
+                    "tag": "arm64v8-latest"
+                },
+                {
+                    "arch": "{{ arch_armhf }}",
+                    "tag": "arm32v7-latest"
+                }
+            ],
+            "development_versions": false,
+            "common_param_env_vars_enabled": true,
+            "param_container_name": "{{ project_name }}",
+            "param_usage_include_net": false,
+            "param_usage_include_env": true,
+            "param_env_vars": [
+                {
+                    "env_var": "TZ",
+                    "env_value": "Europe/London",
+                    "desc": "Specify a timezone to use EG Europe/London."
+                }
+            ],
+            "param_usage_include_vols": true,
+            "param_volumes": [
+                {
+                    "vol_path": "/config/.minetest",
+                    "vol_host_path": "/path/to/data",
+                    "desc": "Where minetest stores config files and maps etc."
+                }
+            ],
+            "param_usage_include_ports": true,
+            "param_ports": [
+                {
+                    "external_port": "30000",
+                    "internal_port": "30000/udp",
+                    "port_desc": "Port Minetest listens on."
+                }
+            ],
+            "param_device_map": false,
+            "cap_add_param": false,
+            "opt_param_usage_include_env": true,
+            "opt_param_env_vars": [
+                {
+                    "env_var": "CLI_ARGS",
+                    "env_value": "\"--gameid minetest --port 30000\"",
+                    "desc": "Optionally specify any [CLI variables](https://wiki.minetest.net/Command_line) you want to launch the app with"
+                }
+            ],
+            "app_setup_block_enabled": true,
+            "app_setup_block": "You can find the world maps, mods folder and config files in /config/.minetest.\n\nIf you want to override the advertised port, ensure you add --port in your CLI_ARGS AND ensure the internal port reflects the change, ie;\nif you set your advertised port to 40000 with --port 40000 then your ports declaration should be 40000:40000/udp\n\n\nClient and server must be the same version, please browse the tags here to pull the appropriate version for your server:\n\nhttps://hub.docker.com/r/linuxserver/{{ project_name }}/tags\n",
+            "changelogs": [
+                {
+                    "date": "06.08.22:",
+                    "desc": "Update irrlicht deps."
+                },
+                {
+                    "date": "02.05.22:",
+                    "desc": "Allow specifying the advertised port."
+                },
+                {
+                    "date": "17.03.22:",
+                    "desc": "Install forked irrlicht, add zstd."
+                },
+                {
+                    "date": "19.01.22:",
+                    "desc": "Rebasing to alpine 3.15."
+                },
+                {
+                    "date": "02.06.20:",
+                    "desc": "Rebasing to alpine 3.12."
+                },
+                {
+                    "date": "19.12.19:",
+                    "desc": "Rebasing to alpine 3.11."
+                },
+                {
+                    "date": "12.07.19:",
+                    "desc": "Bugfix to support multiple CLI variables."
+                },
+                {
+                    "date": "28.06.19:",
+                    "desc": "Rebasing to alpine 3.10."
+                },
+                {
+                    "date": "03.06.19:",
+                    "desc": "Adding custom cli vars to options."
+                },
+                {
+                    "date": "23.03.19:",
+                    "desc": "Switching to new Base images, shift to arm32v7 tag."
+                },
+                {
+                    "date": "04.03.19:",
+                    "desc": "Rebase to alpine 3.9 to compile 5.0.0 minetest with new build args."
+                },
+                {
+                    "date": "14.01.19:",
+                    "desc": "Add pipeline logic and multi arch."
+                },
+                {
+                    "date": "08.08.18:",
+                    "desc": "Rebase to alpine 3.8, build from latest release tag instead of master."
+                },
+                {
+                    "date": "03.01.18:",
+                    "desc": "Deprecate cpu_core routine lack of scaling."
+                },
+                {
+                    "date": "08.12.17:",
+                    "desc": "Rebase to alpine 3.7."
+                },
+                {
+                    "date": "30.11.17:",
+                    "desc": "Use cpu core counting routine to speed up build time."
+                },
+                {
+                    "date": "26.05.17:",
+                    "desc": "Rebase to alpine 3.6."
+                },
+                {
+                    "date": "14.02.17:",
+                    "desc": "Rebase to alpine 3.5."
+                },
+                {
+                    "date": "25.11.16:",
+                    "desc": "Rebase to alpine linux, move to main repo."
+                },
+                {
+                    "date": "27.02.16:",
+                    "desc": "Bump to latest version."
+                },
+                {
+                    "date": "19.02.16:",
+                    "desc": "Change port to UDP, thanks to slashopt for pointing this out."
+                },
+                {
+                    "date": "15.02.16:",
+                    "desc": "Make minetest app a service."
+                },
+                {
+                    "date": "01.02.16:",
+                    "desc": "Add lua-socket dependency."
+                },
+                {
+                    "date": "06.11.15:",
+                    "desc": "Initial Release."
+                }
+            ]
+        }
+    },
+    "setup": "You can find the world maps, mods folder and config files in /config/.minetest.\n\nIf you want to override the advertised port, ensure you add --port in your CLI_ARGS AND ensure the internal port reflects the change, ie;\nif you set your advertised port to 40000 with --port 40000 then your ports declaration should be 40000:40000/udp\n\n\nClient and server must be the same version, please browse the tags here to pull the appropriate version for your server:\n\nhttps://hub.docker.com/r/linuxserver/{{ project_name }}/tags\n"
 }

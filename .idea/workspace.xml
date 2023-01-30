@@ -149,9 +149,12 @@
       <change beforePath="$PROJECT_DIR$/content/apps/xbackbone.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/xbackbone.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/content/apps/yq.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/yq.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/content/apps/znc.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/znc.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meta/interfaces/interfaces.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/meta/interfaces/interfaces.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/meta/linuxserver/pull.mts" beforeDir="false" afterPath="$PROJECT_DIR$/meta/linuxserver/pull.mts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/app/[id].vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/app/[id].vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/apps.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/apps.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,7 +221,7 @@
       <updated>1674928656084</updated>
       <workItem from="1674928657082" duration="588000" />
       <workItem from="1674929267191" duration="27496000" />
-      <workItem from="1675115126334" duration="1209000" />
+      <workItem from="1675115126334" duration="2961000" />
     </task>
     <servers />
   </component>

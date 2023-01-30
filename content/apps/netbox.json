@@ -32,9 +32,108 @@
                 },
                 {
                     "id": "TZ",
-                    "key": "TZ",
-                    "description": "Timezone",
-                    "default": "America/New_York"
+                    "default": "<TZ>",
+                    "description": "Timezone (i.e., America/New_York)"
+                },
+                {
+                    "id": "SUPERUSER_EMAIL",
+                    "default": "<SUPERUSER_EMAIL>",
+                    "description": "Email address for `admin` account"
+                },
+                {
+                    "id": "SUPERUSER_PASSWORD",
+                    "default": "<SUPERUSER_PASSWORD>",
+                    "description": "Password for `admin` account"
+                },
+                {
+                    "id": "ALLOWED_HOST",
+                    "default": "<ALLOWED_HOST>",
+                    "description": "The hostname you will use to access the app (i.e., netbox.example.com)"
+                },
+                {
+                    "id": "DB_NAME",
+                    "default": "<DB_NAME>",
+                    "description": "Database name (default: netbox)"
+                },
+                {
+                    "id": "DB_USER",
+                    "default": "<DB_USER>",
+                    "description": "Database user"
+                },
+                {
+                    "id": "DB_PASSWORD",
+                    "default": "<DB_PASSWORD>",
+                    "description": "Database password"
+                },
+                {
+                    "id": "DB_HOST",
+                    "default": "<DB_HOST>",
+                    "description": "Database host (default: postgres)"
+                },
+                {
+                    "id": "DB_PORT",
+                    "default": "<DB_PORT>",
+                    "description": "Database port (defaul: 5432)"
+                },
+                {
+                    "id": "REDIS_HOST",
+                    "default": "<REDIS_HOST>",
+                    "description": "Redis host (default: redis)"
+                },
+                {
+                    "id": "REDIS_PORT",
+                    "default": "<REDIS_PORT>",
+                    "description": "Redis port number (default: 6379)"
+                },
+                {
+                    "id": "REDIS_PASSWORD",
+                    "default": "<REDIS_PASSWORD>",
+                    "description": "Redis password (default: none)"
+                },
+                {
+                    "id": "REDIS_DB_TASK",
+                    "default": "<REDIS_DB_TASK>",
+                    "description": "Redis database ID for tasks (default: 0)"
+                },
+                {
+                    "id": "REDIS_DB_CACHE",
+                    "default": "<REDIS_DB_CACHE>",
+                    "description": "Redis database ID for caching (default: 1)"
+                },
+                {
+                    "id": "BASE_PATH",
+                    "default": "<BASE_PATH>",
+                    "description": "The path you will use to access the app (i.e., /netbox, optional, default: none)"
+                },
+                {
+                    "id": "REMOTE_AUTH_ENABLED",
+                    "default": "<REMOTE_AUTH_ENABLED>",
+                    "description": "Enable remote authentication (optional, default: False)"
+                },
+                {
+                    "id": "REMOTE_AUTH_BACKEND",
+                    "default": "<REMOTE_AUTH_BACKEND>",
+                    "description": "Python path to the custom Django authentication backend to use for external user authentication (optional, default: netbox.authentication.RemoteUserBackend)"
+                },
+                {
+                    "id": "REMOTE_AUTH_HEADER",
+                    "default": "<REMOTE_AUTH_HEADER>",
+                    "description": "Name of the HTTP header which informs NetBox of the currently authenticated user. (optional, default: HTTP_REMOTE_USER)"
+                },
+                {
+                    "id": "REMOTE_AUTH_AUTO_CREATE_USER",
+                    "default": "<REMOTE_AUTH_AUTO_CREATE_USER>",
+                    "description": "If true, NetBox will automatically create local accounts for users authenticated via a remote service (optional, default: False)"
+                },
+                {
+                    "id": "REMOTE_AUTH_DEFAULT_GROUPS",
+                    "default": "<REMOTE_AUTH_DEFAULT_GROUPS>",
+                    "description": "The list of groups to assign a new user account when created using remote authentication (optional, default: [])"
+                },
+                {
+                    "id": "REMOTE_AUTH_DEFAULT_PERMISSIONS",
+                    "default": "<REMOTE_AUTH_DEFAULT_PERMISSIONS>",
+                    "description": "A mapping of permissions to assign a new user account when created using remote authentication (optional, default: {})"
                 }
             ],
             "volumes": [
@@ -47,9 +146,203 @@
             "ports": [
                 {
                     "container": "8000",
-                    "description": "will map the container's port 8000 to port 8000 on the host"
+                    "description": "will map the container's port 8000 to port 8000 on the host",
+                    "protocol": "tcp",
+                    "web": false
                 }
             ]
         }
-    ]
+    ],
+    "meta": {
+        "readme-vars": {
+            "project_name": "netbox",
+            "project_url": "https://github.com/netbox-community/netbox",
+            "project_logo": "https://raw.githubusercontent.com/netbox-community/netbox/develop/docs/netbox_logo.svg",
+            "project_blurb": "[{{ project_name|capitalize }}]({{ project_url }}) is an IP address management (IPAM) and data center infrastructure management (DCIM) tool. Initially conceived by the network engineering team at DigitalOcean, NetBox was developed specifically to address the needs of network and infrastructure engineers. It is intended to function as a domain-specific source of truth for network operations.\n",
+            "project_lsio_github_repo_url": "https://github.com/linuxserver/docker-{{ project_name }}",
+            "available_architectures": [
+                {
+                    "arch": "{{ arch_x86_64 }}",
+                    "tag": "amd64-latest"
+                },
+                {
+                    "arch": "{{ arch_arm64 }}",
+                    "tag": "arm64v8-latest"
+                },
+                {
+                    "arch": "{{ arch_armhf }}",
+                    "tag": "arm32v7-latest"
+                }
+            ],
+            "param_container_name": "{{ project_name }}",
+            "param_usage_include_vols": true,
+            "param_volumes": [
+                {
+                    "vol_path": "/config",
+                    "vol_host_path": "<path to data on host>",
+                    "desc": "config directory volume mapping"
+                }
+            ],
+            "param_usage_include_env": true,
+            "param_env_vars": [
+                {
+                    "env_var": "TZ",
+                    "env_value": "<TZ>",
+                    "desc": "Timezone (i.e., America/New_York)"
+                },
+                {
+                    "env_var": "SUPERUSER_EMAIL",
+                    "env_value": "<SUPERUSER_EMAIL>",
+                    "desc": "Email address for `admin` account"
+                },
+                {
+                    "env_var": "SUPERUSER_PASSWORD",
+                    "env_value": "<SUPERUSER_PASSWORD>",
+                    "desc": "Password for `admin` account"
+                },
+                {
+                    "env_var": "ALLOWED_HOST",
+                    "env_value": "<ALLOWED_HOST>",
+                    "desc": "The hostname you will use to access the app (i.e., netbox.example.com)"
+                },
+                {
+                    "env_var": "DB_NAME",
+                    "env_value": "<DB_NAME>",
+                    "desc": "Database name (default: netbox)"
+                },
+                {
+                    "env_var": "DB_USER",
+                    "env_value": "<DB_USER>",
+                    "desc": "Database user"
+                },
+                {
+                    "env_var": "DB_PASSWORD",
+                    "env_value": "<DB_PASSWORD>",
+                    "desc": "Database password"
+                },
+                {
+                    "env_var": "DB_HOST",
+                    "env_value": "<DB_HOST>",
+                    "desc": "Database host (default: postgres)"
+                },
+                {
+                    "env_var": "DB_PORT",
+                    "env_value": "<DB_PORT>",
+                    "desc": "Database port (defaul: 5432)"
+                },
+                {
+                    "env_var": "REDIS_HOST",
+                    "env_value": "<REDIS_HOST>",
+                    "desc": "Redis host (default: redis)"
+                },
+                {
+                    "env_var": "REDIS_PORT",
+                    "env_value": "<REDIS_PORT>",
+                    "desc": "Redis port number (default: 6379)"
+                },
+                {
+                    "env_var": "REDIS_PASSWORD",
+                    "env_value": "<REDIS_PASSWORD>",
+                    "desc": "Redis password (default: none)"
+                },
+                {
+                    "env_var": "REDIS_DB_TASK",
+                    "env_value": "<REDIS_DB_TASK>",
+                    "desc": "Redis database ID for tasks (default: 0)"
+                },
+                {
+                    "env_var": "REDIS_DB_CACHE",
+                    "env_value": "<REDIS_DB_CACHE>",
+                    "desc": "Redis database ID for caching (default: 1)"
+                }
+            ],
+            "opt_param_usage_include_env": true,
+            "opt_param_env_vars": [
+                {
+                    "env_var": "BASE_PATH",
+                    "env_value": "<BASE_PATH>",
+                    "desc": "The path you will use to access the app (i.e., /netbox, optional, default: none)"
+                },
+                {
+                    "env_var": "REMOTE_AUTH_ENABLED",
+                    "env_value": "<REMOTE_AUTH_ENABLED>",
+                    "desc": "Enable remote authentication (optional, default: False)"
+                },
+                {
+                    "env_var": "REMOTE_AUTH_BACKEND",
+                    "env_value": "<REMOTE_AUTH_BACKEND>",
+                    "desc": "Python path to the custom Django authentication backend to use for external user authentication (optional, default: netbox.authentication.RemoteUserBackend)"
+                },
+                {
+                    "env_var": "REMOTE_AUTH_HEADER",
+                    "env_value": "<REMOTE_AUTH_HEADER>",
+                    "desc": "Name of the HTTP header which informs NetBox of the currently authenticated user. (optional, default: HTTP_REMOTE_USER)"
+                },
+                {
+                    "env_var": "REMOTE_AUTH_AUTO_CREATE_USER",
+                    "env_value": "<REMOTE_AUTH_AUTO_CREATE_USER>",
+                    "desc": "If true, NetBox will automatically create local accounts for users authenticated via a remote service (optional, default: False)"
+                },
+                {
+                    "env_var": "REMOTE_AUTH_DEFAULT_GROUPS",
+                    "env_value": "<REMOTE_AUTH_DEFAULT_GROUPS>",
+                    "desc": "The list of groups to assign a new user account when created using remote authentication (optional, default: [])"
+                },
+                {
+                    "env_var": "REMOTE_AUTH_DEFAULT_PERMISSIONS",
+                    "env_value": "<REMOTE_AUTH_DEFAULT_PERMISSIONS>",
+                    "desc": "A mapping of permissions to assign a new user account when created using remote authentication (optional, default: {})"
+                }
+            ],
+            "param_usage_include_ports": true,
+            "param_ports": [
+                {
+                    "external_port": "8000",
+                    "internal_port": "8000",
+                    "port_desc": "will map the container's port 8000 to port 8000 on the host"
+                }
+            ],
+            "app_setup_block_enabled": true,
+            "app_setup_block": "Netbox requires a postgres database and a redis instance.\n\nAccess the WebUI at <your-ip>:8000. For more information, check out [NetBox](https://github.com/netbox-community/netbox).\n",
+            "changelogs": [
+                {
+                    "date": "02.11.22:",
+                    "desc": "Rebase to Alpine 3.16, migrate to s6v3."
+                },
+                {
+                    "date": "01.08.22:",
+                    "desc": "Remove py3-pillow, add tiff to fix deps."
+                },
+                {
+                    "date": "26.07.22:",
+                    "desc": "Add py3-pillow package back on arm to fix build issue."
+                },
+                {
+                    "date": "10.12.21:",
+                    "desc": "Remove py3-pillow package to fix dependency issue with 3.2.0."
+                },
+                {
+                    "date": "10.12.21:",
+                    "desc": "Rebase to Alpine 3.15."
+                },
+                {
+                    "date": "26.04.21:",
+                    "desc": "Added Redis database environment variables."
+                },
+                {
+                    "date": "03.02.21:",
+                    "desc": "Added remote authentication environment variables."
+                },
+                {
+                    "date": "02.01.21:",
+                    "desc": "Added BASE_PATH environment variable."
+                },
+                {
+                    "date": "23.08.20:",
+                    "desc": "Initial Release."
+                }
+            ]
+        }
+    },
+    "setup": "Netbox requires a postgres database and a redis instance.\n\nAccess the WebUI at <your-ip>:8000. For more information, check out [NetBox](https://github.com/netbox-community/netbox).\n"
 }

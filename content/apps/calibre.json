@@ -32,9 +32,18 @@
                 },
                 {
                     "id": "TZ",
-                    "key": "TZ",
-                    "description": "Timezone",
-                    "default": "America/New_York"
+                    "default": "Europe/London",
+                    "description": "Specify a timezone to use EG Europe/London."
+                },
+                {
+                    "id": "PASSWORD",
+                    "default": "",
+                    "description": "Optionally set a password for the gui."
+                },
+                {
+                    "id": "CLI_ARGS",
+                    "default": "",
+                    "description": "Optionally pass cli start arguments to calibre."
                 }
             ],
             "volumes": [
@@ -47,13 +56,200 @@
             "ports": [
                 {
                     "container": "8080",
-                    "description": "Calibre desktop gui."
+                    "description": "Calibre desktop gui.",
+                    "protocol": "tcp",
+                    "web": false
                 },
                 {
                     "container": "8081",
-                    "description": "Calibre webserver gui."
+                    "description": "Calibre webserver gui.",
+                    "protocol": "tcp",
+                    "web": false
                 }
             ]
         }
-    ]
+    ],
+    "meta": {
+        "readme-vars": {
+            "project_name": "calibre",
+            "project_url": "https://calibre-ebook.com/",
+            "project_logo": "https://github.com/kovidgoyal/calibre/raw/master/resources/images/lt.png",
+            "project_blurb": "[{{ project_name|capitalize }}]({{ project_url }}) is a powerful and easy to use e-book manager. Users say it’s outstanding and a must-have. It’ll allow you to do nearly everything and it takes things a step beyond normal e-book software. It’s also completely free and open source and great for both casual users and computer experts.",
+            "project_lsio_github_repo_url": "https://github.com/linuxserver/docker-{{ project_name }}",
+            "project_blurb_optional_extras_enabled": false,
+            "available_architectures": [
+                {
+                    "arch": "{{ arch_x86_64 }}",
+                    "tag": "amd64-<version tag>"
+                },
+                {
+                    "arch": "{{ arch_arm64 }}",
+                    "tag": "arm64v8-<version tag>"
+                }
+            ],
+            "development_versions": false,
+            "common_param_env_vars_enabled": true,
+            "param_container_name": "{{ project_name }}",
+            "param_usage_include_net": false,
+            "param_usage_include_env": true,
+            "param_env_vars": [
+                {
+                    "env_var": "TZ",
+                    "env_value": "Europe/London",
+                    "desc": "Specify a timezone to use EG Europe/London."
+                }
+            ],
+            "param_usage_include_vols": true,
+            "param_volumes": [
+                {
+                    "vol_path": "/config",
+                    "vol_host_path": "/path/to/data",
+                    "desc": "Where calibre should store its database and library."
+                }
+            ],
+            "param_usage_include_ports": true,
+            "param_ports": [
+                {
+                    "external_port": "8080",
+                    "internal_port": "8080",
+                    "port_desc": "Calibre desktop gui."
+                },
+                {
+                    "external_port": "8081",
+                    "internal_port": "8081",
+                    "port_desc": "Calibre webserver gui."
+                }
+            ],
+            "param_device_map": false,
+            "cap_add_param": false,
+            "cap_add_param_vars": "",
+            "opt_param_usage_include_env": true,
+            "opt_param_env_vars": [
+                {
+                    "env_var": "PASSWORD",
+                    "env_value": "",
+                    "desc": "Optionally set a password for the gui."
+                },
+                {
+                    "env_var": "CLI_ARGS",
+                    "env_value": "",
+                    "desc": "Optionally pass cli start arguments to calibre."
+                }
+            ],
+            "opt_param_usage_include_vols": false,
+            "opt_param_usage_include_ports": false,
+            "opt_param_device_map": false,
+            "opt_cap_add_param": false,
+            "optional_block_1": false,
+            "opt_security_opt_param": true,
+            "opt_security_opt_param_vars": [
+                {
+                    "run_var": "seccomp=unconfined",
+                    "compose_var": "seccomp:unconfined",
+                    "desc": "For Docker Engine only, many modern gui apps need this to function as syscalls are unkown to Docker."
+                }
+            ],
+            "app_setup_block_enabled": true,
+            "app_setup_block": "This image sets up the calibre desktop app and makes its interface available via Guacamole server in the browser. The interface is available at `http://your-ip:8080`.\n\nBy default, there is no password set for the main gui. Optional environment variable `PASSWORD` will allow setting a password for the user `abc`.\n\nPort 8081 is reserved for Calibre's built-in webserver, which can be enabled within the desktop app settings, and the internal port must be set to `8081` although it will then be available at the host mapped port for external access.\n\nYou can access advanced features of the Guacamole remote desktop using `ctrl`+`alt`+`shift` enabling you to use remote copy/paste and different languages.\n",
+            "changelogs": [
+                {
+                    "date": "19.10.22:",
+                    "desc": "Set the window title to `Calibre`. Remove websocat as it is now handled properly in the baseimage."
+                },
+                {
+                    "date": "18.10.22:",
+                    "desc": "Deprecate Arch branch."
+                },
+                {
+                    "date": "07.10.22:",
+                    "desc": "Start calibre window maximized."
+                },
+                {
+                    "date": "16.09.22:",
+                    "desc": "Rebase to jammy."
+                },
+                {
+                    "date": "24.07.22:",
+                    "desc": "Add arm64 build for master branch."
+                },
+                {
+                    "date": "11.07.22:",
+                    "desc": "Update dependencies for Calibre 6."
+                },
+                {
+                    "date": "28.05.22:",
+                    "desc": "Rebase to focal."
+                },
+                {
+                    "date": "31.03.22:",
+                    "desc": "Fix umask."
+                },
+                {
+                    "date": "28.02.22:",
+                    "desc": "Add speech support to bionic image."
+                },
+                {
+                    "date": "05.01.22:",
+                    "desc": "Add arch branch for arm platforms."
+                },
+                {
+                    "date": "20.04.21:",
+                    "desc": "Fix the HOME folder."
+                },
+                {
+                    "date": "19.04.21:",
+                    "desc": "Add libnss3 back in. Make sure Calibre can access environment variables."
+                },
+                {
+                    "date": "18.04.21:",
+                    "desc": "Start calibre on container start rather than gui connect."
+                },
+                {
+                    "date": "15.04.21:",
+                    "desc": "Rebase to rdesktop-web baseimage. Deprecate `GUAC_USER` and `GUAC_PASS` env vars. Existing users can set the new var `PASSWORD` for the user `abc`."
+                },
+                {
+                    "date": "25.09.20:",
+                    "desc": "Switch to python3, add various new dependencies for calibre 5.0."
+                },
+                {
+                    "date": "10.05.19:",
+                    "desc": "Add new env var `CLI_ARGS` to pass start arguments to calibre."
+                },
+                {
+                    "date": "18.03.19:",
+                    "desc": "Let Calibre access environment variables, add optional umask setting."
+                },
+                {
+                    "date": "23.10.19:",
+                    "desc": "Remove reccomended deps and zenity for character compatibility."
+                },
+                {
+                    "date": "18.10.19:",
+                    "desc": "Add python-xdg."
+                },
+                {
+                    "date": "08.10.19:",
+                    "desc": "Add fonts-wqy-microhei ttf-wqy-zenhei fcitx-rime dependency to resolve issue with Chinese encoding."
+                },
+                {
+                    "date": "04.10.19:",
+                    "desc": "Add libxkbcommon-x11-0 dependency to resolve issue with Calibre 4."
+                },
+                {
+                    "date": "08.08.19:",
+                    "desc": "Add zenity for international character support in dialog boxes."
+                },
+                {
+                    "date": "12.07.19:",
+                    "desc": "Download binary from calibre website instead of github."
+                },
+                {
+                    "date": "29.04.19:",
+                    "desc": "Initial release."
+                }
+            ]
+        }
+    },
+    "setup": "This image sets up the calibre desktop app and makes its interface available via Guacamole server in the browser. The interface is available at `http://your-ip:8080`.\n\nBy default, there is no password set for the main gui. Optional environment variable `PASSWORD` will allow setting a password for the user `abc`.\n\nPort 8081 is reserved for Calibre's built-in webserver, which can be enabled within the desktop app settings, and the internal port must be set to `8081` although it will then be available at the host mapped port for external access.\n\nYou can access advanced features of the Guacamole remote desktop using `ctrl`+`alt`+`shift` enabling you to use remote copy/paste and different languages.\n"
 }

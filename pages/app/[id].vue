@@ -2,7 +2,7 @@
   <div v-if="!pending">
     <div class="max-w-5xl mx-aut">
       <div class="flex items-center gap-10">
-        <div class="w-full">
+        <div >
           <img class="h-24" :src="data.icon">
         </div>
         <div class="flex flex-col gap-2">
@@ -20,6 +20,13 @@
         </div>
       </div>
     </div>
+
+    <Section title="Setup" v-if="data.setup">
+      <div class="bg-gray-100 rounded p-4">
+        <div class="prose prose-sm max-w-none" v-html="setupData"></div>
+      </div>
+    </Section>
+
     <Section title="Docker Compose">
       <highlight-js :code="composeYaml"/>
     </Section>
@@ -54,8 +61,14 @@ useHead({
   ]
 });
 
+const { $mdRenderer } = useNuxtApp()
+
 const {yaml: composeYaml} = useDockerComposeTemplate(data);
 const {template: portainerJson} = usePortainerTemplate(data);
+
+const setupData = computed(() => {
+  return $mdRenderer.render(data.value.setup);
+})
 
 </script>
 

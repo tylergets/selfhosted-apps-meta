@@ -1,6 +1,7 @@
 {
     "id": "mods",
     "name": "mods",
+    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/mods.png",
     "links": [
         {
             "type": "docker",
@@ -27,14 +28,13 @@
                     "key": "PGID",
                     "description": "Group ID",
                     "default": "100"
-                },
-                {
-                    "id": "TZ",
-                    "key": "TZ",
-                    "description": "Timezone",
-                    "default": "America/New_York"
                 }
             ]
         }
-    ]
+    ],
+    "meta": {
+        "readme-vars": {
+            "404": "Not Found"
+        }
+    }
 }

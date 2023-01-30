@@ -29,12 +29,6 @@
                     "key": "PGID",
                     "description": "Group ID",
                     "default": "100"
-                },
-                {
-                    "id": "TZ",
-                    "key": "TZ",
-                    "description": "Timezone",
-                    "default": "America/New_York"
                 }
             ],
             "volumes": [
@@ -55,9 +49,114 @@
             "ports": [
                 {
                     "container": "8090",
-                    "description": "WebUI"
+                    "description": "WebUI",
+                    "protocol": "tcp",
+                    "web": false
                 }
             ]
         }
-    ]
+    ],
+    "meta": {
+        "readme-vars": {
+            "project_name": "mylar3",
+            "project_url": "https://github.com/mylar3/mylar3",
+            "project_logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mylar-icon.png",
+            "project_blurb": "[{{ project_name|capitalize }}]({{ project_url }}) is an automated Comic Book downloader (cbr/cbz) for use with NZB and torrents written in python. It supports SABnzbd, NZBGET, and many torrent clients in addition to DDL.",
+            "project_lsio_github_repo_url": "https://github.com/linuxserver/docker-{{ project_name }}",
+            "available_architectures": [
+                {
+                    "arch": "{{ arch_x86_64 }}",
+                    "tag": "amd64-latest"
+                },
+                {
+                    "arch": "{{ arch_arm64 }}",
+                    "tag": "arm64v8-latest"
+                },
+                {
+                    "arch": "{{ arch_armhf }}",
+                    "tag": "arm32v7-latest"
+                }
+            ],
+            "development_versions": true,
+            "development_versions_items": [
+                {
+                    "tag": "latest",
+                    "desc": "Stable Mylar3 releases"
+                },
+                {
+                    "tag": "nightly",
+                    "desc": "Commits to Mylar3 `python3-dev` branch"
+                }
+            ],
+            "param_container_name": "{{ project_name }}",
+            "param_usage_include_vols": true,
+            "param_volumes": [
+                {
+                    "vol_path": "/config",
+                    "vol_host_path": "/path/to/data",
+                    "desc": "Where mylar should store config files."
+                },
+                {
+                    "vol_path": "/comics",
+                    "vol_host_path": "/path/to/comics",
+                    "desc": "Map to your comics folder."
+                },
+                {
+                    "vol_path": "/downloads",
+                    "vol_host_path": "/path/to/downloads",
+                    "desc": "Map to your downloads folder."
+                }
+            ],
+            "param_usage_include_env": false,
+            "param_usage_include_ports": true,
+            "param_ports": [
+                {
+                    "external_port": "8090",
+                    "internal_port": "8090",
+                    "port_desc": "WebUI"
+                }
+            ],
+            "app_setup_block_enabled": true,
+            "app_setup_block": "The web ui for settings etc, is on `http://SERVERIP:8090`\nFor more detailed setup options, refer to [{{ project_name|capitalize }}]({{ project_url }}).\n",
+            "changelogs": [
+                {
+                    "date": "12.10.22:",
+                    "desc": "Rebase to alpine 3.16 and upgrade to s6v3."
+                },
+                {
+                    "date": "01.02.22:",
+                    "desc": "Rebase to alpine 3.15."
+                },
+                {
+                    "date": "02.11.21:",
+                    "desc": "Rebase to alpine 3.14. Remove `pathlib.py`."
+                },
+                {
+                    "date": "25.05.21:",
+                    "desc": "Add `libwebp` support."
+                },
+                {
+                    "date": "17.05.21:",
+                    "desc": "Add linuxserver wheel index."
+                },
+                {
+                    "date": "23.01.21:",
+                    "desc": "Rebasing to alpine 3.13."
+                },
+                {
+                    "date": "03.01.21:",
+                    "desc": "Output mylar log to docker log."
+                },
+                {
+                    "date": "21.12.20:",
+                    "desc": "Release `nightly` tag based on commits to upstream `python3-dev` branch."
+                },
+                {
+                    "date": "28.09.20:",
+                    "desc": "Initial release."
+                }
+            ]
+        }
+    },
+    "setup": "The web ui for settings etc, is on `http://SERVERIP:8090`\nFor more detailed setup options, refer to [{{ project_name|capitalize }}]({{ project_url }}).\n"
 }

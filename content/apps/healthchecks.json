@@ -31,10 +31,94 @@
                     "default": "100"
                 },
                 {
-                    "id": "TZ",
-                    "key": "TZ",
-                    "description": "Timezone",
-                    "default": "America/New_York"
+                    "id": "SITE_ROOT",
+                    "default": "",
+                    "description": "The site's top-level URL and the port it listens to if differrent than 80 or 443 (e.g., https://healthchecks.example.com:8000)"
+                },
+                {
+                    "id": "SITE_NAME",
+                    "default": "",
+                    "description": "The site's name (e.g., \"Example Corp HealthChecks\")"
+                },
+                {
+                    "id": "DEFAULT_FROM_EMAIL",
+                    "default": "",
+                    "description": "From email for alerts"
+                },
+                {
+                    "id": "EMAIL_HOST",
+                    "default": "",
+                    "description": "SMTP host"
+                },
+                {
+                    "id": "EMAIL_PORT",
+                    "default": "",
+                    "description": "SMTP port"
+                },
+                {
+                    "id": "EMAIL_HOST_USER",
+                    "default": "",
+                    "description": "SMTP user"
+                },
+                {
+                    "id": "EMAIL_HOST_PASSWORD",
+                    "default": "",
+                    "description": "SMTP password"
+                },
+                {
+                    "id": "EMAIL_USE_TLS",
+                    "default": "",
+                    "description": "Use TLS for SMTP (`True` or `False`)"
+                },
+                {
+                    "id": "SUPERUSER_EMAIL",
+                    "default": "",
+                    "description": "Superuser email"
+                },
+                {
+                    "id": "SUPERUSER_PASSWORD",
+                    "default": "",
+                    "description": "Superuser password"
+                },
+                {
+                    "id": "REGENERATE_SETTINGS",
+                    "default": "",
+                    "description": "Defaults to False. Set to True to always override the `local_settings.py` file with values from environment variables. Do not set to True if you have made manual modifications to this file."
+                },
+                {
+                    "id": "ALLOWED_HOSTS",
+                    "default": "",
+                    "description": "Array of valid hostnames for the server `[\"test.com\",\"test2.com\"]` (default: `[\"*\"]`)"
+                },
+                {
+                    "id": "APPRISE_ENABLED",
+                    "default": "",
+                    "description": "Defaults to False. A boolean that turns on/off the Apprise integration (https://github.com/caronc/apprise)"
+                },
+                {
+                    "id": "DEBUG",
+                    "default": "",
+                    "description": "Defaults to True. Debug mode relaxes CSRF protections and increases logging verbosity but should be disabled for production instances as it will impact performance and security."
+                },
+                {
+                    "id": "INTEGRATIONS_ALLOW_PRIVATE_IPS",
+                    "default": "",
+                    "description": "Defaults to False. Set to True to allow integrations to connect to private IP addresses."
+                },
+                {
+                    "id": "PING_EMAIL_DOMAIN",
+                    "default": "",
+                    "description": "The domain to use for generating ping email addresses."
+                },
+                {
+                    "id": "SECRET_KEY",
+                    "default": "",
+                    "description": "A secret key used for cryptographic signing. Will generate a secure value if one is not supplied"
+                },
+                {
+                    "id": "SITE_LOGO_URL",
+                    "default": "",
+                    "description": "Full URL to custom site logo"
                 }
             ],
             "volumes": [
@@ -47,9 +131,252 @@
             "ports": [
                 {
                     "container": "8000",
-                    "description": "Healthchecks Web UI"
+                    "description": "Healthchecks Web UI",
+                    "protocol": "tcp",
+                    "web": false
                 }
             ]
         }
-    ]
+    ],
+    "meta": {
+        "readme-vars": {
+            "project_name": "healthchecks",
+            "project_url": "https://github.com/healthchecks/healthchecks",
+            "project_logo": "https://raw.githubusercontent.com/healthchecks/healthchecks/master/static/img/welcome.png",
+            "project_blurb": "[{{ project_name|capitalize }}]({{ project_url }}) is a watchdog for your cron jobs. It's a web server that listens for pings from your cron jobs, plus a web interface.\n",
+            "project_lsio_github_repo_url": "https://github.com/linuxserver/docker-{{ project_name }}",
+            "available_architectures": [
+                {
+                    "arch": "{{ arch_x86_64 }}",
+                    "tag": "amd64-latest"
+                },
+                {
+                    "arch": "{{ arch_arm64 }}",
+                    "tag": "arm64v8-latest"
+                },
+                {
+                    "arch": "{{ arch_armhf }}",
+                    "tag": "arm32v7-latest"
+                }
+            ],
+            "param_container_name": "{{ project_name }}",
+            "param_usage_include_vols": true,
+            "param_volumes": [
+                {
+                    "vol_path": "/config",
+                    "vol_host_path": "/path/to/data",
+                    "desc": "Database and healthchecks config directory"
+                }
+            ],
+            "param_usage_include_env": true,
+            "param_env_vars": [
+                {
+                    "env_var": "SITE_ROOT",
+                    "env_value": "",
+                    "desc": "The site's top-level URL and the port it listens to if differrent than 80 or 443 (e.g., https://healthchecks.example.com:8000)"
+                },
+                {
+                    "env_var": "SITE_NAME",
+                    "env_value": "",
+                    "desc": "The site's name (e.g., \"Example Corp HealthChecks\")"
+                },
+                {
+                    "env_var": "DEFAULT_FROM_EMAIL",
+                    "env_value": "",
+                    "desc": "From email for alerts"
+                },
+                {
+                    "env_var": "EMAIL_HOST",
+                    "env_value": "",
+                    "desc": "SMTP host"
+                },
+                {
+                    "env_var": "EMAIL_PORT",
+                    "env_value": "",
+                    "desc": "SMTP port"
+                },
+                {
+                    "env_var": "EMAIL_HOST_USER",
+                    "env_value": "",
+                    "desc": "SMTP user"
+                },
+                {
+                    "env_var": "EMAIL_HOST_PASSWORD",
+                    "env_value": "",
+                    "desc": "SMTP password"
+                },
+                {
+                    "env_var": "EMAIL_USE_TLS",
+                    "env_value": "",
+                    "desc": "Use TLS for SMTP (`True` or `False`)"
+                },
+                {
+                    "env_var": "SUPERUSER_EMAIL",
+                    "env_value": "",
+                    "desc": "Superuser email"
+                },
+                {
+                    "env_var": "SUPERUSER_PASSWORD",
+                    "env_value": "",
+                    "desc": "Superuser password"
+                }
+            ],
+            "opt_param_usage_include_env": true,
+            "opt_param_env_vars": [
+                {
+                    "env_var": "REGENERATE_SETTINGS",
+                    "env_value": "",
+                    "desc": "Defaults to False. Set to True to always override the `local_settings.py` file with values from environment variables. Do not set to True if you have made manual modifications to this file."
+                },
+                {
+                    "env_var": "ALLOWED_HOSTS",
+                    "env_value": "",
+                    "desc": "Array of valid hostnames for the server `[\"test.com\",\"test2.com\"]` (default: `[\"*\"]`)"
+                },
+                {
+                    "env_var": "APPRISE_ENABLED",
+                    "env_value": "",
+                    "desc": "Defaults to False. A boolean that turns on/off the Apprise integration (https://github.com/caronc/apprise)"
+                },
+                {
+                    "env_var": "DEBUG",
+                    "env_value": "",
+                    "desc": "Defaults to True. Debug mode relaxes CSRF protections and increases logging verbosity but should be disabled for production instances as it will impact performance and security."
+                },
+                {
+                    "env_var": "INTEGRATIONS_ALLOW_PRIVATE_IPS",
+                    "env_value": "",
+                    "desc": "Defaults to False. Set to True to allow integrations to connect to private IP addresses."
+                },
+                {
+                    "env_var": "PING_EMAIL_DOMAIN",
+                    "env_value": "",
+                    "desc": "The domain to use for generating ping email addresses."
+                },
+                {
+                    "env_var": "SECRET_KEY",
+                    "env_value": "",
+                    "desc": "A secret key used for cryptographic signing. Will generate a secure value if one is not supplied"
+                },
+                {
+                    "env_var": "SITE_LOGO_URL",
+                    "env_value": "",
+                    "desc": "Full URL to custom site logo"
+                }
+            ],
+            "param_usage_include_ports": true,
+            "param_ports": [
+                {
+                    "external_port": "8000",
+                    "internal_port": "8000",
+                    "port_desc": "Healthchecks Web UI"
+                }
+            ],
+            "opt_param_usage_include_ports": true,
+            "opt_param_ports": [
+                {
+                    "external_port": "2525",
+                    "internal_port": "2525",
+                    "port_desc": "Port for inbound SMTP pings"
+                }
+            ],
+            "app_setup_block_enabled": true,
+            "app_setup_block": "Access the WebUI at <your-ip>:8000. For more information, check out [Healthchecks](https://github.com/healthchecks/healthchecks).\n",
+            "changelogs": [
+                {
+                    "date": "22.12.22:",
+                    "desc": "Rebase to Alpine 3.17. Add extra deps for pycurl. Add INTEGRATIONS_ALLOW_PRIVATE_IPS."
+                },
+                {
+                    "date": "18.10.22:",
+                    "desc": "Add curl-dev to fix broken pip builds."
+                },
+                {
+                    "date": "11.10.22:",
+                    "desc": "Rebase to Alpine 3.16, migrate to s6v3."
+                },
+                {
+                    "date": "27.09.22:",
+                    "desc": "Fix sending of Email Reports"
+                },
+                {
+                    "date": "08.01.22:",
+                    "desc": "Fix CSRF setting for Django 4.0 (introduced in v1.25.0)"
+                },
+                {
+                    "date": "11.11.21:",
+                    "desc": "Add Apprise to Docker as in v1.24.0"
+                },
+                {
+                    "date": "10.09.21:",
+                    "desc": "Fix creation of superuser"
+                },
+                {
+                    "date": "07.08.21:",
+                    "desc": "Update custom logo handling to support changes in v1.22.0"
+                },
+                {
+                    "date": "11.07.21:",
+                    "desc": "Rebase to Alpine 3.14."
+                },
+                {
+                    "date": "18.05.21:",
+                    "desc": "Add linuxserver wheel index."
+                },
+                {
+                    "date": "11.01.21:",
+                    "desc": "Add libffi-dev to allow building of python cryptography lib."
+                },
+                {
+                    "date": "19.07.20:",
+                    "desc": "Rebasing to alpine 3.12, fixed 'ALLOWED_HOSTS' bug, now defaults to wildcard"
+                },
+                {
+                    "date": "19.12.19:",
+                    "desc": "Rebasing to alpine 3.11."
+                },
+                {
+                    "date": "31.10.19:",
+                    "desc": "Add postgres client and fix config for CSRF."
+                },
+                {
+                    "date": "23.10.19:",
+                    "desc": "Allow to create superuser"
+                },
+                {
+                    "date": "28.06.19:",
+                    "desc": "Rebasing to alpine 3.10."
+                },
+                {
+                    "date": "12.04.19:",
+                    "desc": "Rebase to Alpine 3.9."
+                },
+                {
+                    "date": "23.03.19:",
+                    "desc": "Switching to new Base images, shift to arm32v7 tag."
+                },
+                {
+                    "date": "14.02.19:",
+                    "desc": "Adding mysql libs needed for using a database."
+                },
+                {
+                    "date": "11.10.18:",
+                    "desc": "adding pipeline logic and multi arching release"
+                },
+                {
+                    "date": "15.11.17:",
+                    "desc": "`git pull` is now in Dockerfile so each tagged container contains the same code version"
+                },
+                {
+                    "date": "17.10.17:",
+                    "desc": "Fixed `local_settings.py` output"
+                },
+                {
+                    "date": "27.09.17:",
+                    "desc": "Initial Release."
+                }
+            ]
+        }
+    },
+    "setup": "Access the WebUI at <your-ip>:8000. For more information, check out [Healthchecks](https://github.com/healthchecks/healthchecks).\n"
 }

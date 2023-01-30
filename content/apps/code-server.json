@@ -1,6 +1,7 @@
 {
     "id": "code-server",
     "name": "code-server",
+    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/codeserver.png",
     "links": [
         {
             "type": "docker",
@@ -27,14 +28,18 @@
                     "key": "PGID",
                     "description": "Group ID",
                     "default": "100"
-                },
-                {
-                    "id": "TZ",
-                    "key": "TZ",
-                    "description": "Timezone",
-                    "default": "America/New_York"
                 }
             ]
         }
-    ]
+    ],
+    "meta": {
+        "readme-vars": {
+            "param_usage_include_ports": false,
+            "param_usage_include_vols": false,
+            "param_usage_include_env": false,
+            "param_volumes": [],
+            "param_ports": [],
+            "param_env_vars": []
+        }
+    }
 }

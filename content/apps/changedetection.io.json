@@ -32,9 +32,13 @@
                 },
                 {
                     "id": "TZ",
-                    "key": "TZ",
-                    "description": "Timezone",
-                    "default": "America/New_York"
+                    "default": "Europe/London",
+                    "description": "Specify a timezone to use EG Europe/London"
+                },
+                {
+                    "id": "BASE_URL",
+                    "default": "",
+                    "description": "Specify the full URL (including protocol) when running behind a reverse proxy"
                 }
             ],
             "volumes": [
@@ -47,9 +51,87 @@
             "ports": [
                 {
                     "container": "5000",
-                    "description": "WebUI"
+                    "description": "WebUI",
+                    "protocol": "tcp",
+                    "web": false
                 }
             ]
         }
-    ]
+    ],
+    "meta": {
+        "readme-vars": {
+            "project_name": "changedetection.io",
+            "project_url": "https://github.com/dgtlmoon/changedetection.io",
+            "project_logo": "https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/changedetection-icon.png",
+            "project_blurb": "[{{ project_name|capitalize }}]({{ project_url }}) provides free, open-source web page monitoring, notification and change detection.",
+            "project_lsio_github_repo_url": "https://github.com/linuxserver/docker-{{ project_name }}",
+            "available_architectures": [
+                {
+                    "arch": "{{ arch_x86_64 }}",
+                    "tag": "amd64-latest"
+                },
+                {
+                    "arch": "{{ arch_arm64 }}",
+                    "tag": "arm64v8-latest"
+                },
+                {
+                    "arch": "{{ arch_armhf }}",
+                    "tag": "arm32v7-latest"
+                }
+            ],
+            "development_versions": false,
+            "common_param_env_vars_enabled": true,
+            "param_container_name": "{{ project_name }}",
+            "param_usage_include_vols": true,
+            "param_volumes": [
+                {
+                    "vol_path": "/config",
+                    "vol_host_path": "/path/to/appdata/config",
+                    "desc": "Contains all relevant configuration files."
+                }
+            ],
+            "param_usage_include_ports": true,
+            "param_ports": [
+                {
+                    "external_port": "5000",
+                    "internal_port": "5000",
+                    "port_desc": "WebUI"
+                }
+            ],
+            "param_usage_include_env": true,
+            "param_env_vars": [
+                {
+                    "env_var": "TZ",
+                    "env_value": "Europe/London",
+                    "desc": "Specify a timezone to use EG Europe/London"
+                }
+            ],
+            "opt_param_usage_include_env": true,
+            "opt_param_env_vars": [
+                {
+                    "env_var": "BASE_URL",
+                    "env_value": "",
+                    "desc": "Specify the full URL (including protocol) when running behind a reverse proxy"
+                }
+            ],
+            "custom_compose": "---\nversion: \"2.1\"\nservices:\n  changedetection:\n    image: lscr.io/linuxserver/changedetection.io:latest\n    container_name: changedetection\n    environment:\n      - PUID=1000\n      - PGID=1000\n      - TZ=Europe/London\n      - BASE_URL= #optional\n    volumes:\n      - /path/to/appdata/config:/config\n    ports:\n      - 5000:5000\n    restart: unless-stopped\n",
+            "app_setup_block_enabled": true,
+            "app_setup_block": "Webui is accessible at http://SERVERIP:PORT\n\nPlease note that this image does not contain the [Playwright content fetcher](https://github.com/dgtlmoon/changedetection.io/wiki/Playwright-content-fetcher#docker-compose-based) due to a lack of support for muslc-based systems. If you require this feature please use [Selenium](https://github.com/linuxserver/docker-changedetection.io/issues/3#issuecomment-1250251715) or the [official container](https://github.com/dgtlmoon/changedetection.io#docker)\n\nFor more info read [the wiki](https://github.com/dgtlmoon/changedetection.io/wiki).\n",
+            "changelogs": [
+                {
+                    "date": "23.10.22:",
+                    "desc": "Rebase to Alpine 3.16, migrate to s6v3."
+                },
+                {
+                    "date": "09.10.22:",
+                    "desc": "Add make as build dep to fix pip jq build on armhf."
+                },
+                {
+                    "date": "07.08.22:",
+                    "desc": "Initial release."
+                }
+            ]
+        }
+    },
+    "setup": "Webui is accessible at http://SERVERIP:PORT\n\nPlease note that this image does not contain the [Playwright content fetcher](https://github.com/dgtlmoon/changedetection.io/wiki/Playwright-content-fetcher#docker-compose-based) due to a lack of support for muslc-based systems. If you require this feature please use [Selenium](https://github.com/linuxserver/docker-changedetection.io/issues/3#issuecomment-1250251715) or the [official container](https://github.com/dgtlmoon/changedetection.io#docker)\n\nFor more info read [the wiki](https://github.com/dgtlmoon/changedetection.io/wiki).\n"
 }

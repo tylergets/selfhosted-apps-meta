@@ -32,9 +32,8 @@
                 },
                 {
                     "id": "TZ",
-                    "key": "TZ",
-                    "description": "Timezone",
-                    "default": "America/New_York"
+                    "default": "Europe/Oslo",
+                    "description": "Timezone (i.e., Europe/Oslo)"
                 }
             ],
             "volumes": [
@@ -47,13 +46,99 @@
             "ports": [
                 {
                     "container": "80",
-                    "description": "http gui"
+                    "description": "http gui",
+                    "protocol": "tcp",
+                    "web": false
                 },
                 {
                     "container": "443",
-                    "description": "https gui"
+                    "description": "https gui",
+                    "protocol": "tcp",
+                    "web": false
                 }
             ]
         }
-    ]
+    ],
+    "meta": {
+        "readme-vars": {
+            "project_name": "xbackbone",
+            "project_url": "https://github.com/SergiX44/XBackBone",
+            "project_logo": "https://raw.githubusercontent.com/SergiX44/XBackBone/master/docs/img/xbackbone.png",
+            "project_blurb": "[{{ project_name|capitalize }}]({{ project_url }}) is a simple, self-hosted, lightweight PHP file manager that support the instant sharing tool ShareX and *NIX systems. It supports uploading and displaying images, GIF, video, code, formatted text, and file downloading and uploading. Also have a web UI with multi user management, past uploads history and search support.\n",
+            "project_lsio_github_repo_url": "https://github.com/linuxserver/docker-{{ project_name }}",
+            "available_architectures": [
+                {
+                    "arch": "{{ arch_x86_64 }}",
+                    "tag": "amd64-latest"
+                },
+                {
+                    "arch": "{{ arch_arm64 }}",
+                    "tag": "arm64v8-latest"
+                },
+                {
+                    "arch": "{{ arch_armhf }}",
+                    "tag": "arm32v7-latest"
+                }
+            ],
+            "param_container_name": "{{ project_name }}",
+            "param_usage_include_vols": true,
+            "param_volumes": [
+                {
+                    "vol_path": "/config",
+                    "vol_host_path": "/path/to/data",
+                    "desc": "config directory volume mapping"
+                }
+            ],
+            "param_usage_include_env": true,
+            "param_env_vars": [
+                {
+                    "env_var": "TZ",
+                    "env_value": "Europe/Oslo",
+                    "desc": "Timezone (i.e., Europe/Oslo)"
+                }
+            ],
+            "param_usage_include_ports": true,
+            "param_ports": [
+                {
+                    "external_port": "80",
+                    "internal_port": "80",
+                    "port_desc": "http gui"
+                },
+                {
+                    "external_port": "443",
+                    "internal_port": "443",
+                    "port_desc": "https gui"
+                }
+            ],
+            "app_setup_block_enabled": true,
+            "app_setup_block": "Access the WebUI at \\<your-ip>:80/443. Follow the installation wizard. For more information, check out [XBackBone](https://github.com/SergiX44/XBackBone).\n\nIf you want to change the PHP max upload size you can override the php.ini file by adding options in `/config/php/php-local.ini`\n\nExample:\n\n```ini\n  upload_max_filesize = 25M\n  post_max_size = 25M\n```\n\nFor reverse proxying, remember to change the `base_url` in `/config/www/xbackbone/config.php` to your domain if you initially set up the application with a local url. E.g. `'base_url' => 'https://images.yourdomain.com',`\n",
+            "changelogs": [
+                {
+                    "date": "19.01.23:",
+                    "desc": "Rebase to alpine 3.17 with php8.1."
+                },
+                {
+                    "date": "04.11.22:",
+                    "desc": "Rebase to Alpine 3.16, migrate to s6v3."
+                },
+                {
+                    "date": "01.11.22:",
+                    "desc": "Move application install to /app/www/public, add migration notices for existing users. Container updates should now update the application correctly"
+                },
+                {
+                    "date": "20.08.22:",
+                    "desc": "Rebasing to alpine 3.15 with php8. Restructure nginx configs ([see changes announcement](https://info.linuxserver.io/issues/2022-08-20-nginx-base))."
+                },
+                {
+                    "date": "02.08.22:",
+                    "desc": "Added note about updating."
+                },
+                {
+                    "date": "06.06.21:",
+                    "desc": "Initial Release."
+                }
+            ]
+        }
+    },
+    "setup": "Access the WebUI at \\<your-ip>:80/443. Follow the installation wizard. For more information, check out [XBackBone](https://github.com/SergiX44/XBackBone).\n\nIf you want to change the PHP max upload size you can override the php.ini file by adding options in `/config/php/php-local.ini`\n\nExample:\n\n```ini\n  upload_max_filesize = 25M\n  post_max_size = 25M\n```\n\nFor reverse proxying, remember to change the `base_url` in `/config/www/xbackbone/config.php` to your domain if you initially set up the application with a local url. E.g. `'base_url' => 'https://images.yourdomain.com',`\n"
 }
