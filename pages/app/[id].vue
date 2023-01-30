@@ -24,6 +24,10 @@
       <highlight-js :code="composeYaml"/>
     </Section>
 
+    <Section title="Portainer Stack">
+      <highlight-js :code="portainerJson"/>
+    </Section>
+
     <Section title="Complete Meta Data">
       <highlight-js :code="JSON.stringify(data, null, 4)"/>
     </Section>
@@ -34,6 +38,7 @@
 <script setup>
 import {useDockerComposeTemplate} from "~/meta/docker/render/compose";
 import Section from "~/components/Section.vue";
+import {usePortainerTemplate} from "~/meta/docker/render/portainer";
 
 const route = useRoute();
 const { data, pending } = await useAsyncData(route.params.id, () => queryContent('/apps/' + route.params.id).findOne());
@@ -50,6 +55,7 @@ useHead({
 });
 
 const {yaml: composeYaml} = useDockerComposeTemplate(data);
+const {template: portainerJson} = usePortainerTemplate(data);
 
 </script>
 

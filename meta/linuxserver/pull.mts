@@ -54,6 +54,7 @@ import findIconForName from "../icon/finder.mjs";
             ]
         };
 
+        // TODO Replace with readme-vars.yml from each github repo
         await enhanceAppWithInspection(app);
 
         for(const container of app.containers) {

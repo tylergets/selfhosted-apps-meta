@@ -21,9 +21,10 @@ export interface AppPort {
 }
 
 export interface AppEnv {
-    id: string;
     key?: string;
-    description: string;
+    id: string;
+    label?: string;
+    description?: string;
     default?: string;
 }
 
@@ -39,6 +40,7 @@ export interface App {
     id: string;
     name: string;
     description?: string;
+    categories?: string[];
     icon?: string;
     containers: AppContainer[];
     links?: AppLink[];
