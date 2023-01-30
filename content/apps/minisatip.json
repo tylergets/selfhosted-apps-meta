@@ -1,0 +1,62 @@
+{
+    "id": "minisatip",
+    "name": "minisatip",
+    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/minisatip.png",
+    "links": [
+        {
+            "type": "docker",
+            "url": "https://hub.docker.com/r/linuxserver/minisatip"
+        },
+        {
+            "type": "docs",
+            "url": "https://docs.linuxserver.io/images/docker-minisatip"
+        }
+    ],
+    "containers": [
+        {
+            "name": "minisatip",
+            "image": "linuxserver/minisatip",
+            "env": [
+                {
+                    "id": "PUID",
+                    "key": "PUID",
+                    "description": "User ID",
+                    "default": "100"
+                },
+                {
+                    "id": "PGID",
+                    "key": "PGID",
+                    "description": "Group ID",
+                    "default": "100"
+                },
+                {
+                    "id": "TZ",
+                    "key": "TZ",
+                    "description": "Timezone",
+                    "default": "America/New_York"
+                }
+            ],
+            "volumes": [],
+            "ports": [
+                {
+                    "container": 1900,
+                    "description": "Image exposes port 1900 over udp",
+                    "protocol": "udp",
+                    "web": false
+                },
+                {
+                    "container": 554,
+                    "description": "Image exposes port 554 over tcp",
+                    "protocol": "tcp",
+                    "web": true
+                },
+                {
+                    "container": 8875,
+                    "description": "Image exposes port 8875 over tcp",
+                    "protocol": "tcp",
+                    "web": true
+                }
+            ]
+        }
+    ]
+}

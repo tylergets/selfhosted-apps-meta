@@ -1,0 +1,43 @@
+{
+    "id": "ffmpeg",
+    "name": "ffmpeg",
+    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/ffmpeg.png",
+    "links": [
+        {
+            "type": "docker",
+            "url": "https://hub.docker.com/r/linuxserver/ffmpeg"
+        },
+        {
+            "type": "docs",
+            "url": "https://docs.linuxserver.io/images/docker-ffmpeg"
+        }
+    ],
+    "containers": [
+        {
+            "name": "ffmpeg",
+            "image": "linuxserver/ffmpeg",
+            "env": [
+                {
+                    "id": "PUID",
+                    "key": "PUID",
+                    "description": "User ID",
+                    "default": "100"
+                },
+                {
+                    "id": "PGID",
+                    "key": "PGID",
+                    "description": "Group ID",
+                    "default": "100"
+                },
+                {
+                    "id": "TZ",
+                    "key": "TZ",
+                    "description": "Timezone",
+                    "default": "America/New_York"
+                }
+            ],
+            "volumes": [],
+            "ports": []
+        }
+    ]
+}

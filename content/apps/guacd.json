@@ -1,0 +1,50 @@
+{
+    "id": "guacd",
+    "name": "guacd",
+    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/guacd.png",
+    "links": [
+        {
+            "type": "docker",
+            "url": "https://hub.docker.com/r/linuxserver/guacd"
+        },
+        {
+            "type": "docs",
+            "url": "https://docs.linuxserver.io/images/docker-guacd"
+        }
+    ],
+    "containers": [
+        {
+            "name": "guacd",
+            "image": "linuxserver/guacd",
+            "env": [
+                {
+                    "id": "PUID",
+                    "key": "PUID",
+                    "description": "User ID",
+                    "default": "100"
+                },
+                {
+                    "id": "PGID",
+                    "key": "PGID",
+                    "description": "Group ID",
+                    "default": "100"
+                },
+                {
+                    "id": "TZ",
+                    "key": "TZ",
+                    "description": "Timezone",
+                    "default": "America/New_York"
+                }
+            ],
+            "volumes": [],
+            "ports": [
+                {
+                    "container": 4822,
+                    "description": "Image exposes port 4822 over tcp",
+                    "protocol": "tcp",
+                    "web": true
+                }
+            ]
+        }
+    ]
+}

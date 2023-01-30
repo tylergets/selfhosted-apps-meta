@@ -1,0 +1,50 @@
+{
+    "id": "apprise-api",
+    "name": "apprise-api",
+    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/appriseapi.png",
+    "links": [
+        {
+            "type": "docker",
+            "url": "https://hub.docker.com/r/linuxserver/apprise-api"
+        },
+        {
+            "type": "docs",
+            "url": "https://docs.linuxserver.io/images/docker-apprise-api"
+        }
+    ],
+    "containers": [
+        {
+            "name": "apprise-api",
+            "image": "linuxserver/apprise-api",
+            "env": [
+                {
+                    "id": "PUID",
+                    "key": "PUID",
+                    "description": "User ID",
+                    "default": "100"
+                },
+                {
+                    "id": "PGID",
+                    "key": "PGID",
+                    "description": "Group ID",
+                    "default": "100"
+                },
+                {
+                    "id": "TZ",
+                    "key": "TZ",
+                    "description": "Timezone",
+                    "default": "America/New_York"
+                }
+            ],
+            "volumes": [],
+            "ports": [
+                {
+                    "container": 8000,
+                    "description": "Image exposes port 8000 over tcp",
+                    "protocol": "tcp",
+                    "web": true
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,62 @@
+{
+    "id": "diskover",
+    "name": "diskover",
+    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/diskover.png",
+    "links": [
+        {
+            "type": "docker",
+            "url": "https://hub.docker.com/r/linuxserver/diskover"
+        },
+        {
+            "type": "docs",
+            "url": "https://docs.linuxserver.io/images/docker-diskover"
+        }
+    ],
+    "containers": [
+        {
+            "name": "diskover",
+            "image": "linuxserver/diskover",
+            "env": [
+                {
+                    "id": "PUID",
+                    "key": "PUID",
+                    "description": "User ID",
+                    "default": "100"
+                },
+                {
+                    "id": "PGID",
+                    "key": "PGID",
+                    "description": "Group ID",
+                    "default": "100"
+                },
+                {
+                    "id": "TZ",
+                    "key": "TZ",
+                    "description": "Timezone",
+                    "default": "America/New_York"
+                }
+            ],
+            "volumes": [
+                {
+                    "container": "/config",
+                    "description": "Image exposes volume mounted at /config",
+                    "key": "config"
+                }
+            ],
+            "ports": [
+                {
+                    "container": 443,
+                    "description": "Image exposes port 443 over tcp",
+                    "protocol": "tcp",
+                    "web": true
+                },
+                {
+                    "container": 80,
+                    "description": "Image exposes port 80 over tcp",
+                    "protocol": "tcp",
+                    "web": true
+                }
+            ]
+        }
+    ]
+}

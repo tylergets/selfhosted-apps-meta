@@ -1,0 +1,56 @@
+{
+    "id": "ldap-auth",
+    "name": "ldap-auth",
+    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/ldapauth.png",
+    "links": [
+        {
+            "type": "docker",
+            "url": "https://hub.docker.com/r/linuxserver/ldap-auth"
+        },
+        {
+            "type": "docs",
+            "url": "https://docs.linuxserver.io/images/docker-ldap-auth"
+        }
+    ],
+    "containers": [
+        {
+            "name": "ldap-auth",
+            "image": "linuxserver/ldap-auth",
+            "env": [
+                {
+                    "id": "PUID",
+                    "key": "PUID",
+                    "description": "User ID",
+                    "default": "100"
+                },
+                {
+                    "id": "PGID",
+                    "key": "PGID",
+                    "description": "Group ID",
+                    "default": "100"
+                },
+                {
+                    "id": "TZ",
+                    "key": "TZ",
+                    "description": "Timezone",
+                    "default": "America/New_York"
+                }
+            ],
+            "volumes": [],
+            "ports": [
+                {
+                    "container": 8888,
+                    "description": "Image exposes port 8888 over tcp",
+                    "protocol": "tcp",
+                    "web": true
+                },
+                {
+                    "container": 9000,
+                    "description": "Image exposes port 9000 over tcp",
+                    "protocol": "tcp",
+                    "web": true
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,74 @@
+{
+    "id": "deluge",
+    "name": "deluge",
+    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/deluge.png",
+    "links": [
+        {
+            "type": "docker",
+            "url": "https://hub.docker.com/r/linuxserver/deluge"
+        },
+        {
+            "type": "docs",
+            "url": "https://docs.linuxserver.io/images/docker-deluge"
+        }
+    ],
+    "containers": [
+        {
+            "name": "deluge",
+            "image": "linuxserver/deluge",
+            "env": [
+                {
+                    "id": "PUID",
+                    "key": "PUID",
+                    "description": "User ID",
+                    "default": "100"
+                },
+                {
+                    "id": "PGID",
+                    "key": "PGID",
+                    "description": "Group ID",
+                    "default": "100"
+                },
+                {
+                    "id": "TZ",
+                    "key": "TZ",
+                    "description": "Timezone",
+                    "default": "America/New_York"
+                }
+            ],
+            "volumes": [
+                {
+                    "container": "/config",
+                    "description": "Image exposes volume mounted at /config",
+                    "key": "config"
+                }
+            ],
+            "ports": [
+                {
+                    "container": 58846,
+                    "description": "Image exposes port 58846 over tcp",
+                    "protocol": "tcp",
+                    "web": true
+                },
+                {
+                    "container": 58946,
+                    "description": "Image exposes port 58946 over tcp",
+                    "protocol": "tcp",
+                    "web": true
+                },
+                {
+                    "container": 58946,
+                    "description": "Image exposes port 58946 over udp",
+                    "protocol": "udp",
+                    "web": false
+                },
+                {
+                    "container": 8112,
+                    "description": "Image exposes port 8112 over tcp",
+                    "protocol": "tcp",
+                    "web": true
+                }
+            ]
+        }
+    ]
+}

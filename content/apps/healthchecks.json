@@ -1,0 +1,56 @@
+{
+    "id": "healthchecks",
+    "name": "healthchecks",
+    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/healthchecks.png",
+    "links": [
+        {
+            "type": "docker",
+            "url": "https://hub.docker.com/r/linuxserver/healthchecks"
+        },
+        {
+            "type": "docs",
+            "url": "https://docs.linuxserver.io/images/docker-healthchecks"
+        }
+    ],
+    "containers": [
+        {
+            "name": "healthchecks",
+            "image": "linuxserver/healthchecks",
+            "env": [
+                {
+                    "id": "PUID",
+                    "key": "PUID",
+                    "description": "User ID",
+                    "default": "100"
+                },
+                {
+                    "id": "PGID",
+                    "key": "PGID",
+                    "description": "Group ID",
+                    "default": "100"
+                },
+                {
+                    "id": "TZ",
+                    "key": "TZ",
+                    "description": "Timezone",
+                    "default": "America/New_York"
+                }
+            ],
+            "volumes": [
+                {
+                    "container": "/config",
+                    "description": "Image exposes volume mounted at /config",
+                    "key": "config"
+                }
+            ],
+            "ports": [
+                {
+                    "container": 8000,
+                    "description": "Image exposes port 8000 over tcp",
+                    "protocol": "tcp",
+                    "web": true
+                }
+            ]
+        }
+    ]
+}

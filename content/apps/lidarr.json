@@ -1,0 +1,56 @@
+{
+    "id": "lidarr",
+    "name": "lidarr",
+    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/lidarr.png",
+    "links": [
+        {
+            "type": "docker",
+            "url": "https://hub.docker.com/r/linuxserver/lidarr"
+        },
+        {
+            "type": "docs",
+            "url": "https://docs.linuxserver.io/images/docker-lidarr"
+        }
+    ],
+    "containers": [
+        {
+            "name": "lidarr",
+            "image": "linuxserver/lidarr",
+            "env": [
+                {
+                    "id": "PUID",
+                    "key": "PUID",
+                    "description": "User ID",
+                    "default": "100"
+                },
+                {
+                    "id": "PGID",
+                    "key": "PGID",
+                    "description": "Group ID",
+                    "default": "100"
+                },
+                {
+                    "id": "TZ",
+                    "key": "TZ",
+                    "description": "Timezone",
+                    "default": "America/New_York"
+                }
+            ],
+            "volumes": [
+                {
+                    "container": "/config",
+                    "description": "Image exposes volume mounted at /config",
+                    "key": "config"
+                }
+            ],
+            "ports": [
+                {
+                    "container": 8686,
+                    "description": "Image exposes port 8686 over tcp",
+                    "protocol": "tcp",
+                    "web": true
+                }
+            ]
+        }
+    ]
+}

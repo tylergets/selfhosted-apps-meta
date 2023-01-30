@@ -1,0 +1,60 @@
+{
+    "id": "daapd",
+    "name": "daapd",
+    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/daapd.png",
+    "links": [
+        {
+            "type": "docker",
+            "url": "https://hub.docker.com/r/linuxserver/daapd"
+        },
+        {
+            "type": "docs",
+            "url": "https://docs.linuxserver.io/images/docker-daapd"
+        }
+    ],
+    "containers": [
+        {
+            "name": "daapd",
+            "image": "linuxserver/daapd",
+            "env": [
+                {
+                    "id": "PUID",
+                    "key": "PUID",
+                    "description": "User ID",
+                    "default": "100"
+                },
+                {
+                    "id": "PGID",
+                    "key": "PGID",
+                    "description": "Group ID",
+                    "default": "100"
+                },
+                {
+                    "id": "TZ",
+                    "key": "TZ",
+                    "description": "Timezone",
+                    "default": "America/New_York"
+                }
+            ],
+            "volumes": [
+                {
+                    "container": "/config",
+                    "description": "Image exposes volume mounted at /config",
+                    "key": "config"
+                },
+                {
+                    "container": "/music",
+                    "description": "Image exposes volume mounted at /music"
+                }
+            ],
+            "ports": [
+                {
+                    "container": 3689,
+                    "description": "Image exposes port 3689 over tcp",
+                    "protocol": "tcp",
+                    "web": true
+                }
+            ]
+        }
+    ]
+}

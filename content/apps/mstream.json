@@ -1,0 +1,60 @@
+{
+    "id": "mstream",
+    "name": "mstream",
+    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/mstream.png",
+    "links": [
+        {
+            "type": "docker",
+            "url": "https://hub.docker.com/r/linuxserver/mstream"
+        },
+        {
+            "type": "docs",
+            "url": "https://docs.linuxserver.io/images/docker-mstream"
+        }
+    ],
+    "containers": [
+        {
+            "name": "mstream",
+            "image": "linuxserver/mstream",
+            "env": [
+                {
+                    "id": "PUID",
+                    "key": "PUID",
+                    "description": "User ID",
+                    "default": "100"
+                },
+                {
+                    "id": "PGID",
+                    "key": "PGID",
+                    "description": "Group ID",
+                    "default": "100"
+                },
+                {
+                    "id": "TZ",
+                    "key": "TZ",
+                    "description": "Timezone",
+                    "default": "America/New_York"
+                }
+            ],
+            "volumes": [
+                {
+                    "container": "/config",
+                    "description": "Image exposes volume mounted at /config",
+                    "key": "config"
+                },
+                {
+                    "container": "/music",
+                    "description": "Image exposes volume mounted at /music"
+                }
+            ],
+            "ports": [
+                {
+                    "container": 3000,
+                    "description": "Image exposes port 3000 over tcp",
+                    "protocol": "tcp",
+                    "web": true
+                }
+            ]
+        }
+    ]
+}
