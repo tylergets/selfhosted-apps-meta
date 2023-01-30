@@ -36,7 +36,7 @@ import {useDockerComposeTemplate} from "~/meta/docker/render/compose";
 import Section from "~/components/Section.vue";
 
 const route = useRoute();
-const { data, pending } = await useAsyncData(() => queryContent('/apps/' + route.params.id).findOne());
+const { data, pending } = await useAsyncData(route.params.id, () => queryContent('/apps/' + route.params.id).findOne());
 
 useHead({
   title: data.value.name,
