@@ -1,0 +1,1 @@
+{"version":3,"file":"ProseBlockquote.b6f9aee3.js","sources":["../../../../node_modules/@nuxt/content/dist/runtime/components/Prose/ProseBlockquote.vue"],"sourcesContent":["<template>\n  <blockquote>\n    <slot />\n  </blockquote>\n</template>\n"],"names":["_cache","_openBlock","_createElementBlock"],"mappings":"oIAGeA,EAAA,QADHC,EAAA,EAAAC,EAAA,aAAA,KAAA"}

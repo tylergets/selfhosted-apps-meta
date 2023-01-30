@@ -1,0 +1,2 @@
+import{a}from"./entry.9c3d475e.js";import{ab as s,ac as n,av as t,az as c,ax as r}from"./_commonjsHelpers.4216f5ac.js";const i={name:"Section",props:{title:{}}},l={clas:"mb-4"},d={class:"my-4 font-bold text-xl"};function _(e,p,o,f,m,u){return s(),n("div",l,[t("div",d,c(o.title),1),t("div",null,[r(e.$slots,"default")])])}const S=a(i,[["render",_]]);export{S as default};
+//# sourceMappingURL=Section.abedeff7.js.map

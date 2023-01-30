@@ -1,0 +1,1 @@
+{"version":3,"file":"ProseCodeInline.dd6dad0a.js","sources":["../../../../node_modules/@nuxt/content/dist/runtime/components/Prose/ProseCodeInline.vue"],"sourcesContent":["<template>\n  <code><slot /></code>\n</template>\n"],"names":["_cache","_openBlock","_createElementBlock"],"mappings":"oIACuBA,EAAA,QAAPC,EAAA,EAAAC,EAAA,OAAA,KAAA"}

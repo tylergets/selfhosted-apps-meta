@@ -1,0 +1,1 @@
+{"version":3,"file":"ProseUl.63d0fb7b.js","sources":["../../../../node_modules/@nuxt/content/dist/runtime/components/Prose/ProseUl.vue"],"sourcesContent":["<template>\n  <ul>\n    <slot />\n  </ul>\n</template>\n"],"names":["_cache","_openBlock","_createElementBlock"],"mappings":"oIAGOA,EAAA,QADKC,EAAA,EAAAC,EAAA,KAAA,KAAA"}

@@ -1,2 +1,0 @@
-import{X as i,K as l,a9 as s,aa as a,I as u,av as o}from"./app.config.84580bd5.js";const c=["id"],r=["href"],p=i({__name:"ProseH6",props:{id:null},setup(t){const{anchorLinks:e}=l().public.content,d=(e==null?void 0:e.depth)>=6&&!(e!=null&&e.exclude.includes(6));return(n,h)=>(s(),a("h6",{id:t.id},[u(d)?(s(),a("a",{key:0,href:`#${t.id}`},[o(n.$slots,"default")],8,r)):o(n.$slots,"default",{key:1})],8,c))}});export{p as default};
-//# sourceMappingURL=ProseH6.7b1aec19.js.map

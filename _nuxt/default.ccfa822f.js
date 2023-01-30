@@ -1,0 +1,2 @@
+import{ab as a,ac as o,av as e,ad as c,ae as n,ax as _,aw as d,aE as l}from"./_commonjsHelpers.4216f5ac.js";import{a as r}from"./entry.9c3d475e.js";const i={},f={class:"bg-black text-white"},p={class:"px-4 py-2"},u={class:"flex justify-between"},x={class:"p-4"};function m(t,h){const s=d;return a(),o("div",null,[e("div",f,[e("div",p,[e("div",u,[c(s,{to:"/"},{default:n(()=>[l(" Self Hosted Apps Meta ")]),_:1})])])]),e("div",x,[_(t.$slots,"default")])])}const k=r(i,[["render",m]]);export{k as default};
+//# sourceMappingURL=default.ccfa822f.js.map

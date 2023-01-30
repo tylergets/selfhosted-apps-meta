@@ -1,1 +1,0 @@
-{"version":3,"file":"ProseP.24880f1b.js","sources":["../../../../node_modules/@nuxt/content/dist/runtime/components/Prose/ProseP.vue"],"sourcesContent":["<template>\n  <p><slot /></p>\n</template>\n"],"names":["_cache","_openBlock","_createElementBlock"],"mappings":"8HACiBA,EAAA,QAAJC,EAAA,EAAAC,EAAA,IAAA,KAAA"}
