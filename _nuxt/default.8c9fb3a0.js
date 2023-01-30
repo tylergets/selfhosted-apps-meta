@@ -1,0 +1,2 @@
+import{a9 as a,aa as o,at as e,ab as c,ac as n,av as _,au as d,aC as l}from"./app.config.84580bd5.js";import{a as r}from"./entry.79e220c0.js";const i={},f={class:"bg-black text-white"},p={class:"px-4 py-2"},u={class:"flex justify-between"},x={class:"p-4"};function m(t,h){const s=d;return a(),o("div",null,[e("div",f,[e("div",p,[e("div",u,[c(s,{to:"/"},{default:n(()=>[l(" Self Hosted Apps Meta ")]),_:1})])])]),e("div",x,[_(t.$slots,"default")])])}const k=r(i,[["render",m]]);export{k as default};
+//# sourceMappingURL=default.8c9fb3a0.js.map

@@ -1,0 +1,2 @@
+import{a as o}from"./entry.79e220c0.js";import{a9 as s,aa as n,at as t,ax as c,av as r}from"./app.config.84580bd5.js";const i={name:"Section",props:{title:{}}},l={clas:"mb-4"},d={class:"my-4 font-bold text-xl"};function _(e,p,a,f,m,u){return s(),n("div",l,[t("div",d,c(a.title),1),t("div",null,[r(e.$slots,"default")])])}const S=o(i,[["render",_]]);export{S as default};
+//# sourceMappingURL=Section.e0e69c03.js.map

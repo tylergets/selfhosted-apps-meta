@@ -1,1 +1,0 @@
-{"version":3,"file":"ProseLi.68e8e45d.js","sources":["../../../../node_modules/@nuxt/content/dist/runtime/components/Prose/ProseLi.vue"],"sourcesContent":["<template>\n  <li><slot /></li>\n</template>\n"],"names":["_cache","_openBlock","_createElementBlock"],"mappings":"8HACmBA,EAAA,QAALC,EAAA,EAAAC,EAAA,KAAA,KAAA"}
