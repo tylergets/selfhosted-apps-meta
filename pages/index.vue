@@ -2,7 +2,7 @@
   <div class="flex justify-center mt-4 mb-6 flex-col items-center gap-4">
     <h1 class="text-3xl">Self Hosted App Metadata</h1>
     <p>The purpose of this project is to maintain a <a href="https://github.com/tylergets/selfhosted-apps-meta/blob/main/meta/interfaces/interfaces.d.ts#L38" class="link">consistent schema</a> for many self hosted apps.</p>
-    <p>It can be used for creating "app stores", alternative configurations, etc.</p>
+    <p>It can be used for creating "app stores", generating docker-compose configurations, building alternative configuration tools, etc.</p>
   </div>
   <div class="flex justify-center gap-4">
     <nuxt-link to="/apps" class="btn">View All Apps</nuxt-link>
