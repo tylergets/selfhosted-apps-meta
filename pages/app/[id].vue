@@ -39,12 +39,12 @@ const route = useRoute();
 const { data, pending } = await useAsyncData(route.params.id, () => queryContent('/apps/' + route.params.id).findOne());
 
 useHead({
-  title: data.value.name,
+  title: pending ? 'Loading' : data.value.name,
   meta: [
     {
       hid: 'description',
       name: 'description',
-      content: data.value.description
+      content: pending ? 'Loading': data.value.description
     }
   ]
 });

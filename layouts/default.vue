@@ -17,8 +17,5 @@
 </template>
 
 <script setup>
-import {useAppStore} from "~/stores/app";
-
-
 
 </script>
