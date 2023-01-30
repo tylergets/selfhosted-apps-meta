@@ -1,1 +1,0 @@
-{"version":3,"file":"ProseTh.9580e8cc.js","sources":["../../../../node_modules/@nuxt/content/dist/runtime/components/Prose/ProseTh.vue"],"sourcesContent":["<template>\n  <th>\n    <slot />\n  </th>\n</template>\n"],"names":["_cache","_openBlock","_createElementBlock"],"mappings":"8HAGOA,EAAA,QADKC,EAAA,EAAAC,EAAA,KAAA,KAAA"}

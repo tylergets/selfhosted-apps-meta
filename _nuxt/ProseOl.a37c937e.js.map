@@ -1,1 +1,0 @@
-{"version":3,"file":"ProseOl.a37c937e.js","sources":["../../../../node_modules/@nuxt/content/dist/runtime/components/Prose/ProseOl.vue"],"sourcesContent":["<template>\n  <ol>\n    <slot />\n  </ol>\n</template>\n"],"names":["_cache","_openBlock","_createElementBlock"],"mappings":"8HAGOA,EAAA,QADKC,EAAA,EAAAC,EAAA,KAAA,KAAA"}
