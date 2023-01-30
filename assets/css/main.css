@@ -4,6 +4,14 @@
 @tailwind components;
 @tailwind utilities;
 
+.btn {
+    @apply px-4 py-2 bg-blue-500 text-white rounded;
+}
+
 .json {
     @apply bg-black whitespace-pre-wrap text-white p-4;
+}
+
+.link {
+    @apply text-blue-500 underline;
 }
