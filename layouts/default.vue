@@ -6,9 +6,7 @@
           <NuxtLink to="/">
             Self Hosted Apps Meta
           </NuxtLink>
-          <div @click="toggleComments">
-            Toggle Comments
-          </div>
+
         </div>
       </div>
     </div>
@@ -21,9 +19,6 @@
 <script setup>
 import {useAppStore} from "~/stores/app";
 
-const store = useAppStore();
 
-function toggleComments() {
-  store.toggleComments();
-}
+
 </script>
