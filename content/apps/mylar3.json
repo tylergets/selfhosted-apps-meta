@@ -1,7 +1,8 @@
 {
     "id": "mylar3",
     "name": "mylar3",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/mylar3.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is an automated Comic Book downloader (cbr/cbz) for use with NZB and torrents written in python. It supports SABnzbd, NZBGET, and many torrent clients in addition to DDL.",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mylar-icon.png",
     "links": [
         {
             "type": "docker",
@@ -39,16 +40,22 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Where mylar should store config files.",
                     "key": "config"
+                },
+                {
+                    "container": "/comics",
+                    "description": "Map to your comics folder."
+                },
+                {
+                    "container": "/downloads",
+                    "description": "Map to your downloads folder."
                 }
             ],
             "ports": [
                 {
-                    "container": 8090,
-                    "description": "Image exposes port 8090 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "8090",
+                    "description": "WebUI"
                 }
             ]
         }

@@ -1,7 +1,8 @@
 {
     "id": "raneto",
     "name": "raneto",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/raneto.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) - is an open source Knowledgebase platform that uses static Markdown files to power your Knowledgebase.",
+    "icon": "https://raw.githubusercontent.com/gilbitron/Raneto/master/logo/logo_readme.png",
     "links": [
         {
             "type": "docker",
@@ -39,16 +40,14 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Raneto config and Markdown files",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 3000,
-                    "description": "Image exposes port 3000 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "3000",
+                    "description": "The port for the Raneto web interface"
                 }
             ]
         }

@@ -1,7 +1,8 @@
 {
     "id": "airsonic-advanced",
     "name": "airsonic-advanced",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/airsonicadvanced.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a free, web-based media streamer, providing ubiquitious access to your music. Use it to share your music with friends, or to listen to your own music while at work. You can stream to multiple players simultaneously, for instance to one player in your kitchen and another in your living room.",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/airsonic-banner.png",
     "links": [
         {
             "type": "docker",
@@ -36,13 +37,29 @@
                     "default": "America/New_York"
                 }
             ],
-            "volumes": [],
+            "volumes": [
+                {
+                    "container": "/config",
+                    "description": "Configuration file location.",
+                    "key": "config"
+                },
+                {
+                    "container": "/music",
+                    "description": "Location of music."
+                },
+                {
+                    "container": "/playlists",
+                    "description": "Location for playlists to be saved to."
+                },
+                {
+                    "container": "/podcasts",
+                    "description": "Location of podcasts."
+                }
+            ],
             "ports": [
                 {
-                    "container": 4040,
-                    "description": "Image exposes port 4040 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "4040",
+                    "description": "WebUI"
                 }
             ]
         }

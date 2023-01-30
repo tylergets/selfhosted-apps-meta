@@ -1,7 +1,8 @@
 {
     "id": "qdirstat",
     "name": "qdirstat",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/qdirstat.png",
+    "description": "[QDirStat]({{ project_url }}) Qt-based directory statistics: KDirStat without any KDE -- from the author of the original KDirStat.",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/qdirstat-logo.png",
     "links": [
         {
             "type": "docker",
@@ -39,22 +40,18 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Users home directory in the container, stores qdirstat settings and scans.",
                     "key": "config"
+                },
+                {
+                    "container": "/data",
+                    "description": "Data you want to analyze disk usage information of."
                 }
             ],
             "ports": [
                 {
-                    "container": 3000,
-                    "description": "Image exposes port 3000 over tcp",
-                    "protocol": "tcp",
-                    "web": true
-                },
-                {
-                    "container": 3389,
-                    "description": "Image exposes port 3389 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "3000",
+                    "description": "QdirStat desktop gui."
                 }
             ]
         }

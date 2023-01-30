@@ -4,7 +4,155 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ed39f58-774b-446f-ad69-8f0bd890855c" name="Changes" comment="" />
+    <list default="true" id="3ed39f58-774b-446f-ad69-8f0bd890855c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/all.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/all.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/adguardhome-sync.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/adguardhome-sync.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/airsonic-advanced.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/airsonic-advanced.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/apprise-api.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/apprise-api.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/audacity.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/audacity.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/babybuddy.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/babybuddy.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/bazarr.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/bazarr.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/beets.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/beets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/blender.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/blender.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/boinc.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/boinc.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/booksonic-air.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/booksonic-air.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/bookstack.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/bookstack.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/budge.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/budge.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/calibre-web.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/calibre-web.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/calibre.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/calibre.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/changedetection.io.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/changedetection.io.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/code-server.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/code-server.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/cops.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/cops.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/daapd.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/daapd.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/darktable.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/darktable.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/davos.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/davos.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/ddclient.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/ddclient.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/deluge.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/deluge.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/digikam.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/digikam.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/dillinger.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/dillinger.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/diskover.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/diskover.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/docker-compose.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/docker-compose.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/dokuwiki.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/dokuwiki.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/domoticz.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/domoticz.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/doplarr.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/doplarr.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/doublecommander.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/doublecommander.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/duckdns.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/duckdns.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/duplicati.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/duplicati.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/emby.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/emby.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/embystat.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/embystat.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/emulatorjs.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/emulatorjs.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/endlessh.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/endlessh.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/fail2ban.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/fail2ban.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/feed2toot.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/feed2toot.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/ffmpeg.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/ffmpeg.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/filezilla.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/filezilla.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/firefox.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/firefox.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/fleet.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/fleet.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/foldingathome.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/foldingathome.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/freshrss.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/freshrss.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/grav.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/grav.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/grocy.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/grocy.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/guacd.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/guacd.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/habridge.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/habridge.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/headphones.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/headphones.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/healthchecks.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/healthchecks.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/hedgedoc.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/hedgedoc.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/heimdall.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/heimdall.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/homeassistant.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/homeassistant.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/htpcmanager.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/htpcmanager.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/ipfs.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/ipfs.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/jackett.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/jackett.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/jellyfin.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/jellyfin.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/jenkins-builder.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/jenkins-builder.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/kasm.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/kasm.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/kdenlive.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/kdenlive.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/lazylibrarian.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/lazylibrarian.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/ldap-auth.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/ldap-auth.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/libreoffice.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/libreoffice.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/librespeed.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/librespeed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/lidarr.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/lidarr.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/limnoria.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/limnoria.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/lychee.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/lychee.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/mariadb.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/mariadb.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/mastodon.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/mastodon.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/medusa.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/medusa.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/minetest.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/minetest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/minisatip.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/minisatip.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/mods.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/mods.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/mstream.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/mstream.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/mylar3.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/mylar3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/mysql-workbench.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/mysql-workbench.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/nano-wallet.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/nano-wallet.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/nano.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/nano.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/netbootxyz.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/netbootxyz.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/netbox.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/netbox.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/nextcloud.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/nextcloud.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/nginx.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/nginx.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/ngircd.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/ngircd.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/nntp2nntp.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/nntp2nntp.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/nzbget.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/nzbget.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/nzbhydra2.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/nzbhydra2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/ombi.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/ombi.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/openssh-server.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/openssh-server.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/openvscode-server.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/openvscode-server.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/oscam.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/oscam.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/overseerr.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/overseerr.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/papermerge.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/papermerge.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/phpmyadmin.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/phpmyadmin.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/pidgin.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/pidgin.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/piwigo.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/piwigo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/plex-meta-manager.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/plex-meta-manager.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/plex.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/plex.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/projectsend.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/projectsend.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/prowlarr.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/prowlarr.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/pwndrop.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/pwndrop.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/pydio-cells.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/pydio-cells.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/pyload-ng.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/pyload-ng.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/pylon.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/pylon.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/qbittorrent.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/qbittorrent.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/qdirstat.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/qdirstat.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/quassel-core.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/quassel-core.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/quassel-web.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/quassel-web.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/radarr.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/radarr.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/raneto.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/raneto.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/rdesktop.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/rdesktop.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/readarr.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/readarr.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/remmina.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/remmina.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/requestrr.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/requestrr.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/resilio-sync.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/resilio-sync.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/rsnapshot.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/rsnapshot.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/sabnzbd.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/sabnzbd.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/sickchill.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/sickchill.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/sickgear.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/sickgear.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/smokeping.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/smokeping.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/snapdrop.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/snapdrop.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/snipe-it.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/snipe-it.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/sonarr.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/sonarr.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/sqlitebrowser.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/sqlitebrowser.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/swag.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/swag.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/synclounge.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/synclounge.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/syncthing.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/syncthing.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/syslog-ng.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/syslog-ng.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/tautulli.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/tautulli.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/thelounge.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/thelounge.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/transmission.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/transmission.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/tvheadend.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/tvheadend.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/ubooquity.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/ubooquity.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/unifi-controller.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/unifi-controller.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/webgrabplus.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/webgrabplus.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/webtop.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/webtop.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/wikijs.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/wikijs.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/wireguard.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/wireguard.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/wireshark.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/wireshark.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/xbackbone.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/xbackbone.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/yq.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/yq.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/apps/znc.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/apps/znc.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meta/linuxserver/pull.mts" beforeDir="false" afterPath="$PROJECT_DIR$/meta/linuxserver/pull.mts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/app/[id].vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/app/[id].vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/apps.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/apps.vue" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,34 +174,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "/home/tyler/Development/selfhosted-apps-meta/meta/docker/render",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "/opt/webstorm/plugins/javascript-impl/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/tyler/Development/selfhosted-apps-meta/content/apps&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/opt/webstorm/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "yaml"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;yaml&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/content/apps" />
       <recent name="$PROJECT_DIR$/meta/docker/render" />
       <recent name="$PROJECT_DIR$/../sh-apps-meta/content/apps" />
       <recent name="$PROJECT_DIR$/../sh-apps-meta" />
       <recent name="$PROJECT_DIR$/../sh-apps-meta/meta" />
-      <recent name="$PROJECT_DIR$/src/adapters" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
@@ -69,7 +217,8 @@
       <option name="presentableId" value="Default" />
       <updated>1674928656084</updated>
       <workItem from="1674928657082" duration="588000" />
-      <workItem from="1674929267191" duration="26144000" />
+      <workItem from="1674929267191" duration="27496000" />
+      <workItem from="1675115126334" duration="1209000" />
     </task>
     <servers />
   </component>

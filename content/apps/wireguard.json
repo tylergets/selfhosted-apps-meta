@@ -1,7 +1,8 @@
 {
     "id": "wireguard",
     "name": "wireguard",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/wireguard.png",
+    "description": "[WireGuard®]({{ project_url }}) is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. It aims to be faster, simpler, leaner, and more useful than IPsec, while avoiding the massive headache. It intends to be considerably more performant than OpenVPN. WireGuard is designed as a general purpose VPN for running on embedded interfaces and super computers alike, fit for many different circumstances. Initially released for the Linux kernel, it is now cross-platform (Windows, macOS, BSD, iOS, Android) and widely deployable. It is currently under heavy development, but already it might be regarded as the most secure, easiest to use, and simplest VPN solution in the industry.",
+    "icon": "https://www.wireguard.com/img/wireguard.svg",
     "links": [
         {
             "type": "docker",
@@ -36,13 +37,17 @@
                     "default": "America/New_York"
                 }
             ],
-            "volumes": [],
+            "volumes": [
+                {
+                    "container": "/config",
+                    "description": "Contains all relevant configuration files.",
+                    "key": "config"
+                }
+            ],
             "ports": [
                 {
-                    "container": 51820,
-                    "description": "Image exposes port 51820 over udp",
-                    "protocol": "udp",
-                    "web": false
+                    "container": "51820/udp",
+                    "description": "wireguard port"
                 }
             ]
         }

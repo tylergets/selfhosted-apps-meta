@@ -1,7 +1,8 @@
 {
     "id": "emulatorjs",
     "name": "emulatorjs",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/emulatorjs.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) - In browser web based emulation portable to nearly any device for many retro consoles. A mix of emulators is used between Libretro and EmulatorJS.\n",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/emulatorjs-logo.png",
     "links": [
         {
             "type": "docker",
@@ -36,19 +37,25 @@
                     "default": "America/New_York"
                 }
             ],
-            "volumes": [],
-            "ports": [
+            "volumes": [
                 {
-                    "container": 3000,
-                    "description": "Image exposes port 3000 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "/config",
+                    "description": "Path to store user profiles",
+                    "key": "config"
                 },
                 {
-                    "container": 80,
-                    "description": "Image exposes port 80 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "/data",
+                    "description": "Path to store roms/artwork"
+                }
+            ],
+            "ports": [
+                {
+                    "container": "3000",
+                    "description": "Rom/artwork management interface, used to generate/manage config files and download artwork"
+                },
+                {
+                    "container": "80",
+                    "description": "Emulation frontend containing static web files used to browse and launch games"
                 }
             ]
         }

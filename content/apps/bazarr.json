@@ -1,7 +1,8 @@
 {
     "id": "bazarr",
     "name": "bazarr",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/bazarr.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a companion application to Sonarr and Radarr. It can manage and download subtitles based on your requirements. You define your preferences by TV show or movie and Bazarr takes care of everything for you.",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/bazarr.png",
     "links": [
         {
             "type": "docker",
@@ -39,16 +40,14 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Bazarr data",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 6767,
-                    "description": "Image exposes port 6767 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "6767",
+                    "description": "Allows HTTP access to the internal webserver."
                 }
             ]
         }

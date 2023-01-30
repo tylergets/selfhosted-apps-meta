@@ -1,7 +1,8 @@
 {
     "id": "dokuwiki",
     "name": "dokuwiki",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/dokuwiki.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a simple to use and highly versatile Open Source wiki software that doesn't require a database. It is loved by users for its clean and readable syntax. The ease of maintenance, backup and integration makes it an administrator's favorite. Built in access controls and authentication connectors make DokuWiki especially useful in the enterprise context and the large number of plugins contributed by its vibrant community allow for a broad range of use cases beyond a traditional wiki.\n",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/dokuwiki-icon.png",
     "links": [
         {
             "type": "docker",
@@ -39,22 +40,14 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Configuration files.",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 443,
-                    "description": "Image exposes port 443 over tcp",
-                    "protocol": "tcp",
-                    "web": true
-                },
-                {
-                    "container": 80,
-                    "description": "Image exposes port 80 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "80",
+                    "description": "Application HTTP Port"
                 }
             ]
         }

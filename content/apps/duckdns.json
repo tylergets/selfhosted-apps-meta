@@ -1,7 +1,8 @@
 {
     "id": "duckdns",
     "name": "duckdns",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/duckdns.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice. The service is completely free, and doesn't require reactivation or forum posts to maintain its existence.",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/duckdns.png",
     "links": [
         {
             "type": "docker",
@@ -35,9 +36,7 @@
                     "description": "Timezone",
                     "default": "America/New_York"
                 }
-            ],
-            "volumes": [],
-            "ports": []
+            ]
         }
     ]
 }

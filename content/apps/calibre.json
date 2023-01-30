@@ -1,7 +1,8 @@
 {
     "id": "calibre",
     "name": "calibre",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/calibre.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a powerful and easy to use e-book manager. Users say it’s outstanding and a must-have. It’ll allow you to do nearly everything and it takes things a step beyond normal e-book software. It’s also completely free and open source and great for both casual users and computer experts.",
+    "icon": "https://github.com/kovidgoyal/calibre/raw/master/resources/images/lt.png",
     "links": [
         {
             "type": "docker",
@@ -39,22 +40,18 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Where calibre should store its database and library.",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 3000,
-                    "description": "Image exposes port 3000 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "8080",
+                    "description": "Calibre desktop gui."
                 },
                 {
-                    "container": 3389,
-                    "description": "Image exposes port 3389 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "8081",
+                    "description": "Calibre webserver gui."
                 }
             ]
         }

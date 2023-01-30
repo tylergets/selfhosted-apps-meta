@@ -1,7 +1,8 @@
 {
     "id": "feed2toot",
     "name": "feed2toot",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/feed2toot.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) automatically parses rss feeds, identifies new posts and posts them on the Mastodon social network.",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/feed2toot-banner.png",
     "links": [
         {
             "type": "docker",
@@ -39,11 +40,10 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Local path for feed2toot config files.",
                     "key": "config"
                 }
-            ],
-            "ports": []
+            ]
         }
     ]
 }

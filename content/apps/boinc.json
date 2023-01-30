@@ -1,7 +1,8 @@
 {
     "id": "boinc",
     "name": "boinc",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/boinc.png",
+    "description": "[BOINC]({{ project_url }}) is a platform for high-throughput computing on a large scale (thousands or millions of computers). It can be used for volunteer computing (using consumer devices) or grid computing (using organizational resources). It supports virtualized, parallel, and GPU-based applications.",
+    "icon": "https://raw.githubusercontent.com/BOINC/boinc/master/doc/logo/boinc_logo_black.jpg",
     "links": [
         {
             "type": "docker",
@@ -39,22 +40,14 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Where BOINC should store its database and config.",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 3000,
-                    "description": "Image exposes port 3000 over tcp",
-                    "protocol": "tcp",
-                    "web": true
-                },
-                {
-                    "container": 3389,
-                    "description": "Image exposes port 3389 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "8080",
+                    "description": "Boinc desktop gui."
                 }
             ]
         }

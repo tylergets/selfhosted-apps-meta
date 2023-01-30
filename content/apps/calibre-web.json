@@ -1,7 +1,8 @@
 {
     "id": "calibre-web",
     "name": "calibre-web",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/calibreweb.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a web app providing a clean interface for browsing, reading and downloading eBooks using an existing Calibre database.   It is also possible to integrate google drive and edit metadata and your calibre library through the app itself.\n\nThis software is a fork of library and licensed under the GPL v3 License.\n",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/calibre-web-icon.png",
     "links": [
         {
             "type": "docker",
@@ -39,16 +40,18 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Where calibre-web stores the internal database and config.",
                     "key": "config"
+                },
+                {
+                    "container": "/books",
+                    "description": "Where your preexisting calibre database is located."
                 }
             ],
             "ports": [
                 {
-                    "container": 8083,
-                    "description": "Image exposes port 8083 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "8083",
+                    "description": "WebUI"
                 }
             ]
         }

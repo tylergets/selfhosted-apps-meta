@@ -1,7 +1,8 @@
 {
     "id": "radarr",
     "name": "radarr",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/radarr.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) - A fork of Sonarr to work with movies à la Couchpotato.\n",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/radarr.png",
     "links": [
         {
             "type": "docker",
@@ -39,16 +40,14 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Database and Radarr configs",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 7878,
-                    "description": "Image exposes port 7878 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "7878",
+                    "description": "The port for the Radarr webinterface"
                 }
             ]
         }

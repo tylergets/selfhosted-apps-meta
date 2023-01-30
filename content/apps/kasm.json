@@ -1,7 +1,8 @@
 {
     "id": "kasm",
     "name": "kasm",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/kasm.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) Workspaces is a docker container streaming platform for delivering browser-based access to desktops, applications, and web services. Kasm uses devops-enabled Containerized Desktop Infrastructure (CDI) to create on-demand, disposable, docker containers that are accessible via web browser. Example use-cases include Remote Browser Isolation (RBI), Data Loss Prevention (DLP), Desktop as a Service (DaaS), Secure Remote Access Services (RAS), and Open Source Intelligence (OSINT) collections.\n\nThe rendering of the graphical-based containers is powered by the open-source project [KasmVNC](https://www.kasmweb.com/kasmvnc.html?utm_campaign=LinuxServer&utm_source=kasmvnc).\n",
+    "icon": "https://kasm-ci.s3.amazonaws.com/kasm_wide.png",
     "links": [
         {
             "type": "docker",
@@ -38,22 +39,18 @@
             ],
             "volumes": [
                 {
-                    "container": "/opt/",
-                    "description": "Image exposes volume mounted at /opt/"
+                    "container": "/opt",
+                    "description": "Docker and installation storage."
                 }
             ],
             "ports": [
                 {
-                    "container": 3000,
-                    "description": "Image exposes port 3000 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "3000",
+                    "description": "Kasm Installation wizard. (https)"
                 },
                 {
-                    "container": 443,
-                    "description": "Image exposes port 443 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "443",
+                    "description": "Kasm Workspaces interface. (https)"
                 }
             ]
         }

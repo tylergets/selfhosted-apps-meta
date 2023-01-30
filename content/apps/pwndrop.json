@@ -1,7 +1,8 @@
 {
     "id": "pwndrop",
     "name": "pwndrop",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/pwndrop.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a self-deployable file hosting service for sending out red teaming payloads or securely sharing your private files over HTTP and WebDAV.",
+    "icon": "https://raw.githubusercontent.com/kgretzky/pwndrop/master/media/pwndrop-logo-512.png",
     "links": [
         {
             "type": "docker",
@@ -36,19 +37,17 @@
                     "default": "America/New_York"
                 }
             ],
-            "volumes": [],
+            "volumes": [
+                {
+                    "container": "/config",
+                    "description": "Contains all relevant configuration and data.",
+                    "key": "config"
+                }
+            ],
             "ports": [
                 {
-                    "container": 4443,
-                    "description": "Image exposes port 4443 over tcp",
-                    "protocol": "tcp",
-                    "web": true
-                },
-                {
-                    "container": 8080,
-                    "description": "Image exposes port 8080 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "8080",
+                    "description": "web gui"
                 }
             ]
         }

@@ -1,7 +1,8 @@
 {
     "id": "emby",
     "name": "emby",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/emby.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) organizes video, music, live TV, and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone emby Media Server.",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/emby-logo.png",
     "links": [
         {
             "type": "docker",
@@ -39,22 +40,22 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Emby data storage location. *This can grow very large, 50gb+ is likely for a large collection.*",
                     "key": "config"
+                },
+                {
+                    "container": "/data/tvshows",
+                    "description": "Media goes here. Add as many as needed e.g. `/data/movies`, `/data/tv`, etc."
+                },
+                {
+                    "container": "/data/movies",
+                    "description": "Media goes here. Add as many as needed e.g. `/data/movies`, `/data/tv`, etc."
                 }
             ],
             "ports": [
                 {
-                    "container": 8096,
-                    "description": "Image exposes port 8096 over tcp",
-                    "protocol": "tcp",
-                    "web": true
-                },
-                {
-                    "container": 8920,
-                    "description": "Image exposes port 8920 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "8096",
+                    "description": "Http webUI."
                 }
             ]
         }

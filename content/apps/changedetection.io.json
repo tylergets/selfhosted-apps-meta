@@ -1,7 +1,8 @@
 {
     "id": "changedetection.io",
     "name": "changedetection.io",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/changedetection.io.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) provides free, open-source web page monitoring, notification and change detection.",
+    "icon": "https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/changedetection-icon.png",
     "links": [
         {
             "type": "docker",
@@ -39,16 +40,14 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Contains all relevant configuration files.",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 5000,
-                    "description": "Image exposes port 5000 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "5000",
+                    "description": "WebUI"
                 }
             ]
         }

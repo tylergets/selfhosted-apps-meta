@@ -1,7 +1,8 @@
 {
     "id": "doplarr",
     "name": "doplarr",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/doplarr.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is an *arr request bot for Discord.\"\n",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/doplarr-logo_title.png",
     "links": [
         {
             "type": "docker",
@@ -39,11 +40,10 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Contains all relevant configuration files.",
                     "key": "config"
                 }
-            ],
-            "ports": []
+            ]
         }
     ]
 }

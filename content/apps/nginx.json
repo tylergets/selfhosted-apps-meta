@@ -1,7 +1,8 @@
 {
     "id": "nginx",
     "name": "nginx",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/nginx.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a simple webserver with php support. The config files reside in `/config` for easy user customization.",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nginx-banner.png",
     "links": [
         {
             "type": "docker",
@@ -39,22 +40,18 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Contains your www content and all relevant configuration files.",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 443,
-                    "description": "Image exposes port 443 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "80",
+                    "description": "http"
                 },
                 {
-                    "container": 80,
-                    "description": "Image exposes port 80 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "443",
+                    "description": "https"
                 }
             ]
         }

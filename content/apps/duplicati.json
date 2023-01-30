@@ -1,7 +1,8 @@
 {
     "id": "duplicati",
     "name": "duplicati",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/duplicati.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) works with standard protocols like FTP, SSH, WebDAV as well as popular services like Microsoft OneDrive, Amazon Cloud Drive & S3, Google Drive, box.com, Mega, hubiC and many others.",
+    "icon": "https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/duplicati-icon.png",
     "links": [
         {
             "type": "docker",
@@ -38,25 +39,23 @@
             ],
             "volumes": [
                 {
-                    "container": "/backups",
-                    "description": "Image exposes volume mounted at /backups"
-                },
-                {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Contains all relevant configuration files.",
                     "key": "config"
                 },
                 {
+                    "container": "/backups",
+                    "description": "Path to store local backups."
+                },
+                {
                     "container": "/source",
-                    "description": "Image exposes volume mounted at /source"
+                    "description": "Path to source for files to backup."
                 }
             ],
             "ports": [
                 {
-                    "container": 8200,
-                    "description": "Image exposes port 8200 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "8200",
+                    "description": "http gui"
                 }
             ]
         }

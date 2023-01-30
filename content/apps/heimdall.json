@@ -1,7 +1,8 @@
 {
     "id": "heimdall",
     "name": "heimdall",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/heimdall.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a way to organise all those links to your most used web sites and web applications in a simple way.\n\nSimplicity is the key to Heimdall.\n\nWhy not use it as your browser start page? It even has the ability to include a search bar using either Google, Bing or DuckDuckGo.\n",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/heimdall-banner.png",
     "links": [
         {
             "type": "docker",
@@ -39,22 +40,18 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Contains all relevant configuration files.",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 443,
-                    "description": "Image exposes port 443 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "80",
+                    "description": "http gui"
                 },
                 {
-                    "container": 80,
-                    "description": "Image exposes port 80 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "443",
+                    "description": "https gui"
                 }
             ]
         }

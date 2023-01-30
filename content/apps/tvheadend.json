@@ -1,7 +1,8 @@
 {
     "id": "tvheadend",
     "name": "tvheadend",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/tvheadend.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) works as a proxy server: is a TV streaming server and recorder for Linux, FreeBSD and Android supporting DVB-S, DVB-S2, DVB-C, DVB-T, ATSC, ISDB-T, IPTV, SAT>IP and HDHomeRun as input sources.\nTvheadend offers the HTTP (VLC, MPlayer), HTSP (Kodi, Movian) and SAT>IP streaming.\nMultiple EPG sources are supported (over-the-air DVB and ATSC including OpenTV DVB extensions, XMLTV, PyXML).\n",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/tvheadend-big.png",
     "links": [
         {
             "type": "docker",
@@ -39,22 +40,22 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Where TVHeadend show store it's config files.",
                     "key": "config"
+                },
+                {
+                    "container": "/recordings",
+                    "description": "Where you want the PVR to store recordings."
                 }
             ],
             "ports": [
                 {
-                    "container": 9981,
-                    "description": "Image exposes port 9981 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "9981",
+                    "description": "WebUI"
                 },
                 {
-                    "container": 9982,
-                    "description": "Image exposes port 9982 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "9982",
+                    "description": "HTSP server port."
                 }
             ]
         }

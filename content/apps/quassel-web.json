@@ -1,7 +1,8 @@
 {
     "id": "quassel-web",
     "name": "quassel-web",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/quasselweb.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a web client for Quassel.  Note that a Quassel-Core instance is required, we have a container available [here.](https://hub.docker.com/r/linuxserver/quassel-core/) \n",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/quassel-web-banner.png",
     "links": [
         {
             "type": "docker",
@@ -39,16 +40,14 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "this will store config on the docker host",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 64443,
-                    "description": "Image exposes port 64443 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "64443",
+                    "description": "Quassel-web https webui"
                 }
             ]
         }

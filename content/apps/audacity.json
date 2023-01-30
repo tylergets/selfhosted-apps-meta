@@ -1,7 +1,8 @@
 {
     "id": "audacity",
     "name": "audacity",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/audacity.png",
+    "description": "[Audacity]({{ project_url }}) is an easy-to-use, multi-track audio editor and recorder. Developed by a group of volunteers as open source.",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/audacity-logo.png",
     "links": [
         {
             "type": "docker",
@@ -39,22 +40,14 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Users home directory in the container, stores program settings and images",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 3000,
-                    "description": "Image exposes port 3000 over tcp",
-                    "protocol": "tcp",
-                    "web": true
-                },
-                {
-                    "container": 3389,
-                    "description": "Image exposes port 3389 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "3000",
+                    "description": "Audacity desktop gui."
                 }
             ]
         }

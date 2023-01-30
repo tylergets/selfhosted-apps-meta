@@ -1,7 +1,8 @@
 {
     "id": "tautulli",
     "name": "tautulli",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/tautulli.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a python based web application for monitoring, analytics and notifications for Plex Media Server.",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/tautulli-icon.png",
     "links": [
         {
             "type": "docker",
@@ -39,16 +40,14 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Contains tautulli config and database.",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 8181,
-                    "description": "Image exposes port 8181 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "8181",
+                    "description": "WebUI"
                 }
             ]
         }

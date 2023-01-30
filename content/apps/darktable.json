@@ -1,7 +1,8 @@
 {
     "id": "darktable",
     "name": "darktable",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/darktable.png",
+    "description": "[darktable]({{ project_url }}) is an open source photography workflow application and raw developer. A virtual lighttable and darkroom for photographers. It manages your digital negatives in a database, lets you view them through a zoomable lighttable and enables you to develop raw images and enhance them.",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/darktable-logo.png",
     "links": [
         {
             "type": "docker",
@@ -39,22 +40,14 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Users home directory in the container, stores program settings and images",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 3000,
-                    "description": "Image exposes port 3000 over tcp",
-                    "protocol": "tcp",
-                    "web": true
-                },
-                {
-                    "container": 3389,
-                    "description": "Image exposes port 3389 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "3000",
+                    "description": "Darktable desktop gui."
                 }
             ]
         }

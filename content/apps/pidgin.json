@@ -1,7 +1,8 @@
 {
     "id": "pidgin",
     "name": "pidgin",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/pidgin.png",
+    "description": "[Pidgin]({{ project_url }}) is a chat program which lets you log into accounts on multiple chat networks simultaneously. This means that you can be chatting with friends on XMPP and sitting in an IRC channel at the same time.",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/pidgin-logo.png",
     "links": [
         {
             "type": "docker",
@@ -39,22 +40,14 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Users home directory in the container, stores local files and settings",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 3000,
-                    "description": "Image exposes port 3000 over tcp",
-                    "protocol": "tcp",
-                    "web": true
-                },
-                {
-                    "container": 3389,
-                    "description": "Image exposes port 3389 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "3000",
+                    "description": "Pidgin desktop gui."
                 }
             ]
         }

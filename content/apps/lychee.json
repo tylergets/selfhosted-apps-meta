@@ -1,7 +1,8 @@
 {
     "id": "lychee",
     "name": "lychee",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/lychee.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a free photo-management tool, which runs on your server or web-space. Installing is a matter of seconds. Upload, manage and share photos like from a native application. Lychee comes with everything you need and all your photos are stored securely.\"\n\n### UPGRADE WARNING\n\nPlease note that the v4 upgrade process resets ALL password-protected albums. Any albums that were made public with a password will need to be re-secured.\n",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/lychee-icon.png",
     "links": [
         {
             "type": "docker",
@@ -39,22 +40,18 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Contains all relevant configuration files.",
                     "key": "config"
+                },
+                {
+                    "container": "/pictures",
+                    "description": "Where lychee will store uploaded data."
                 }
             ],
             "ports": [
                 {
-                    "container": 443,
-                    "description": "Image exposes port 443 over tcp",
-                    "protocol": "tcp",
-                    "web": true
-                },
-                {
-                    "container": 80,
-                    "description": "Image exposes port 80 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "80",
+                    "description": "http gui"
                 }
             ]
         }

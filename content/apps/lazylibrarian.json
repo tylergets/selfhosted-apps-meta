@@ -1,7 +1,8 @@
 {
     "id": "lazylibrarian",
     "name": "lazylibrarian",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/lazylibrarian.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a program to follow authors and grab metadata for all your digital reading needs. It uses a combination of Goodreads Librarything and optionally GoogleBooks as sources for author info and book info.  This container is based on the DobyTang fork.\n",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/lazylibrarian-icon.png",
     "links": [
         {
             "type": "docker",
@@ -39,16 +40,18 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "LazyLibrarian config",
                     "key": "config"
+                },
+                {
+                    "container": "/downloads",
+                    "description": "Download location"
                 }
             ],
             "ports": [
                 {
-                    "container": 5299,
-                    "description": "Image exposes port 5299 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "5299",
+                    "description": "The port for the LazyLibrarian webinterface"
                 }
             ]
         }

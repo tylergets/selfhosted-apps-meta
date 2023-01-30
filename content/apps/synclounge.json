@@ -1,7 +1,8 @@
 {
     "id": "synclounge",
     "name": "synclounge",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/synclounge.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a third party tool that allows you to watch Plex in sync with your friends/family, wherever you are.",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/synclounge-banner.png",
     "links": [
         {
             "type": "docker",
@@ -36,8 +37,12 @@
                     "default": "America/New_York"
                 }
             ],
-            "volumes": [],
-            "ports": []
+            "ports": [
+                {
+                    "container": "8088",
+                    "description": "Web app and server port"
+                }
+            ]
         }
     ]
 }

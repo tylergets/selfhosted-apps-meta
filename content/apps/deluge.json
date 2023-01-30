@@ -1,7 +1,8 @@
 {
     "id": "deluge",
     "name": "deluge",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/deluge.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a lightweight, Free Software, cross-platform BitTorrent client.\n\n* Full Encryption\n* WebUI\n* Plugin System\n* Much more...\n",
+    "icon": "https://avatars2.githubusercontent.com/u/6733935?v=3&s=200",
     "links": [
         {
             "type": "docker",
@@ -39,34 +40,26 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "deluge configs",
                     "key": "config"
+                },
+                {
+                    "container": "/downloads",
+                    "description": "torrent download directory"
                 }
             ],
             "ports": [
                 {
-                    "container": 58846,
-                    "description": "Image exposes port 58846 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "8112",
+                    "description": "Port for webui"
                 },
                 {
-                    "container": 58946,
-                    "description": "Image exposes port 58946 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "6881",
+                    "description": "Inbound torrent traffic (See App Setup)"
                 },
                 {
-                    "container": 58946,
-                    "description": "Image exposes port 58946 over udp",
-                    "protocol": "udp",
-                    "web": false
-                },
-                {
-                    "container": 8112,
-                    "description": "Image exposes port 8112 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "6881/udp",
+                    "description": "Inbound torrent traffic (See App Setup)"
                 }
             ]
         }

@@ -1,7 +1,8 @@
 {
     "id": "wireshark",
     "name": "wireshark",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/wireshark.png",
+    "description": "[Wireshark]({{ project_url }}) is the world’s foremost and widely-used network protocol analyzer. It lets you see what’s happening on your network at a microscopic level and is the de facto (and often de jure) standard across many commercial and non-profit enterprises, government agencies, and educational institutions. Wireshark development thrives thanks to the volunteer contributions of networking experts around the globe and is the continuation of a project started by Gerald Combs in 1998. ",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/wireshark-icon.png",
     "links": [
         {
             "type": "docker",
@@ -39,22 +40,8 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Users home directory in the container, stores program settings and potentially dump files.",
                     "key": "config"
-                }
-            ],
-            "ports": [
-                {
-                    "container": 3000,
-                    "description": "Image exposes port 3000 over tcp",
-                    "protocol": "tcp",
-                    "web": true
-                },
-                {
-                    "container": 3389,
-                    "description": "Image exposes port 3389 over tcp",
-                    "protocol": "tcp",
-                    "web": true
                 }
             ]
         }

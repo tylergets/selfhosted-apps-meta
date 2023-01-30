@@ -1,7 +1,8 @@
 {
     "id": "znc",
     "name": "znc",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/znc.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is an IRC network bouncer or BNC. It can detach the client from the actual IRC server, and also from selected channels. Multiple clients from different locations can connect to a single ZNC account simultaneously and therefore appear under the same nickname on IRC.",
+    "icon": "http://wiki.znc.in/resources/assets/wiki.png",
     "links": [
         {
             "type": "docker",
@@ -39,16 +40,14 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Where local ZNC data is stored.",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 6501,
-                    "description": "Image exposes port 6501 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "6501",
+                    "description": "Port ZNC listens on."
                 }
             ]
         }

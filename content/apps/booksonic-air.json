@@ -1,7 +1,8 @@
 {
     "id": "booksonic-air",
     "name": "booksonic-air",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/booksonicair.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a platform for accessing the audiobooks you own wherever you are. At the moment the platform consists of:\n* Booksonic Air - A server for streaming your audiobooks, successor to the original Booksonic server and based on Airsonic.\n* Booksonic App - An DSub based Android app for connection to Booksonic-Air servers.",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/booksonic-air.png",
     "links": [
         {
             "type": "docker",
@@ -39,16 +40,26 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Configuration files.",
                     "key": "config"
+                },
+                {
+                    "container": "/audiobooks",
+                    "description": "Audiobooks."
+                },
+                {
+                    "container": "/podcasts",
+                    "description": "Podcasts."
+                },
+                {
+                    "container": "/othermedia",
+                    "description": "Other media."
                 }
             ],
             "ports": [
                 {
-                    "container": 4040,
-                    "description": "Image exposes port 4040 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "4040",
+                    "description": "Application WebUI"
                 }
             ]
         }

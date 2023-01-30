@@ -1,7 +1,8 @@
 {
     "id": "quassel-core",
     "name": "quassel-core",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/quasselcore.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a modern, cross-platform, distributed IRC client, meaning that one (or multiple) client(s) can attach to and detach from a central core.\n\nThis container handles the IRC connection (quasselcore) and requires a desktop client (quasselclient) to be used and configured. It is designed to be always on and will keep your identity present in IRC even when your clients cannot be online. Backlog (history) is downloaded by your client upon reconnection allowing infinite scrollback through time.\n",
+    "icon": "http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/256/Apps-quassel-icon.png",
     "links": [
         {
             "type": "docker",
@@ -39,22 +40,14 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Database and quassel-core configuration storage.",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 10113,
-                    "description": "Image exposes port 10113 over tcp",
-                    "protocol": "tcp",
-                    "web": true
-                },
-                {
-                    "container": 4242,
-                    "description": "Image exposes port 4242 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "4242",
+                    "description": "The port quassel-core listens for connections on."
                 }
             ]
         }

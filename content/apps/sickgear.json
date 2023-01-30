@@ -1,7 +1,8 @@
 {
     "id": "sickgear",
     "name": "sickgear",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/sickgear.png",
+    "description": "[SickGear]({{ project_url }}) provides management of TV shows and/or Anime, it detects new episodes, links downloader apps, and more..\n\nFor more information on SickGear visit their website and check it out: https://github.com/SickGear/SickGear\n",
+    "icon": "https://raw.githubusercontent.com/wiki/SickGear/SickGear.Wiki/images/SickGearLogo.png",
     "links": [
         {
             "type": "docker",
@@ -39,16 +40,22 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "this will store any uploaded data on the docker host",
                     "key": "config"
+                },
+                {
+                    "container": "/tv",
+                    "description": "where you store your tv shows"
+                },
+                {
+                    "container": "/downloads",
+                    "description": "your downloads folder for post processing (must not be download in progress)"
                 }
             ],
             "ports": [
                 {
-                    "container": 8081,
-                    "description": "Image exposes port 8081 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "8081",
+                    "description": "will map the container's port 8081 to port 8081 on the host"
                 }
             ]
         }

@@ -1,7 +1,8 @@
 {
     "id": "hedgedoc",
     "name": "hedgedoc",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/hedgedoc.png",
+    "description": "[HedgeDoc]({{ project_url }}) gives you access to all your files wherever you are.\n\nHedgeDoc is a real-time, multi-platform collaborative markdown note editor.  This means that you can write notes with other people on your desktop, tablet or even on the phone.  You can sign-in via multiple auth providers like Facebook, Twitter, GitHub and many more on the homepage.\n",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hedgedoc-banner.png",
     "links": [
         {
             "type": "docker",
@@ -39,16 +40,14 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "HedgeDoc config and configurable files",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 3000,
-                    "description": "Image exposes port 3000 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "3000",
+                    "description": "Web gui port (internal port also needs to be changed if accessing at port other than 80, 443 and 3000)."
                 }
             ]
         }

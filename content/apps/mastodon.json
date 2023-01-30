@@ -1,7 +1,8 @@
 {
     "id": "mastodon",
     "name": "mastodon",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/mastodon.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a free, open-source social network server based on ActivityPub where users can follow friends and discover new ones..\n",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mastodon-banner.png",
     "links": [
         {
             "type": "docker",
@@ -39,22 +40,18 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Contains all relevant configuration files.",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 443,
-                    "description": "Image exposes port 443 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "80",
+                    "description": "Port for web frontend"
                 },
                 {
-                    "container": 80,
-                    "description": "Image exposes port 80 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "443",
+                    "description": "Port for web frontend"
                 }
             ]
         }

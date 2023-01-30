@@ -15,8 +15,8 @@
           <nuxt-link :to="'/app/' + app.id">
             <div class="flex items-center gap-2">
               <img :src="app.icon" class="w-5 h-5">
-              <div>
-                {{app.name}} - <span class="text-gray-400">{{app.containers[0].image}}</span>
+              <div class="truncate">
+                {{app.name}} - <span class="text-gray-400">{{app.description}}</span>
               </div>
             </div>
           </nuxt-link>

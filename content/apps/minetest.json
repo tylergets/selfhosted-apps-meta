@@ -1,7 +1,8 @@
 {
     "id": "minetest",
     "name": "minetest",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/minetest.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) (server) is a near-infinite-world block sandbox game and a game engine, inspired by InfiniMiner, Minecraft, and the like.",
+    "icon": "https://raw.githubusercontent.com/linuxserver/beta-templates/master/lsiodev/img/minetest-icon.png",
     "links": [
         {
             "type": "docker",
@@ -39,15 +40,13 @@
             "volumes": [
                 {
                     "container": "/config/.minetest",
-                    "description": "Image exposes volume mounted at /config/.minetest"
+                    "description": "Where minetest stores config files and maps etc."
                 }
             ],
             "ports": [
                 {
-                    "container": 30000,
-                    "description": "Image exposes port 30000 over udp",
-                    "protocol": "udp",
-                    "web": false
+                    "container": "30000/udp",
+                    "description": "Port Minetest listens on."
                 }
             ]
         }

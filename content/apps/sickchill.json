@@ -1,7 +1,8 @@
 {
     "id": "sickchill",
     "name": "sickchill",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/sickchill.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is an Automatic Video Library Manager for TV Shows. It watches for new episodes of your favorite shows, and when they are posted it does its magic. \n",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/sickchill-banner.png",
     "links": [
         {
             "type": "docker",
@@ -39,16 +40,22 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "this will store config on the docker host",
                     "key": "config"
+                },
+                {
+                    "container": "/downloads",
+                    "description": "this will store any downloaded data on the docker host"
+                },
+                {
+                    "container": "/tv",
+                    "description": "this will allow sickchill to view what you already have"
                 }
             ],
             "ports": [
                 {
-                    "container": 8081,
-                    "description": "Image exposes port 8081 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "8081",
+                    "description": "will map the container's port 8081 to port 8081 on the host"
                 }
             ]
         }

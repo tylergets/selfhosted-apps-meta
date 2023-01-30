@@ -1,7 +1,8 @@
 {
     "id": "snipe-it",
     "name": "snipe-it",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/snipeit.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) makes asset management easy. It was built by people solving real-world IT and asset management problems, and a solid UX has always been a top priority. Straightforward design and bulk actions mean getting things done faster.",
+    "icon": "https://s3-us-west-2.amazonaws.com/linuxserver-docs/images/snipe-it-logo500x500.png",
     "links": [
         {
             "type": "docker",
@@ -39,22 +40,14 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Contains your config files and data storage for Snipe-IT",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 443,
-                    "description": "Image exposes port 443 over tcp",
-                    "protocol": "tcp",
-                    "web": true
-                },
-                {
-                    "container": 80,
-                    "description": "Image exposes port 80 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "80",
+                    "description": "Snipe-IT Web UI"
                 }
             ]
         }

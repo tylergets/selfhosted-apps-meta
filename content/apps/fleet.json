@@ -1,7 +1,8 @@
 {
     "id": "fleet",
     "name": "fleet",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/fleet.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) provides an online web interface which displays a set of maintained images from one or more owned repositories.",
+    "icon": "",
     "links": [
         {
             "type": "docker",
@@ -36,13 +37,17 @@
                     "default": "America/New_York"
                 }
             ],
-            "volumes": [],
+            "volumes": [
+                {
+                    "container": "/config",
+                    "description": "The primary config file and rolling log files.",
+                    "key": "config"
+                }
+            ],
             "ports": [
                 {
-                    "container": 8080,
-                    "description": "Image exposes port 8080 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "8080",
+                    "description": "Http port"
                 }
             ]
         }

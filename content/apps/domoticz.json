@@ -1,7 +1,8 @@
 {
     "id": "domoticz",
     "name": "domoticz",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/domoticz.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a Home Automation System that lets you monitor and configure various devices like: Lights, Switches, various sensors/meters like Temperature, Rain, Wind, UV, Electra, Gas, Water and much more. Notifications/Alerts can be sent to any mobile device.",
+    "icon": "https://github.com/domoticz/domoticz/raw/master/www/images/logo.png",
     "links": [
         {
             "type": "docker",
@@ -36,25 +37,25 @@
                     "default": "America/New_York"
                 }
             ],
-            "volumes": [],
+            "volumes": [
+                {
+                    "container": "/config",
+                    "description": "Where Domoticz stores config files and data.",
+                    "key": "config"
+                }
+            ],
             "ports": [
                 {
-                    "container": 1443,
-                    "description": "Image exposes port 1443 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "8080",
+                    "description": "WebUI"
                 },
                 {
-                    "container": 6144,
-                    "description": "Image exposes port 6144 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "6144",
+                    "description": "Domoticz communication port."
                 },
                 {
-                    "container": 8080,
-                    "description": "Image exposes port 8080 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "1443",
+                    "description": "Domoticz communication port."
                 }
             ]
         }

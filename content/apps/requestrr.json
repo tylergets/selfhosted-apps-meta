@@ -1,7 +1,8 @@
 {
     "id": "requestrr",
     "name": "requestrr",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/requestrr.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a chatbot used to simplify using services like Sonarr/Radarr/Ombi via the use of chat.",
+    "icon": "https://github.com/darkalfx/requestrr/raw/master/Logos/requestrr_discord_Icon_512.png",
     "links": [
         {
             "type": "docker",
@@ -39,16 +40,14 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Contains all relevant configuration files.",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 4545,
-                    "description": "Image exposes port 4545 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "4545",
+                    "description": "web gui"
                 }
             ]
         }

@@ -1,7 +1,8 @@
 {
     "id": "ldap-auth",
     "name": "ldap-auth",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/ldapauth.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) software is for authenticating users who request protected resources from servers proxied by nginx. It includes a daemon (ldap-auth) that communicates with an authentication server, and a webserver daemon that generates an authentication cookie based on the user’s credentials. The daemons are written in Python for use with a Lightweight Directory Access Protocol (LDAP) authentication server (OpenLDAP or Microsoft Windows Active Directory 2003 and 2012).",
+    "icon": "https://jumpcloud.com/wp-content/uploads/2016/12/LDAP_Logo-1420591101.jpg",
     "links": [
         {
             "type": "docker",
@@ -36,19 +37,14 @@
                     "default": "America/New_York"
                 }
             ],
-            "volumes": [],
             "ports": [
                 {
-                    "container": 8888,
-                    "description": "Image exposes port 8888 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "8888",
+                    "description": "the port for ldap auth daemon"
                 },
                 {
-                    "container": 9000,
-                    "description": "Image exposes port 9000 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "9000",
+                    "description": "the port for ldap login page"
                 }
             ]
         }

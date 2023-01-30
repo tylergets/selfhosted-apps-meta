@@ -1,7 +1,8 @@
 {
     "id": "kdenlive",
     "name": "kdenlive",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/kdenlive.png",
+    "description": "[Kdenlive]({{ project_url }}) is a powerful free and open source cross-platform video editing program made by the KDE community. Feature rich and production ready.",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/kdenlive-logo.png",
     "links": [
         {
             "type": "docker",
@@ -39,22 +40,14 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Users home directory in the container, stores local files and settings",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 3000,
-                    "description": "Image exposes port 3000 over tcp",
-                    "protocol": "tcp",
-                    "web": true
-                },
-                {
-                    "container": 3389,
-                    "description": "Image exposes port 3389 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "3000",
+                    "description": "Kdenlive desktop gui"
                 }
             ]
         }

@@ -1,7 +1,8 @@
 {
     "id": "pydio-cells",
     "name": "pydio-cells",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/pydiocells.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is the nextgen file sharing platform for organizations. It is a full rewrite of the Pydio project using the Go language following a micro-service architecture.",
+    "icon": "https://raw.githubusercontent.com/wiki/pydio/cells/images/PydioCellsColor.png",
     "links": [
         {
             "type": "docker",
@@ -36,8 +37,19 @@
                     "default": "America/New_York"
                 }
             ],
-            "volumes": [],
-            "ports": []
+            "volumes": [
+                {
+                    "container": "/config",
+                    "description": "All the config files reside here.",
+                    "key": "config"
+                }
+            ],
+            "ports": [
+                {
+                    "container": "8080",
+                    "description": "Http port"
+                }
+            ]
         }
     ]
 }

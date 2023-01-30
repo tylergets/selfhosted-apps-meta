@@ -1,7 +1,8 @@
 {
     "id": "dillinger",
     "name": "dillinger",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/dillinger.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a cloud-enabled, mobile-ready, offline-storage, AngularJS powered HTML5 Markdown editor.\n",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/dillinger.png",
     "links": [
         {
             "type": "docker",
@@ -39,16 +40,14 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Dillinger plugin config files",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 8080,
-                    "description": "Image exposes port 8080 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "8080",
+                    "description": "The port for the Dillinger web interface"
                 }
             ]
         }

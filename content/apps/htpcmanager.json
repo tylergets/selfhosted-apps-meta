@@ -1,7 +1,8 @@
 {
     "id": "htpcmanager",
     "name": "htpcmanager",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/htpcmanager.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a front end for many htpc related applications.",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/htpcmanager-icon.png",
     "links": [
         {
             "type": "docker",
@@ -39,16 +40,14 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Configuration files.",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 8085,
-                    "description": "Image exposes port 8085 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "8085",
+                    "description": "Application WebUI"
                 }
             ]
         }

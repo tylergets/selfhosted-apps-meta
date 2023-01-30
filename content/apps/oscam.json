@@ -1,7 +1,8 @@
 {
     "id": "oscam",
     "name": "oscam",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/oscam.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is an Open Source Conditional Access Module software used for descrambling DVB transmissions using smart cards. It's both a server and a client.",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/oscam-logo.png",
     "links": [
         {
             "type": "docker",
@@ -39,16 +40,14 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Where oscam should store config files and logs.",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 8888,
-                    "description": "Image exposes port 8888 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "8888",
+                    "description": "WebUI"
                 }
             ]
         }

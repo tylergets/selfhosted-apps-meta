@@ -1,7 +1,8 @@
 {
     "id": "cops",
     "name": "cops",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/cops.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) by Sébastien Lucas, stands for Calibre OPDS (and HTML) Php Server.\n\nCOPS links to your Calibre library database and allows downloading and emailing of books directly from a web browser and provides a OPDS feed to connect to your devices.\n\nChanges in your Calibre library are reflected immediately in your COPS pages.\n\nSee : [COPS's home]({{ project_url }}) for more details.\n\nDon't forget to check the [Wiki](https://github.com/seblucas/cops/wiki).\n\n## Why? (taken from the author's site)\n\nIn my opinion Calibre is a marvelous tool but is too big and has too much\ndependencies to be used for its content server.\n\nThat's the main reason why I coded this OPDS server. I needed a simple\ntool to be installed on a small server (Seagate Dockstar in my case).\n\nI initially thought of Calibre2OPDS but as it generate static file no\nsearch was possible.\n\nLater I added an simple HTML catalog that should be usable on my Kobo.\n\nSo COPS's main advantages are :\n * No need for many dependencies.\n * No need for a lot of CPU or RAM.\n * Not much code.\n * Search is available.\n * With Dropbox / owncloud it's very easy to have an up to date OPDS server.\n * It was fun to code.\n\nIf you want to use the OPDS feed don't forget to specify feed.php at the end of your URL.\n",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/cops-icon.png",
     "links": [
         {
             "type": "docker",
@@ -39,22 +40,18 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "COPS Application Data.",
                     "key": "config"
+                },
+                {
+                    "container": "/books",
+                    "description": "Calibre metadata.db location."
                 }
             ],
             "ports": [
                 {
-                    "container": 443,
-                    "description": "Image exposes port 443 over tcp",
-                    "protocol": "tcp",
-                    "web": true
-                },
-                {
-                    "container": 80,
-                    "description": "Image exposes port 80 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "80",
+                    "description": "WebUI"
                 }
             ]
         }

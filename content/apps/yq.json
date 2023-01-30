@@ -1,7 +1,6 @@
 {
     "id": "yq",
     "name": "yq",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/yq.png",
     "links": [
         {
             "type": "docker",
@@ -35,9 +34,7 @@
                     "description": "Timezone",
                     "default": "America/New_York"
                 }
-            ],
-            "volumes": [],
-            "ports": []
+            ]
         }
     ]
 }

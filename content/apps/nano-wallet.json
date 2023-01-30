@@ -1,7 +1,8 @@
 {
     "id": "nano-wallet",
     "name": "nano-wallet",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/nanowallet.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a digital payment protocol designed to be accessible and lightweight, with a focus on removing inefficiencies present in other cryptocurrencies. With ultrafast transactions and zero fees on a secure, green and decentralized network, this makes Nano ideal for everyday transactions.\n\nThis container is a simple nginx wrapper for the light wallet located [here](https://github.com/linuxserver/nano-wallet). You will need to pass a valid RPC host when accessing this container.\n",
+    "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Nano_logo.png/640px-Nano_logo.png",
     "links": [
         {
             "type": "docker",
@@ -36,13 +37,10 @@
                     "default": "America/New_York"
                 }
             ],
-            "volumes": [],
             "ports": [
                 {
-                    "container": 80,
-                    "description": "Image exposes port 80 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "80",
+                    "description": "Webserver port"
                 }
             ]
         }

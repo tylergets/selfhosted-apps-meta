@@ -1,7 +1,8 @@
 {
     "id": "nextcloud",
     "name": "nextcloud",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/nextcloud.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) gives you access to all your files wherever you are.\n\nWhere are your photos and documents? With Nextcloud you pick a server of your choice, at home, in a data center or at a provider. And that is where your files will be. Nextcloud runs on that server, protecting your data and giving you access from your desktop or mobile devices. Through Nextcloud you also access, sync and share your existing data on that FTP drive at the office, a Dropbox or a NAS you have at home.\n",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nextcloud-icon.png",
     "links": [
         {
             "type": "docker",
@@ -39,22 +40,18 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Nextcloud configs.",
                     "key": "config"
+                },
+                {
+                    "container": "/data",
+                    "description": "Your personal data."
                 }
             ],
             "ports": [
                 {
-                    "container": 443,
-                    "description": "Image exposes port 443 over tcp",
-                    "protocol": "tcp",
-                    "web": true
-                },
-                {
-                    "container": 80,
-                    "description": "Image exposes port 80 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "443",
+                    "description": "WebUI"
                 }
             ]
         }

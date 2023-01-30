@@ -1,7 +1,8 @@
 {
     "id": "rsnapshot",
     "name": "rsnapshot",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/rsnapshot.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a filesystem snapshot utility based on rsync. rsnapshot makes it easy to make periodic snapshots of local machines, and remote machines over ssh. The code makes extensive use of hard links whenever possible, to greatly reduce the disk space required.\"\n",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/rsnapshot.png",
     "links": [
         {
             "type": "docker",
@@ -39,11 +40,10 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Contains all relevant configuration files.",
                     "key": "config"
                 }
-            ],
-            "ports": []
+            ]
         }
     ]
 }

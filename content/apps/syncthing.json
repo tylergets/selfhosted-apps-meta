@@ -1,7 +1,8 @@
 {
     "id": "syncthing",
     "name": "syncthing",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/syncthing.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it's transmitted over the Internet.",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/syncthing-banner.png",
     "links": [
         {
             "type": "docker",
@@ -39,34 +40,34 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Configuration files.",
                     "key": "config"
+                },
+                {
+                    "container": "/data1",
+                    "description": "Data1"
+                },
+                {
+                    "container": "/data2",
+                    "description": "Data2"
                 }
             ],
             "ports": [
                 {
-                    "container": 21027,
-                    "description": "Image exposes port 21027 over udp",
-                    "protocol": "udp",
-                    "web": false
+                    "container": "8384",
+                    "description": "Application WebUI"
                 },
                 {
-                    "container": 22000,
-                    "description": "Image exposes port 22000 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "22000/tcp",
+                    "description": "Listening port (TCP)"
                 },
                 {
-                    "container": 22000,
-                    "description": "Image exposes port 22000 over udp",
-                    "protocol": "udp",
-                    "web": false
+                    "container": "22000/udp",
+                    "description": "Listening port (UDP)"
                 },
                 {
-                    "container": 8384,
-                    "description": "Image exposes port 8384 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "21027/udp",
+                    "description": "Protocol discovery"
                 }
             ]
         }

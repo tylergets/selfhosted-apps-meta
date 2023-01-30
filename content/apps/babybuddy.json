@@ -1,7 +1,8 @@
 {
     "id": "babybuddy",
     "name": "babybuddy",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/babybuddy.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a buddy for babies! Helps caregivers track sleep, feedings, diaper changes, tummy time and more to learn about and predict baby's needs without (as much) guess work.",
+    "icon": "https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/babybuddy-logo.png",
     "links": [
         {
             "type": "docker",
@@ -39,28 +40,14 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Contains all relevant configuration and data.",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 443,
-                    "description": "Image exposes port 443 over tcp",
-                    "protocol": "tcp",
-                    "web": true
-                },
-                {
-                    "container": 80,
-                    "description": "Image exposes port 80 over tcp",
-                    "protocol": "tcp",
-                    "web": true
-                },
-                {
-                    "container": 8000,
-                    "description": "Image exposes port 8000 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "8000",
+                    "description": "the port for the web ui"
                 }
             ]
         }

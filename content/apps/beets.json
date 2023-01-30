@@ -1,7 +1,8 @@
 {
     "id": "beets",
     "name": "beets",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/beets.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a music library manager and not, for the most part, a music player. It does include a simple player plugin and an experimental Web-based player, but it generally leaves actual sound-reproduction to specialized tools.",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/beets-icon.png",
     "links": [
         {
             "type": "docker",
@@ -39,16 +40,22 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Configuration files.",
                     "key": "config"
+                },
+                {
+                    "container": "/music",
+                    "description": "Music library"
+                },
+                {
+                    "container": "/downloads",
+                    "description": "Non processed music"
                 }
             ],
             "ports": [
                 {
-                    "container": 8337,
-                    "description": "Image exposes port 8337 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "8337",
+                    "description": "Application WebUI"
                 }
             ]
         }

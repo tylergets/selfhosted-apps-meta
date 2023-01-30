@@ -1,7 +1,8 @@
 {
     "id": "nano",
     "name": "nano",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/nano.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a digital payment protocol designed to be accessible and lightweight, with a focus on removing inefficiencies present in other cryptocurrencies. With ultrafast transactions and zero fees on a secure, green and decentralized network, this makes Nano ideal for everyday transactions.\n",
+    "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Nano_logo.png/640px-Nano_logo.png",
     "links": [
         {
             "type": "docker",
@@ -39,28 +40,22 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Main storage for config and blockchain",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 7076,
-                    "description": "Image exposes port 7076 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "8075",
+                    "description": "Nano communication port"
                 },
                 {
-                    "container": 7077,
-                    "description": "Image exposes port 7077 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "3000",
+                    "description": "RPC interface filtered through a proxy"
                 },
                 {
-                    "container": 8075,
-                    "description": "Image exposes port 8075 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "3001",
+                    "description": "Https RPC interface filtered through a proxy"
                 }
             ]
         }

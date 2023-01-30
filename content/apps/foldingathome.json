@@ -1,7 +1,8 @@
 {
     "id": "foldingathome",
     "name": "foldingathome",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/foldingathome.png",
+    "description": "[Folding@home]({{ project_url }}) is a distributed computing project for simulating protein dynamics, including the process of protein folding and the movements of proteins implicated in a variety of diseases. It brings together citizen scientists who volunteer to run simulations of protein dynamics on their personal computers. Insights from this data are helping scientists to better understand biology, and providing new opportunities for developing therapeutics.",
+    "icon": "https://foldingathome.org/wp-content/uploads/2016/09/folding-at-home-logo.png",
     "links": [
         {
             "type": "docker",
@@ -39,16 +40,14 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Where Folding@home should store its database and config.",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 7396,
-                    "description": "Image exposes port 7396 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "7396",
+                    "description": "Folding@home web gui."
                 }
             ]
         }

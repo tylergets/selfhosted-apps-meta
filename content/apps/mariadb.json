@@ -1,7 +1,8 @@
 {
     "id": "mariadb",
     "name": "mariadb",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/mariadb.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is one of the most popular database servers. Made by the original developers of MySQL.",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mariadb-git.png",
     "links": [
         {
             "type": "docker",
@@ -39,16 +40,14 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Contains the db itself and all assorted settings.",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 3306,
-                    "description": "Image exposes port 3306 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "3306",
+                    "description": "Mariadb listens on this port."
                 }
             ]
         }

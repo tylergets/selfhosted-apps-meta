@@ -1,7 +1,8 @@
 {
     "id": "homeassistant",
     "name": "homeassistant",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/homeassistant.png",
+    "description": "[Home Assistant Core]({{ project_url }}) - Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts. Perfect to run on a Raspberry Pi or a local server. \n",
+    "icon": "https://github.com/home-assistant/home-assistant.io/raw/next/source/images/favicon-192x192-full.png",
     "links": [
         {
             "type": "docker",
@@ -39,16 +40,8 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Home Assistant config storage path.",
                     "key": "config"
-                }
-            ],
-            "ports": [
-                {
-                    "container": 8123,
-                    "description": "Image exposes port 8123 over tcp",
-                    "protocol": "tcp",
-                    "web": true
                 }
             ]
         }

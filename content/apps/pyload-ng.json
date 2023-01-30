@@ -1,7 +1,8 @@
 {
     "id": "pyload-ng",
     "name": "pyload-ng",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/pyload.png",
+    "description": "[pyLoad]({{ project_url }}) is a Free and Open Source download manager written in Python and designed to be extremely lightweight, easily extensible and fully manageable via web.",
+    "icon": "https://pyload.net/img/banner.png",
     "links": [
         {
             "type": "docker",
@@ -39,16 +40,18 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "pyLoad Configuration and files database",
                     "key": "config"
+                },
+                {
+                    "container": "/downloads",
+                    "description": "Destination of pyLoad downloads"
                 }
             ],
             "ports": [
                 {
-                    "container": 8000,
-                    "description": "Image exposes port 8000 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "8000",
+                    "description": "Allows HTTP access to the application"
                 }
             ]
         }

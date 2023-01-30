@@ -1,7 +1,8 @@
 {
     "id": "netbox",
     "name": "netbox",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/netbox.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is an IP address management (IPAM) and data center infrastructure management (DCIM) tool. Initially conceived by the network engineering team at DigitalOcean, NetBox was developed specifically to address the needs of network and infrastructure engineers. It is intended to function as a domain-specific source of truth for network operations.\n",
+    "icon": "https://raw.githubusercontent.com/netbox-community/netbox/develop/docs/netbox_logo.svg",
     "links": [
         {
             "type": "docker",
@@ -39,16 +40,14 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "config directory volume mapping",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 8000,
-                    "description": "Image exposes port 8000 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "8000",
+                    "description": "will map the container's port 8000 to port 8000 on the host"
                 }
             ]
         }

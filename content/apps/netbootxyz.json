@@ -1,7 +1,8 @@
 {
     "id": "netbootxyz",
     "name": "netbootxyz",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/netbootxyz.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a way to PXE boot various operating system installers or utilities from one place within the BIOS without the need of having to go retrieve the media to run the tool. iPXE is used to provide a user friendly menu from within the BIOS that lets you easily choose the operating system you want along with any specific types of versions or bootable flags.",
+    "icon": "https://netboot.xyz/images/netboot.xyz.gif",
     "links": [
         {
             "type": "docker",
@@ -39,16 +40,18 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Storage for boot menu files and web application config",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 3000,
-                    "description": "Image exposes port 3000 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "3000",
+                    "description": "Web configuration interface."
+                },
+                {
+                    "container": "69/udp",
+                    "description": "TFTP Port."
                 }
             ]
         }

@@ -1,7 +1,8 @@
 {
     "id": "jellyfin",
     "name": "jellyfin",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/jellyfin.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a Free Software Media System that puts you in control of managing and streaming your media. It is an alternative to the proprietary Emby and Plex, to provide media from a dedicated server to end-user devices via multiple apps. Jellyfin is descended from Emby's 3.5.2 release and ported to the .NET Core framework to enable full cross-platform support. There are no strings attached, no premium licenses or features, and no hidden agendas: just a team who want to build something better and work together to achieve it.",
+    "icon": "https://raw.githubusercontent.com/jellyfin/jellyfin-ux/master/branding/SVG/banner-logo-solid.svg?sanitize=true",
     "links": [
         {
             "type": "docker",
@@ -39,22 +40,22 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Jellyfin data storage location. *This can grow very large, 50gb+ is likely for a large collection.*",
                     "key": "config"
+                },
+                {
+                    "container": "/data/tvshows",
+                    "description": "Media goes here. Add as many as needed e.g. `/data/movies`, `/data/tv`, etc."
+                },
+                {
+                    "container": "/data/movies",
+                    "description": "Media goes here. Add as many as needed e.g. `/data/movies`, `/data/tv`, etc."
                 }
             ],
             "ports": [
                 {
-                    "container": 8096,
-                    "description": "Image exposes port 8096 over tcp",
-                    "protocol": "tcp",
-                    "web": true
-                },
-                {
-                    "container": 8920,
-                    "description": "Image exposes port 8920 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "8096",
+                    "description": "Http webUI."
                 }
             ]
         }

@@ -1,7 +1,8 @@
 {
     "id": "ombi",
     "name": "ombi",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/ombi.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) allows you to host your own Plex Request and user management system.\nIf you are sharing your Plex server with other users, allow them to request new content using an easy to manage interface!\nManage all your requests for Movies and TV with ease, leave notes for the user and get notification when a user requests something.\nAllow your users to post issues against their requests so you know there is a problem with the audio etc.\nEven automatically send them weekly newsletters of new content that has been added to your Plex server!",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ombi.png",
     "links": [
         {
             "type": "docker",
@@ -36,13 +37,17 @@
                     "default": "America/New_York"
                 }
             ],
-            "volumes": [],
+            "volumes": [
+                {
+                    "container": "/config",
+                    "description": "Contains all relevant configuration files.",
+                    "key": "config"
+                }
+            ],
             "ports": [
                 {
-                    "container": 3579,
-                    "description": "Image exposes port 3579 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "3579",
+                    "description": "web gui"
                 }
             ]
         }

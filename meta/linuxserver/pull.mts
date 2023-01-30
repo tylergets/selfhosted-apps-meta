@@ -1,8 +1,10 @@
 import FleetClient from "./fleet.mjs";
-import {App} from "~/meta/interfaces/interfaces";
+import {App, AppPort, AppVolume} from "~/meta/interfaces/interfaces";
 import enhanceAppWithInspection from "../docker/inspect.mjs";
 import fs from "fs";
 import findIconForName from "../icon/finder.mjs";
+import fetch from 'node-fetch';
+import YAML from "yaml";
 
 ( async () => {
     console.log('Pulling LinuxServer images...')
@@ -55,9 +57,65 @@ import findIconForName from "../icon/finder.mjs";
         };
 
         // TODO Replace with readme-vars.yml from each github repo
-        await enhanceAppWithInspection(app);
+        // await enhanceAppWithInspection(app);
+
+        const readmeVars = await fetch(`https://raw.githubusercontent.com/linuxserver/docker-${image.name}/master/readme-vars.yml`).then((r) => r.text()).then((r) => YAML.parse(r)).catch((err) => {
+            console.log('Failed to fetch readme-vars.yml for ' + image.name);
+            console.error(err);
+            return {
+                param_usage_include_ports: false,
+                param_usage_include_vols: false,
+                param_volumes: [],
+                param_ports: [],
+            };
+        });
+
+        if (readmeVars.project_logo && readmeVars.project_logo.startsWith('https://')) {
+            app.icon = readmeVars.project_logo;
+        }
+
+        app.description = readmeVars.project_blurb;
+
+        if(!app.links) {
+            app.links = [];
+        }
+
+        if(readmeVars.param_usage_include_vols) {
+            const readmeVolumes: AppVolume[] = readmeVars.param_volumes?.map((volume: any) => {
+                return {
+                    container: volume.vol_path,
+                    description: volume.desc,
+                };
+            });
+            for(const container of app.containers) {
+                container.volumes = [
+                    ...container.volumes ?? [],
+                    ...readmeVolumes ?? [],
+                ];
+            }
+        }
+
+        if(readmeVars.param_usage_include_ports) {
+            for(const container of app.containers) {
+
+                const readmePorts: AppPort[] = readmeVars.param_ports?.map((port: any) => {
+                    return {
+                        container: port.internal_port,
+                        description: port.port_desc,
+                    };
+                });
+
+                container.ports = [
+                    ...container.ports ?? [],
+                    ...readmePorts ?? [],
+                ];
+
+            }
+        }
 
         for(const container of app.containers) {
+
+
             for(const volume of container.volumes ?? []) {
                 if (volume.container === '/config') {
                     volume.key = 'config';

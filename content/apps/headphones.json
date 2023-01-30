@@ -1,7 +1,8 @@
 {
     "id": "headphones",
     "name": "headphones",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/headphones.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is an automated music downloader for NZB and Torrent, written in Python. It supports SABnzbd, NZBget, Transmission, µTorrent and Blackhole.",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/headphones-banner.png",
     "links": [
         {
             "type": "docker",
@@ -39,16 +40,22 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Configuration files.",
                     "key": "config"
+                },
+                {
+                    "container": "/downloads",
+                    "description": "ISOs."
+                },
+                {
+                    "container": "/music",
+                    "description": "Your music directory."
                 }
             ],
             "ports": [
                 {
-                    "container": 8181,
-                    "description": "Image exposes port 8181 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "8181",
+                    "description": "Application WebUI"
                 }
             ]
         }

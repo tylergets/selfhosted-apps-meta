@@ -1,7 +1,8 @@
 {
     "id": "openssh-server",
     "name": "openssh-server",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/opensshserver.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a sandboxed environment that allows ssh access without giving keys to the entire server.\nGiving ssh access via private key often means giving full access to the server. This container creates a limited and sandboxed environment that others can ssh into.\nThe users only have access to the folders mapped and the processes running inside this container.",
+    "icon": "https://upload.wikimedia.org/wikipedia/en/6/65/OpenSSH_logo.png",
     "links": [
         {
             "type": "docker",
@@ -39,16 +40,14 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Contains all relevant configuration files.",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 2222,
-                    "description": "Image exposes port 2222 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "2222",
+                    "description": "ssh port"
                 }
             ]
         }

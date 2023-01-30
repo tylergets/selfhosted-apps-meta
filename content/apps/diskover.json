@@ -1,7 +1,8 @@
 {
     "id": "diskover",
     "name": "diskover",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/diskover.png",
+    "description": "[{{ project_name }}]({{ project_url }}) is an open source file system indexer that uses Elasticsearch to index and manage data across heterogeneous storage systems.",
+    "icon": "https://raw.githubusercontent.com/diskoverdata/diskover-community/master/diskover-web/public/images/diskover.png",
     "links": [
         {
             "type": "docker",
@@ -39,22 +40,18 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Persistent config files",
                     "key": "config"
+                },
+                {
+                    "container": "/data",
+                    "description": "Default mount point to crawl"
                 }
             ],
             "ports": [
                 {
-                    "container": 443,
-                    "description": "Image exposes port 443 over tcp",
-                    "protocol": "tcp",
-                    "web": true
-                },
-                {
-                    "container": 80,
-                    "description": "Image exposes port 80 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "80",
+                    "description": "diskover Web UI"
                 }
             ]
         }

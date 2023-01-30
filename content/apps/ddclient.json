@@ -1,7 +1,8 @@
 {
     "id": "ddclient",
     "name": "ddclient",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/ddclient.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a Perl client used to update dynamic DNS entries for accounts on Dynamic DNS Network Service Provider. It was originally written by Paul Burry and is now mostly by wimpunk. It has the capability to update more than just dyndns and it can fetch your WAN-ipaddress in a few different ways.",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ddclient-logo.png",
     "links": [
         {
             "type": "docker",
@@ -39,11 +40,10 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Where ddclient should store its config files.",
                     "key": "config"
                 }
-            ],
-            "ports": []
+            ]
         }
     ]
 }

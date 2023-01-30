@@ -1,7 +1,8 @@
 {
     "id": "grav",
     "name": "grav",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/grav.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a Fast, Simple, and Flexible, file-based Web-platform.\n",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/grav-logo.png",
     "links": [
         {
             "type": "docker",
@@ -39,22 +40,14 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Contains all relevant configuration files.",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 443,
-                    "description": "Image exposes port 443 over tcp",
-                    "protocol": "tcp",
-                    "web": true
-                },
-                {
-                    "container": 80,
-                    "description": "Image exposes port 80 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "80",
+                    "description": "Port for web frontend"
                 }
             ]
         }

@@ -1,7 +1,8 @@
 {
     "id": "piwigo",
     "name": "piwigo",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/piwigo.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a photo gallery software for the web that comes with powerful features to publish and manage your collection of pictures.",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/piwigo-banner.png",
     "links": [
         {
             "type": "docker",
@@ -39,26 +40,18 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Configuration files.",
                     "key": "config"
                 },
                 {
                     "container": "/gallery",
-                    "description": "Image exposes volume mounted at /gallery"
+                    "description": "Image storage for Piwigo"
                 }
             ],
             "ports": [
                 {
-                    "container": 443,
-                    "description": "Image exposes port 443 over tcp",
-                    "protocol": "tcp",
-                    "web": true
-                },
-                {
-                    "container": 80,
-                    "description": "Image exposes port 80 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "80",
+                    "description": "Application WebUI"
                 }
             ]
         }

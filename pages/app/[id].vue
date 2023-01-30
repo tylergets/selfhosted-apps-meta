@@ -2,8 +2,8 @@
   <div v-if="!pending">
     <div class="max-w-5xl mx-aut">
       <div class="flex items-center gap-10">
-        <div>
-          <img class="w-24 h-24" :src="data.icon">
+        <div class="w-full">
+          <img class="h-24" :src="data.icon">
         </div>
         <div class="flex flex-col gap-2">
           <div class="text-3xl">{{data.name}}</div>

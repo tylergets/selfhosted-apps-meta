@@ -1,7 +1,8 @@
 {
     "id": "minisatip",
     "name": "minisatip",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/minisatip.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a multi-threaded satip server version 1.2 that runs under Linux and it was tested with DVB-S, DVB-S2, DVB-T, DVB-T2, DVB-C, DVB-C2, ATSC and ISDB-T cards.",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/minisatip-icon.png",
     "links": [
         {
             "type": "docker",
@@ -36,25 +37,25 @@
                     "default": "America/New_York"
                 }
             ],
-            "volumes": [],
+            "volumes": [
+                {
+                    "container": "/config",
+                    "description": "Configuration files and minisatip data",
+                    "key": "config"
+                }
+            ],
             "ports": [
                 {
-                    "container": 1900,
-                    "description": "Image exposes port 1900 over udp",
-                    "protocol": "udp",
-                    "web": false
+                    "container": "8875",
+                    "description": "Status Page WebUI"
                 },
                 {
-                    "container": 554,
-                    "description": "Image exposes port 554 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "554",
+                    "description": "RTSP Port"
                 },
                 {
-                    "container": 8875,
-                    "description": "Image exposes port 8875 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "1900/udp",
+                    "description": "App Discovery"
                 }
             ]
         }

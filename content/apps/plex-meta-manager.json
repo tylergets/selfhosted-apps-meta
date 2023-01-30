@@ -1,7 +1,8 @@
 {
     "id": "plex-meta-manager",
     "name": "plex-meta-manager",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/plexmetamanager.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a Python 3 script that can be continuously run using YAML configuration files to update on a schedule the metadata of the movies, shows, and collections in your libraries as well as automatically build collections based on various methods all detailed in the wiki.",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/plex-meta-manager-banner.png",
     "links": [
         {
             "type": "docker",
@@ -39,11 +40,10 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Local path for plex-meta-manager config files.",
                     "key": "config"
                 }
-            ],
-            "ports": []
+            ]
         }
     ]
 }

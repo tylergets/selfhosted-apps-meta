@@ -1,7 +1,8 @@
 {
     "id": "unifi-controller",
     "name": "unifi-controller",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/unificontroller.png",
+    "description": "The [{{ project_name|capitalize }}]({{ project_url }}) software is a powerful, enterprise wireless software engine ideal for high-density client deployments requiring low latency and high uptime performance.",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/unifi-banner.png",
     "links": [
         {
             "type": "docker",
@@ -39,34 +40,26 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "All Unifi data stored here",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 8080,
-                    "description": "Image exposes port 8080 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "8443",
+                    "description": "Unifi web admin port"
                 },
                 {
-                    "container": 8443,
-                    "description": "Image exposes port 8443 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "3478/udp",
+                    "description": "Unifi STUN port"
                 },
                 {
-                    "container": 8843,
-                    "description": "Image exposes port 8843 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "10001/udp",
+                    "description": "Required for AP discovery"
                 },
                 {
-                    "container": 8880,
-                    "description": "Image exposes port 8880 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "8080",
+                    "description": "Required for device communication"
                 }
             ]
         }

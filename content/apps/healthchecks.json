@@ -1,7 +1,8 @@
 {
     "id": "healthchecks",
     "name": "healthchecks",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/healthchecks.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a watchdog for your cron jobs. It's a web server that listens for pings from your cron jobs, plus a web interface.\n",
+    "icon": "https://raw.githubusercontent.com/healthchecks/healthchecks/master/static/img/welcome.png",
     "links": [
         {
             "type": "docker",
@@ -39,16 +40,14 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Database and healthchecks config directory",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 8000,
-                    "description": "Image exposes port 8000 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "8000",
+                    "description": "Healthchecks Web UI"
                 }
             ]
         }

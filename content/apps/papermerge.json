@@ -1,7 +1,8 @@
 {
     "id": "papermerge",
     "name": "papermerge",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/papermerge.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is an open source document management system (DMS) primarily designed for archiving and retrieving your digital documents. Instead of having piles of paper documents all over your desk, office or drawers - you can quickly scan them and configure your scanner to directly upload to Papermerge DMS.\"\n",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/papermerge-icon.png",
     "links": [
         {
             "type": "docker",
@@ -36,13 +37,21 @@
                     "default": "America/New_York"
                 }
             ],
-            "volumes": [],
+            "volumes": [
+                {
+                    "container": "/config",
+                    "description": "Contains all relevant configuration files.",
+                    "key": "config"
+                },
+                {
+                    "container": "/data",
+                    "description": "Storage location for all papermerge data files."
+                }
+            ],
             "ports": [
                 {
-                    "container": 8000,
-                    "description": "Image exposes port 8000 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "8000",
+                    "description": "http gui"
                 }
             ]
         }

@@ -1,7 +1,8 @@
 {
     "id": "fail2ban",
     "name": "fail2ban",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/fail2ban.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) is a daemon to ban hosts that cause multiple authentication errors.\n",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/fail2ban-logo.png",
     "links": [
         {
             "type": "docker",
@@ -39,11 +40,14 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Contains all relevant configuration files.",
                     "key": "config"
+                },
+                {
+                    "container": "/var/log:ro",
+                    "description": "Host logs. Mounted as Read Only."
                 }
-            ],
-            "ports": []
+            ]
         }
     ]
 }

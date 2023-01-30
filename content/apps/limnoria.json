@@ -1,7 +1,8 @@
 {
     "id": "limnoria",
     "name": "limnoria",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/limnoria.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) A robust, full-featured, and user/programmer-friendly Python IRC bot, with many existing plugins. Successor of the well-known Supybot.",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-limnoria/master/logo.png",
     "links": [
         {
             "type": "docker",
@@ -39,16 +40,14 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Where Limnoria config is stored.",
                     "key": "config"
                 }
             ],
             "ports": [
                 {
-                    "container": 8080,
-                    "description": "Image exposes port 8080 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "8080",
+                    "description": "Port for Limnoria's web interface."
                 }
             ]
         }

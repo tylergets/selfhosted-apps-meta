@@ -1,7 +1,8 @@
 {
     "id": "smokeping",
     "name": "smokeping",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/smokeping.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) keeps track of your network latency. For a full example of what this application is capable of visit [UCDavis](http://smokeping.ucdavis.edu/cgi-bin/smokeping.fcgi).",
+    "icon": "https://camo.githubusercontent.com/e0694ef783e3fd1d74e6776b28822ced01c7cc17/687474703a2f2f6f73732e6f6574696b65722e63682f736d6f6b6570696e672f696e632f736d6f6b6570696e672d6c6f676f2e706e67",
     "links": [
         {
             "type": "docker",
@@ -39,20 +40,18 @@
             "volumes": [
                 {
                     "container": "/config",
-                    "description": "Image exposes volume mounted at /config",
+                    "description": "Configure the `Targets` file here",
                     "key": "config"
                 },
                 {
                     "container": "/data",
-                    "description": "Image exposes volume mounted at /data"
+                    "description": "Storage location for db and application data (graphs etc)"
                 }
             ],
             "ports": [
                 {
-                    "container": 80,
-                    "description": "Image exposes port 80 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "80",
+                    "description": "Allows HTTP access to the internal webserver."
                 }
             ]
         }

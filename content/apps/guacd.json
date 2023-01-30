@@ -1,7 +1,8 @@
 {
     "id": "guacd",
     "name": "guacd",
-    "icon": "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/guacd.png",
+    "description": "[{{ project_name|capitalize }}]({{ project_url }}) - Apache Guacamole is a clientless remote desktop gateway. It supports standard protocols like VNC, RDP, and SSH. This container is only the backend server component needed to use The official or 3rd party HTML5 frontends.\n",
+    "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/guacd.png",
     "links": [
         {
             "type": "docker",
@@ -36,13 +37,10 @@
                     "default": "America/New_York"
                 }
             ],
-            "volumes": [],
             "ports": [
                 {
-                    "container": 4822,
-                    "description": "Image exposes port 4822 over tcp",
-                    "protocol": "tcp",
-                    "web": true
+                    "container": "4822",
+                    "description": "Port Guacamole server listens on"
                 }
             ]
         }
