@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     app: {
         baseURL: '/selfhosted-apps-meta/',
     },
+    sourcemap: true,
     postcss: {
         plugins: {
             tailwindcss: {},
