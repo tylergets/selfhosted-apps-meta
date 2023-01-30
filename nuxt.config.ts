@@ -5,6 +5,9 @@ export default defineNuxtConfig({
         '@pinia/nuxt',
         '@nuxt/content'
     ],
+    app: {
+        baseURL: '/selfhosted-apps-meta/',
+    },
     postcss: {
         plugins: {
             tailwindcss: {},
